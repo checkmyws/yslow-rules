@@ -1,0 +1,92 @@
+<!doctype html>
+
+
+
+ <html class="no-js"> 
+
+  <head>
+    <title>YSlow - rules</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta name="description" content="YSlow rules">
+    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
+ 
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
+  </head>
+
+  <body>
+
+    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
+      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+    </a>
+
+<div class="container">
+  <div class="row">
+    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
+
+        <div id="yetags"></div>
+        <span class="hidden" itemprop="alternateName">yetags</span>
+
+        <h2>
+            <a itemprop="url" href="#yetags">
+                <span itemprop="name">Configurer les ETags</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yetags.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">server</span>
+        
+
+        <div itemprop="description">
+            <p>Les balises d&rsquo;entités (ETAG) sont un mécanisme que les serveurs web et les navigateurs utilisent pour déterminer si le composant dans le cache du navigateur correspond à celui sur le serveur d&rsquo;origine (Une «entité» est un autre mot pour désigner «composant»: images, scripts, feuilles de style, etc). Les ETags ont été ajoutés pour fournir un mécanisme de validation des entités qui est plus souple que la date de dernière modification. Un ETag est une chaîne qui identifie de manière unique une version spécifique d&rsquo;un composant. Les seules contraintes de format sont que la chaîne soit indiquée entre guillements. Le serveur d&rsquo;origine spécifie le ETag du composant en utilisant <code>ETag</code> dans l&rsquo;en-tête de réponse.</p>
+
+<pre><code>HTTP/1.1 200 OK
+Last-Modified: Tue, 12 Dec 2006 03:03:59 GMT
+ETag: &quot;10c24bc-4ab-457e1c1f&quot;
+Content-Length: 12195
+</code></pre>
+
+<p>Plus tard, si le navigateur doit valider un composant, il utilise l&rsquo;en-tête <code>If-None-Match</code> pour passer le ETag vers le serveur d&rsquo;origine. Si les ETags correspondent, un code de statut 304 est renvoyé réduisant la réponse à 12 195 octets pour cet exemple.</p>
+
+<pre><code>GET /i/yahoo.gif HTTP/1.1
+Host: us.yimg.com
+If-Modified-Since: Tue, 12 Dec 2006 03:03:59 GMT
+If-None-Match: &quot;10c24bc-4ab-457e1c1f&quot;
+HTTP/1.1 304 Not Modified
+</code></pre>
+
+<p>Le problème avec les ETags est qu&rsquo;ils sont généralement construits en utilisant des attributs qui les rendent uniques à un serveur, unique à l&rsquo;hébergement d&rsquo;un site. Les ETags ne correspondent pas lorsque un navigateur obtient le composant d&rsquo;origine d&rsquo;un serveur et essaie de valider ce composant sur ​​un serveur différent, une situation très fréquente sur ​​les sites Web qui utilisent un cluster de serveurs pour traiter les demandes. Par défaut, Apache et IIS intégrent les données dans le ETag, ce qui réduit considérablement les chances de réussite des tests de validité sur les sites Web avec plusieurs serveurs.</p>
+
+<p>Le format ETag pour Apache 1.3 et 2.x est <code>inode-size-timestamp</code>. Même si un fichier peut résider dans le même répertoire sur plusieurs serveurs, avoir la même taille de fichier, les mêmes permissions , le même horodatage, etc, son inode est différente d&rsquo;un serveur à l&rsquo;autre.</p>
+
+<p>IIS 5.0 et 6.0 ont un problème semblable avec ETags. Le format de ETags sur IIS est <code>Filetimestamp:ChangeNumber</code>. <code>ChangeNumber</code> est un compteur utilisé pour suivre les changements de configuration de IIS. Il est peu probable que le <code>ChangeNumber</code> soit le même sur tous les serveurs IIS derrière un site web.</p>
+
+<p>Le résultat final pour les ETags générés par Apache et IIS pour le même composant ne correspondent pas d&rsquo;un serveur à un autre. Si les ETags ne correspondent pas, l&rsquo;utilisateur ne reçoit pas la petite et rapide réponse 304 pour lesquels ils on été prévus. Au contraire, ils obtiendront une réponse normale 200 avec toutes les données pour le composant. Si vous hébergez votre site web sur un seul serveur, ce n&rsquo;est pas un problème. Mais si vous avez plusieurs serveurs d&rsquo;hébergement de votre site web, et que vous utilisez Apache ou IIS avec la configuration ETag par défaut, les utilisateurs ont des pages plus lentes, vos serveurs ont une charge plus élevée, vous consommez plus de bande passante, et les proxies ne peuvent mettre en cache votre contenu de manière efficace. Même si vos composants ont un en-tête <code>Expire</code> lointain, une requête GET conditionnelle est toujours faite à chaque fois que l&rsquo;utilisateur appuie sur Recharger ou Actualiser.</p>
+
+<p>Si vous ne tirez pas parti du modèle de validation flexible que les ETags fournissent, il est préférable de simplement retirer les ETag partout. L&rsquo;en-tête <code>Last-Modified</code> valide sur la base de l&rsquo;horodatage du composant. Retirer les ETag réduit à la fois la taille des en-têtes HTTP de la réponse et des demandes ultérieures. Cet <a href="http://support.microsoft.com/?id=922733">article du support technique Microsoft</a> décrit comment supprimer les ETags. Dans Apache, cela se fait simplement en ajoutant la ligne suivante à votre fichier de configuration d&rsquo;Apache :</p>
+
+<pre><code> FileETag none
+</code></pre>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#etags">Reference</a>
+    </div>
+</section>
+  </div>
+</div>
+
+    <noscript></noscript>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+
+ <html class="no-js"> 
+
+  <head>
+    <title>YSlow - rules</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta name="description" content="YSlow rules">
+    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
+ 
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
+  </head>
+
+  <body>
+
+    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
+      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+    </a>
+
+<div class="container">
+  <div class="row">
+    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="ymindom"></div>
+        <span class="hidden" itemprop="alternateName">ymindom</span>
+
+        <h2>
+            <a itemprop="url" href="#ymindom">
+                <span itemprop="name">Réduire le nombre d’éléments du DOM</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ymindom.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>Une page complexe signifie plus d&rsquo;octets à télécharger et aussi un accès au DOM plus lent en JavaScript. Cela fait une différence si vous parcourez 500 ou 5000 éléments DOM sur la page lorsque vous souhaitez ajouter un gestionnaire d&rsquo;événements par exemple.</p>
+
+<p>Un nombre élevé d&rsquo;éléments DOM peut être un symptôme qu&rsquo;il ya quelque chose qui devrait être amélioré avec le balisage de la page sans nécessairement supprimer le contenu. Utilisez-vous des tableaux imbriqués à des fins de mise en page ? Ajoutez-vous plus de balises <code>&lt;div&gt;</code> seulement pour résoudre des problèmes de mise en page ? Peut-être y a t&rsquo;il une meilleure façon, sémantiquement plus correct de faire votre balisage .</p>
+
+<p>Les <a href="http://developer.yahoo.com/yui/">YUI CSS utilitaires</a> sont une aide préciseuse pour la mise en page: grids.css peut vous aider pour la disposition générale, fonts.css et reset.css peuvent vous aider à redéfinir la mise en forme par défaut du navigateur. C&rsquo;est une chance de repartir de zéro et de réfléchir à votre balisage, par exemple utiliser <code>&lt;div&gt;</code> seulement quand c&rsquo;est logique sémantiquement et non parce que la balise rend une nouvelle ligne.</p>
+
+<p>Le nombre d&rsquo;éléments DOM est facile à tester, il suffit de taper dans la console de Firebug: <code>document.getElementsByTagName('*').length</code>.</p>
+
+<p>Et combien d&rsquo;éléments DOM sont trop nombreux? Vérifiez d&rsquo;autres pages similaires possédant un bon balisage. Par exemple, <a href="http://www.yahoo.com">Yahoo!</a> est une page très chargée et reste pourtant sous la barre des 700 éléments (balises HTML).</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#min_dom">Reference</a>
+    </div>
+</section>
+  </div>
+</div>
+
+    <noscript></noscript>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
+  </body>
+</html>

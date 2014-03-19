@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+
+ <html class="no-js"> 
+
+  <head>
+    <title>YSlow - rules</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta name="description" content="YSlow rules">
+    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
+ 
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
+  </head>
+
+  <body>
+
+    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
+      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+    </a>
+
+<div class="container">
+  <div class="row">
+    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="ydns"></div>
+        <span class="hidden" itemprop="alternateName">ydns</span>
+
+        <h2>
+            <a itemprop="url" href="#ydns">
+                <span itemprop="name">Réduire le nombre de résolutions DNS</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ydns.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>Le système de noms de domaines (DNS ) fait correspondre les noms d&rsquo;hôtes en adresses IP, tout comme les carnets d&rsquo;adresse font correspondre les noms des personnes à leurs numéros de téléphone. Lorsque vous tapez www.yahoo.com dans votre navigateur, un résolveur DNS contacté par le navigateur renvoie l&rsquo;adresse IP de ce serveur. Les requêtes DNS ont un coût. Il faut généralement 20 à 120 millisecondes à un serveur DNS pour rechercher l&rsquo;adresse IP d&rsquo;un nom d&rsquo;hôte donné. Le navigateur ne peut télécharger quoi que ce soit de cet hôte jusqu&rsquo;à ce que la recherche DNS ne soit terminée.</p>
+
+<p>Les recherches DNS sont mises en cache pour améliorer les performances. Cette mise en cache peut se produire sur un serveur de mise en cache spéciale maintenu par le réseau du FAI ou local de l&rsquo;utilisateur. Il ya aussi la mise en cache qui se produit sur l&rsquo;ordinateur de l&rsquo; utilisateur. Les informations DNS reste dans le cache DNS du système d&rsquo;exploitation (le «service Client DNS» sur Microsoft Windows). La plupart des navigateurs ont leurs propres caches distincts de la mémoire cache du système d&rsquo;exploitation. Tant que le navigateur conserve un enregistrement DNS dans son propre cache, ça ne dérange pas le système d&rsquo;exploitation avec une demande d&rsquo; enregistrement.</p>
+
+<p>Internet Explorer met en cache les recherches DNS pendant 30 minutes par défaut, tel que spécifié par le paramètre <code>DnsCacheTimeout</code> de la base des registres. Firefox met en cache les recherches DNS pendant 1 minute , contrôlé par le paramètre de configuration <code>network.dnsCacheExpiration</code>. (Fasterfox change ce paramètre à 1 heure.)</p>
+
+<p>Lorsque le cache DNS du client est vide (à la fois le navigateur et le système d&rsquo;exploitation), le nombre de requêtes DNS est égal au nombre de noms d&rsquo;hôte uniques dans la page web. Cela inclut les noms d&rsquo;hôte utilisés dans l&rsquo;URL de la page, des images, des fichiers de scripts, feuilles de style, objets Flash, etc. Réduire le nombre de noms d&rsquo;hôtes uniques réduit le nombre de requêtes DNS.</p>
+
+<p>Réduire le nombre de noms d&rsquo;hôtes uniques a le potentiel de réduire la quantité de téléchargement parallèle qui se déroule dans la page. Éviter les recherches DNS coupe les temps de réponse mais la réduction de téléchargements parallèles peut augmenter les temps de réponse. Ma ligne directrice est de diviser ces composants sur au moins deux mais pas sur plus de quatre noms d&rsquo;hôtes. Il en résulte un bon compromis entre réduction des requêtes DNS et pourcentage élevé de téléchargements parallèles.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#dns_lookups">Reference</a>
+    </div>
+</section>
+  </div>
+</div>
+
+    <noscript></noscript>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
+  </body>
+</html>
