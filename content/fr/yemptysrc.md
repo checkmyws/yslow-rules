@@ -9,7 +9,7 @@ notoc: "true"
 description: ""
 ---
 
-Il est plus fréquent qu'on ne le croit de trouver des images avec un attribut **src** vide. Ceci apparaît sous deux formes:
+Il est plus fréquent qu'on ne le croit de trouver des images avec un attribut **src** vide. Ceci apparaît sous deux formes :
 
 1. En HTML
 
@@ -24,7 +24,7 @@ var img = new Image();
 img.src = "";
 ~~~
 
-Les deux formes provoquent le même effet: Le navigateur fait une nouvelle demande à votre serveur.
+Les deux formes ont le même effet : le navigateur fait une nouvelle demande à votre serveur.
 
 - **Internet Explorer** fait une demande pour le répertoire dans lequel se trouve la page.
 - **Safari et Chrome** font la demande à la page elle-même.
@@ -37,12 +37,12 @@ Les deux formes provoquent le même effet: Le navigateur fait une nouvelle deman
 2. Perte de puissance de calcul pour générer une page qui ne sera jamais vue.
 3. Données de l'utilisateur éventuellement corrompues. Si vous suivez l'état de la requête, que ce soit par cookies ou d'une autre manière, vous avez la possibilité de détruire les données. Même si la demande d'image ne ​​renvoie pas d'image, tous les en-têtes sont lus et acceptés par le navigateur, y compris tous les cookies. Alors que le reste de la réponse est rejetée, des dégâts peuvent déjà être faits.
 
-La cause de ce comportement est la façon dont la résolution URI est effectuée dans les navigateurs. Ce comportement est défini dans la RFC 3986 - Uniform Resource Identifiers. Quand une chaîne vide est rencontrée comme URI, celui-ci est considéré comme un URI relatif et est résolu selon l'algorithme défini dans la section 5.2. Cet exemple spécifique, une chaîne vide, est cotée à la section 5.4. Firefox, Safari et Chrome ont tous résolus ce problème de chaîne vide correctement dans leur cahier des charges, alors que Internet Explorer le résoud de façon incorrecte, apparemment en ligne avec une version antérieure de la spécification, RFC 2396 - Uniform Resource Identifiers (rendue obsolète par la RFC 3986). Ainsi, techniquement, les navigateurs font ce qu'ils sont censés faire pour résoudre les URI relatifs. Le problème est que dans ce contexte, la chaîne vide est clairement involontaire.
+La cause de ce comportement est la façon dont la résolution URI est effectuée dans les navigateurs. Ce comportement est défini dans la RFC 3986 - Uniform Resource Identifiers. Quand une chaîne vide est rencontrée comme URI, celle-ci est considérée comme un URI relatif et est résolu selon l'algorithme défini dans la section 5.2. Ce cas particulier est détaillé à la section 5.4. Firefox, Safari et Chrome ont tous résolu ce problème de chaîne vide correctement dans leur cahier des charges, alors qu'Internet Explorer le résout de façon incorrecte, apparemment selon une version antérieure de la spécification, RFC 2396 - Uniform Resource Identifiers (rendue obsolète par la RFC 3986). Ainsi, techniquement, les navigateurs font ce qu'ils sont censés faire pour résoudre les URI relatifs. Le problème est que dans ce contexte, la chaîne vide est clairement involontaire.
 
-À la section 4.8.2, HTML5 ajoute à la description de l'attribut src de la balise l'indication aux navigateurs de ne pas faire une demande supplémentaire:
+À la section 4.8.2, HTML5 ajoute à la description de l'attribut src de la balise l'indication aux navigateurs de ne pas faire une demande supplémentaire :
 
-> L'attribut src doit être présent et doit contenir une URL valide de référencement d'une image, éventuellement animée mais non-interactive, ni paginée ou scriptée. Si l'URI de base de l'élément est la même que l'adresse du document, alors la valeur de l'attribut src ne peut pas être une chaîne vide .
+> L'attribut src doit être présent et doit contenir une URL valide de référencement d'une image, éventuellement animée mais non-interactive, ni paginée ou scriptée. Si l'URI de base de l'élément est la même que l'adresse du document, alors la valeur de l'attribut src ne peut pas être une chaîne vide.
 
-Heureusement, les navigateurs n'auront plus ce problème à l'avenir. Malheureusement, il n'existe pas de telle clause pour `<script src="">` et `<lien href="">`. Peut-être qu'il est encore temps de faire cet ajustement pour s'assurer que les navigateurs n'implémentent ce comportement pas accident.
+Heureusement, les navigateurs n'auront plus ce problème à l'avenir. Malheureusement, il n'existe pas de telle clause pour `<script src="">` et `<link href="">`. Peut-être qu'il est encore temps de faire cet ajustement pour s'assurer que les navigateurs n'implémentent ce comportement par accident.
 
-Cette règle a été inspiré par le gourou JavaScript Yahoo! Nicolas C. Zakas. Pour plus d'informations, consultez son article "[Empty image src can destroy your site](http://www.nczonline.net/blog/2009/11/30/empty-image-src-can-destroy-your-site/)".
+Cette règle a été inspirée par le gourou JavaScript Yahoo! Nicolas C. Zakas. Pour plus d'informations, consultez son article "[Empty image src can destroy your site](http://www.nczonline.net/blog/2009/11/30/empty-image-src-can-destroy-your-site/)".

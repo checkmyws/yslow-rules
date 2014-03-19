@@ -10,11 +10,11 @@ notoc: "true"
 description: ""
 ---
 
-Les expressions CSS sont un moyen puissant (et dangereux) pour définir des propriétés CSS dynamiquement. Elles ont été prises en charge dans Internet Explorer à partir de la version 5, mais ont été rendues [obsolètes à partir de IE8]( http://msdn.microsoft.com/en-us/library/ms537634%28VS.85%29.aspx). Par exemple, la couleur de fond peut être configuré pour alterner toutes les heures en utilisant une expressions CSS:
+Les expressions CSS sont un moyen puissant (et dangereux) pour définir des propriétés CSS dynamiquement. Elles ont été prises en charge dans Internet Explorer à partir de la version 5, mais ont été rendues [obsolètes à partir de IE8]( http://msdn.microsoft.com/en-us/library/ms537634%28VS.85%29.aspx). Par exemple, la couleur de fond peut être configurée pour alterner toutes les heures en utilisant une expression CSS :
 
 	background-color: expression( (new Date()).getHours()%2 ? "#B8D4FF" : "#F08A00" );
 
-Comme démontré ci-dessus, la méthode `expression` accepte une expression JavaScript. La propriété CSS est réglée sur le résultat de l'évaluation de l'expression JavaScript. La méthode `expression` est ignorée par les autres navigateurs, elle est donc utile pour définir les propriétés d'Internet Explorer nécessaires pour créer une expérience cohérente à travers les autres navigateurs .
+Comme démontré ci-dessus, la méthode `expression` accepte une expression JavaScript. La propriété CSS est réglée sur le résultat de l'évaluation de l'expression JavaScript. La méthode `expression` est ignorée par les autres navigateurs, elle est donc utile pour définir les propriétés d'Internet Explorer nécessaires pour créer une expérience cohérente à travers les autres navigateurs.
 
 Le problème avec les expressions, c'est qu'elles sont évaluées plus souvent que ce à quoi la plupart des gens pourraient s'attendre. Non seulement elles sont évaluées lorsque la page est rendue et redimensionnée mais aussi lorsque la page défile et même lorsque l'utilisateur déplace la souris sur la page. Ajouter un compteur à l'expression CSS nous permet de garder une trace de quand et combien de fois une expression CSS est évaluée. Déplacer la souris dans la page peut facilement générer plus de 10.000 évaluations.
 
