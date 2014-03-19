@@ -25,7 +25,7 @@ We use Github and [Hugo](http://hugo.spf13.com/) to produce the web pages from i
 
 You can make a new translation available by copying the `en` directory in `locale`. `locale` is the code of the translated language. If you make a spanish translation, this gives you a `es` folder. Translate every rule in the folder and you're done. Give attention to change the locale in the header of the rule.
 
-Ypu can correct any mistake you find in a translation. All you have to do is clicking the edit icon to make your correction and make a pull request.
+You can correct any mistake you find in a translation. All you have to do is clicking the edit icon to make your correction and make a pull request.
 
 You can make a beautiful design for the website.
 
