@@ -1,0 +1,84 @@
+<!doctype html>
+
+
+
+ <html class="no-js"> 
+
+  <head>
+    <title>YSlow - rules</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta name="description" content="YSlow rules">
+    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
+ 
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
+  </head>
+
+  <body>
+
+    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
+      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+    </a>
+
+<div class="container">
+  <div class="row">
+    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
+
+        <div id="ycompress"></div>
+        <span class="hidden" itemprop="alternateName">ycompress</span>
+
+        <h2>
+            <a itemprop="url" href="#ycompress">
+                <span itemprop="name">Gzip Components</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/en/ycompress.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">server</span>
+        
+
+        <div itemprop="description">
+            <p>The time it takes to transfer an HTTP request and response across the network can be significantly reduced by decisions made by front-end engineers. It&rsquo;s true that the end-user&rsquo;s bandwidth speed, Internet service provider, proximity to peering exchange points, etc. are beyond the control of the development team. But there are other variables that affect response times. Compression reduces response times by reducing the size of the HTTP response.</p>
+
+<p>Starting with HTTP/1.1, web clients indicate support for compression with the Accept-Encoding header in the HTTP request.</p>
+
+<pre><code>Accept-Encoding: gzip, deflate
+</code></pre>
+
+<p>If the web server sees this header in the request, it may compress the response using one of the methods listed by the client. The web server notifies the web client of this via the Content-Encoding header in the response.</p>
+
+<pre><code>Content-Encoding: gzip
+</code></pre>
+
+<p>Gzip is the most popular and effective compression method at this time. It was developed by the GNU project and standardized by <a href="http://www.ietf.org/rfc/rfc1952.txt">RFC 1952</a>. The only other compression format you&rsquo;re likely to see is deflate, but it&rsquo;s less effective and less popular.</p>
+
+<p>Gzipping generally reduces the response size by about 70%. Approximately 90% of today&rsquo;s Internet traffic travels through browsers that claim to support gzip. If you use Apache, the module configuring gzip depends on your version: Apache 1.3 uses <a href="http://sourceforge.net/projects/mod-gzip/">mod_gzip</a> while Apache 2.x uses <a href="http://httpd.apache.org/docs/2.0/mod/mod_deflate.html">mod_deflate</a>.</p>
+
+<p>There are known issues with browsers and proxies that may cause a mismatch in what the browser expects and what it receives with regard to compressed content. Fortunately, these edge cases are dwindling as the use of older browsers drops off. The Apache modules help out by adding appropriate Vary response headers automatically.</p>
+
+<p>Servers choose what to gzip based on file type, but are typically too limited in what they decide to compress. Most web sites gzip their HTML documents. It&rsquo;s also worthwhile to gzip your scripts and stylesheets, but many web sites miss this opportunity. In fact, it&rsquo;s worthwhile to compress any text response including XML and JSON. Image and PDF files should not be gzipped because they are already compressed. Trying to gzip them not only wastes CPU but can potentially increase file sizes.</p>
+
+<p>Gzipping as many file types as possible is an easy way to reduce page weight and accelerate the user experience.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#gzip">Reference</a>
+    </div>
+</section>
+  </div>
+</div>
+
+    <noscript></noscript>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
+  </body>
+</html>

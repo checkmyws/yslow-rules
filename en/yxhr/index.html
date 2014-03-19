@@ -1,0 +1,78 @@
+<!doctype html>
+
+
+
+ <html class="no-js"> 
+
+  <head>
+    <title>YSlow - rules</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta name="description" content="YSlow rules">
+    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
+ 
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
+  </head>
+
+  <body>
+
+    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
+      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+    </a>
+
+<div class="container">
+  <div class="row">
+    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="yxhr"></div>
+        <span class="hidden" itemprop="alternateName">yxhr</span>
+
+        <h2>
+            <a itemprop="url" href="#yxhr">
+                <span itemprop="name">Make Ajax Cacheable</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/en/yxhr.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>One of the cited benefits of Ajax is that it provides instantaneous feedback to the user because it requests information asynchronously from the backend web server. However, using Ajax is no guarantee that the user won&rsquo;t be twiddling his thumbs waiting for those asynchronous JavaScript and XML responses to return. In many applications, whether or not the user is kept waiting depends on how Ajax is used. For example, in a web-based email client the user will be kept waiting for the results of an Ajax request to find all the email messages that match their search criteria. It&rsquo;s important to remember that &ldquo;asynchronous&rdquo; does not imply &ldquo;instantaneous&rdquo;.</p>
+
+<p>To improve performance, it&rsquo;s important to optimize these Ajax responses. The most important way to improve the performance of Ajax is to make the responses cacheable, as discussed in <a href="#expires">Add an Expires or a Cache-Control Header</a>. Some of the other rules also apply to Ajax:</p>
+
+<ul>
+<li><a href="#gzip">Gzip Components</a></li>
+<li><a href="#dns_lookups">Reduce DNS Lookups</a></li>
+<li><a href="#minify">Minify JavaScript</a></li>
+<li><a href="#redirects">Avoid Redirects</a></li>
+<li><a href="#etags">Configure ETags</a></li>
+</ul>
+
+<p>Let&rsquo;s look at an example. A Web 2.0 email client might use Ajax to download the user&rsquo;s address book for autocompletion. If the user hasn&rsquo;t modified her address book since the last time she used the email web app, the previous address book response could be read from cache if that Ajax response was made cacheable with a future Expires or Cache-Control header. The browser must be informed when to use a previously cached address book response versus requesting a new one. This could be done by adding a timestamp to the address book Ajax URL indicating the last time the user modified her address book, for example, <code>&amp;t=1190241612</code>. If the address book hasn&rsquo;t been modified since the last download, the timestamp will be the same and the address book will be read from the browser&rsquo;s cache eliminating an extra HTTP roundtrip. If the user has modified her address book, the timestamp ensures the new URL doesn&rsquo;t match the cached response, and the browser will request the updated address book entries.</p>
+
+<p>Even though your Ajax responses are created dynamically, and might only be applicable to a single user, they can still be cached. Doing so will make your Web 2.0 apps faster.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#cacheajax">Reference</a>
+    </div>
+</section>
+  </div>
+</div>
+
+    <noscript></noscript>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
+  </body>
+</html>

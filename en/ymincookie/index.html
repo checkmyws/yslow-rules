@@ -1,0 +1,73 @@
+<!doctype html>
+
+
+
+ <html class="no-js"> 
+
+  <head>
+    <title>YSlow - rules</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta name="description" content="YSlow rules">
+    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
+ 
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
+  </head>
+
+  <body>
+
+    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
+      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+    </a>
+
+<div class="container">
+  <div class="row">
+    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-cookie " style="padding-bottom:1em;">
+
+        <div id="ymincookie"></div>
+        <span class="hidden" itemprop="alternateName">ymincookie</span>
+
+        <h2>
+            <a itemprop="url" href="#ymincookie">
+                <span itemprop="name">Reduce Cookie Size</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/en/ymincookie.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">cookie</span>
+        
+
+        <div itemprop="description">
+            <p>HTTP cookies are used for a variety of reasons such as authentication and personalization. Information about cookies is exchanged in the HTTP headers between web servers and browsers. It&rsquo;s important to keep the size of cookies as low as possible to minimize the impact on the user&rsquo;s response time.</p>
+
+<p>For more information check <a href="http://yuiblog.com/blog/2007/03/01/performance-research-part-3/">&ldquo;When the Cookie Crumbles&rdquo;</a> by Tenni Theurer and Patty Chi. The take-home of this research:</p>
+
+<ul>
+<li>Eliminate unnecessary cookies</li>
+<li>Keep cookie sizes as low as possible to minimize the impact on the user response time</li>
+<li>Be mindful of setting cookies at the appropriate domain level so other sub-domains are not affected</li>
+<li>Set an Expires date appropriately. An earlier Expires date or none removes the cookie sooner, improving the user response time</li>
+</ul>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#cookie_size">Reference</a>
+    </div>
+</section>
+  </div>
+</div>
+
+    <noscript></noscript>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
+  </body>
+</html>

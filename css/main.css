@@ -1,0 +1,86 @@
+.container {
+  max-width: 950px;
+}
+
+.container h2 {
+  margin-top: 65px;
+}
+
+.header {
+  background-color: #303658;
+  padding-top: 60px;
+  color: #fff;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+h2 .glyphicon {
+  font-size: 15px;
+}
+
+.label {
+  line-height: 4;
+}
+
+.navbar a {
+
+  cursor: pointer;
+}
+
+.summary {
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2;
+}
+
+.links {
+  margin-bottom: 20px;
+}
+
+.links a {
+  color: #fff;
+}
+
+.links img {
+  margin-right: 10px;
+}
+
+.links ul {
+  list-style-type: none;
+}
+
+.intro {
+  margin-bottom: 30px;
+}
+
+.stars_1 {
+  position: absolute;
+  background-image: url('../img/stars_1.png');
+  width: 125px;
+  height: 211px;
+  top: 50px;
+  left: 20px;
+}
+
+.stars_2 {
+  position: absolute;
+  background-image: url('../img/stars_2.png');
+  width: 125px;
+  height: 211px;
+  top: 40px;
+  right: 20px;
+}
+
+.flag {
+  width: 16px;
+  height: 11px;
+  background:url(flags.png) no-repeat
+}
+
+.flag.flag-de {background-position: -16px 0}
+.flag.flag-fr {background-position: -32px 0}
+.flag.flag-it {background-position: 0 -11px}
+.flag.flag-pt {background-position: -16px -11px}
+.flag.flag-us {background-position: -32px -11px}

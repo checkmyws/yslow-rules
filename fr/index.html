@@ -1,0 +1,1837 @@
+<!doctype html>
+
+
+
+ <html class="no-js"> 
+
+  <head>
+    <title>YSlow - rules</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta name="description" content="YSlow rules">
+    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
+ 
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
+  </head>
+
+  <body>
+
+    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
+      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+    </a>
+<div id="top"></div>
+
+<div class="header">
+  <div class="hidden-xs stars_1"></div>
+  <div class="hidden-xs stars_2"></div>
+
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">YSlow Rules</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+       
+        
+          
+           <h1>Bonnes pratiques pour accélérer votre site web</h1>
+ <p>L'équipe Yahoo a identifié un certain nombre de bonnes pratiques pour la création de pages web rapide. La liste comprend 35 des meilleures pratiques divisés en 7 catégories.</p>
+ 
+        
+
+      </div>
+      <div class="col-xs-12">
+        <span class="pull-right links">
+          <ul>
+            <li>
+              <a href="http://yslow.org/"><img height=24 src="http://checkmyws.github.io/yslow-rules//img/yslow.png">YSlow.org</a>
+            </li>
+            <li>
+              <a href="http://www.checkmy.ws/"><img width=24 src="http://checkmyws.github.io/yslow-rules//img/checkmyws.png">Check my Website</a>
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li>
+        <a onclick="clickTag('all');">All</a>
+      </li>
+      
+      <li>
+        <a onclick="clickTag('content');">Content</a>
+      </li>
+      
+      <li>
+        <a onclick="clickTag('cookie');">Cookie</a>
+      </li>
+      
+      <li>
+        <a onclick="clickTag('css');">Css</a>
+      </li>
+      
+      <li>
+        <a onclick="clickTag('images');">Images</a>
+      </li>
+      
+      <li>
+        <a onclick="clickTag('javascript');">Javascript</a>
+      </li>
+      
+      <li>
+        <a onclick="clickTag('mobile');">Mobile</a>
+      </li>
+      
+      <li>
+        <a onclick="clickTag('server');">Server</a>
+      </li>
+      
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a href="http://checkmyws.github.io/yslow-rules//en">
+          <img src="http://checkmyws.github.io/yslow-rules//css/blank.gif" class="flag flag-us" alt="English" />
+        </a>
+      </li>
+      <li>
+        <a href="http://checkmyws.github.io/yslow-rules//fr">
+          <img src="http://checkmyws.github.io/yslow-rules//css/blank.gif" class="flag flag-fr" alt="Français" />
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container intro">
+  <div class="row">
+    <div class="col-xs-12">
+      
+        
+        <p>Le projet de traductions des <a href="http://developer.yahoo.com/performance/rules.html">règles YSlow</a> est rendu possible par les contributions suivantes:</p> 
+<ul>
+	<li><a href="http://stevesouders.com/">Steve Souders</a>, créateur de YSlow.</li>
+	<li>Marcel Duran, mainteneur de <a href="http://yslow.org/">YSlow.org</a></li>
+	<li><a href="http://www.checkmy.ws">Check my Website</a> pour la traduction française</li>
+</ul>
+      
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="summary hidden-xs">
+        <ol>
+          
+          <li class="rule tag-content ">
+            <a href="#ynumreq">Réduire le nombre de requêtes HTTP</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#ycdn">Utiliser un réseau de diffusion de contenu (CDN)</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#yexpires">Ajouter des en-têtes Expires ou Cache-Control</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#ycompress">Compresser avec Gzip les composants</a>
+          </li>
+          
+          <li class="rule tag-css ">
+            <a href="#ycsstop">Mettre les feuilles de style en début de page</a>
+          </li>
+          
+          <li class="rule tag-javascript ">
+            <a href="#yjsbottom">Mettres les scripts en bas de page</a>
+          </li>
+          
+          <li class="rule tag-javascript tag-css ">
+            <a href="#yexternal">Rendre JavaScript et les CSS externes</a>
+          </li>
+          
+          <li class="rule tag-css ">
+            <a href="#yexpressions">Éviter les expressions CSS</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#ydns">Réduire le nombre de résolutions DNS</a>
+          </li>
+          
+          <li class="rule tag-javascript tag-css ">
+            <a href="#yminify">Minimifier JavaScript et CSS</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#yredirects">Éviter les redirections</a>
+          </li>
+          
+          <li class="rule tag-javascript tag-css ">
+            <a href="#ydupes">Supprimer les scripts en doublons</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#yetags">Configurer les ETags</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#yxhr">Rendre les requêtes Ajax cachables</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#yflush">Nettoyer le tampon très tôt</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#yxhrmethod">Utiliser GET pour les requêtes Ajax</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#ypostload">Post-charger les composants</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#ypreload">Précharger les composants</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#ymindom">Réduire le nombre d’éléments du DOM</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#ysplit">Répartir les composants sur plusieurs domaines</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#yiframes">Minimiser le nombre de iframes</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#yno404">Éviter les erreurs 404</a>
+          </li>
+          
+          <li class="rule tag-cookie ">
+            <a href="#ymincookie">Réduire la taille des cookies</a>
+          </li>
+          
+          <li class="rule tag-cookie ">
+            <a href="#ycookiefree">Utiliser des domaines sans cookies pour les composants</a>
+          </li>
+          
+          <li class="rule tag-javascript ">
+            <a href="#ydom_access">Minimiser les accès DOM</a>
+          </li>
+          
+          <li class="rule tag-javascript ">
+            <a href="#yevents">Développer des gestionnaires d’événements intelligents</a>
+          </li>
+          
+          <li class="rule tag-css ">
+            <a href="#ycsslink">Utiliser &lt;link&gt; plutôt que @import</a>
+          </li>
+          
+          <li class="rule tag-css ">
+            <a href="#ynofilter">Éviter les filtres</a>
+          </li>
+          
+          <li class="rule tag-images ">
+            <a href="#yopt_images">Optimiser les images</a>
+          </li>
+          
+          <li class="rule tag-images ">
+            <a href="#yopt_sprites">Optimiser les sprites CSS</a>
+          </li>
+          
+          <li class="rule tag-images ">
+            <a href="#yimgnoscale">Ne pas mettre à l’échelle les images en HTML</a>
+          </li>
+          
+          <li class="rule tag-images ">
+            <a href="#yfavicon">Faire un petit favicon.ico et le rendre cachable</a>
+          </li>
+          
+          <li class="rule tag-mobile ">
+            <a href="#yunder25">Garder les composants sous les 25 KO</a>
+          </li>
+          
+          <li class="rule tag-mobile ">
+            <a href="#ymultipart">Rassembler les composants en un document multi-parties</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#yemptysrc">Éviter les balises image src vides</a>
+          </li>
+          
+        </ol>
+      </div>
+      <div class="summary-small visible-xs">
+        <ol>
+          
+          <li class="rule tag-content ">
+            <a href="#ynumreq">Réduire le nombre de requêtes HTTP</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#ycdn">Utiliser un réseau de diffusion de contenu (CDN)</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#yexpires">Ajouter des en-têtes Expires ou Cache-Control</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#ycompress">Compresser avec Gzip les composants</a>
+          </li>
+          
+          <li class="rule tag-css ">
+            <a href="#ycsstop">Mettre les feuilles de style en début de page</a>
+          </li>
+          
+          <li class="rule tag-javascript ">
+            <a href="#yjsbottom">Mettres les scripts en bas de page</a>
+          </li>
+          
+          <li class="rule tag-javascript tag-css ">
+            <a href="#yexternal">Rendre JavaScript et les CSS externes</a>
+          </li>
+          
+          <li class="rule tag-css ">
+            <a href="#yexpressions">Éviter les expressions CSS</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#ydns">Réduire le nombre de résolutions DNS</a>
+          </li>
+          
+          <li class="rule tag-javascript tag-css ">
+            <a href="#yminify">Minimifier JavaScript et CSS</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#yredirects">Éviter les redirections</a>
+          </li>
+          
+          <li class="rule tag-javascript tag-css ">
+            <a href="#ydupes">Supprimer les scripts en doublons</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#yetags">Configurer les ETags</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#yxhr">Rendre les requêtes Ajax cachables</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#yflush">Nettoyer le tampon très tôt</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#yxhrmethod">Utiliser GET pour les requêtes Ajax</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#ypostload">Post-charger les composants</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#ypreload">Précharger les composants</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#ymindom">Réduire le nombre d’éléments du DOM</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#ysplit">Répartir les composants sur plusieurs domaines</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#yiframes">Minimiser le nombre de iframes</a>
+          </li>
+          
+          <li class="rule tag-content ">
+            <a href="#yno404">Éviter les erreurs 404</a>
+          </li>
+          
+          <li class="rule tag-cookie ">
+            <a href="#ymincookie">Réduire la taille des cookies</a>
+          </li>
+          
+          <li class="rule tag-cookie ">
+            <a href="#ycookiefree">Utiliser des domaines sans cookies pour les composants</a>
+          </li>
+          
+          <li class="rule tag-javascript ">
+            <a href="#ydom_access">Minimiser les accès DOM</a>
+          </li>
+          
+          <li class="rule tag-javascript ">
+            <a href="#yevents">Développer des gestionnaires d’événements intelligents</a>
+          </li>
+          
+          <li class="rule tag-css ">
+            <a href="#ycsslink">Utiliser &lt;link&gt; plutôt que @import</a>
+          </li>
+          
+          <li class="rule tag-css ">
+            <a href="#ynofilter">Éviter les filtres</a>
+          </li>
+          
+          <li class="rule tag-images ">
+            <a href="#yopt_images">Optimiser les images</a>
+          </li>
+          
+          <li class="rule tag-images ">
+            <a href="#yopt_sprites">Optimiser les sprites CSS</a>
+          </li>
+          
+          <li class="rule tag-images ">
+            <a href="#yimgnoscale">Ne pas mettre à l’échelle les images en HTML</a>
+          </li>
+          
+          <li class="rule tag-images ">
+            <a href="#yfavicon">Faire un petit favicon.ico et le rendre cachable</a>
+          </li>
+          
+          <li class="rule tag-mobile ">
+            <a href="#yunder25">Garder les composants sous les 25 KO</a>
+          </li>
+          
+          <li class="rule tag-mobile ">
+            <a href="#ymultipart">Rassembler les composants en un document multi-parties</a>
+          </li>
+          
+          <li class="rule tag-server ">
+            <a href="#yemptysrc">Éviter les balises image src vides</a>
+          </li>
+          
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="ynumreq"></div>
+        <span class="hidden" itemprop="alternateName">ynumreq</span>
+
+        <h2>
+            <a itemprop="url" href="#ynumreq">
+                <span itemprop="name">Réduire le nombre de requêtes HTTP</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ynumreq.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>80% du temps de réponse de l&rsquo;utilisateur final est passé sur le front-end. La plupart de ce temps est consacré au téléchargement de tous les composants de la page: images, feuilles de style, scripts, flash, etc. Réduire le nombre de composants réduit le nombre de requêtes HTTP nécessaires pour rendre la page. C&rsquo;est la clé de pages plus rapides.</p>
+
+<p>Une façon de réduire le nombre de composants dans la page est de simplifier la conception de la page. Mais existe-il un moyen de créer des pages avec un contenu plus riche tout en conservant des temps de réponse rapides ? Voici quelques techniques pour réduire le nombre de requêtes HTTP, tout en conservant des pages riches d&rsquo;un point de vue design.</p>
+
+<p>Les <strong>fichiers concaténés</strong> sont un moyen de réduire le nombre de requêtes HTTP en combinant tous les scripts et toutes les CSS dans une feuille de style unique et en un seul script. la concaténation de fichiers est plus difficile lorsque les scripts et les feuilles de style varient d&rsquo;une page à l&rsquo;autre. Inclure ceci dans votre processus de construction des pages améliore les temps de réponse.</p>
+
+<p>Les <a href="http://alistapart.com/articles/sprites"><strong>sprites CSS</strong></a> représente la méthode préférée pour réduire le nombre de demandes d&rsquo;images. Combinez vos images de fond en une seule image et utilisez les propriétés CSS <code>background-image</code> et <code>background-position</code> pour afficher le segment de l&rsquo;image souhaitée.</p>
+
+<p>Les <a href="http://www.w3.org/TR/html401/struct/objects.html#h-13.6"><strong>cartes-image</strong></a> combinent plusieurs images en une seule image. La taille globale est à peu près la même, mais en réduisant le nombre de requêtes HTTP accélère la page. Les cartes-images ne fonctionnent que si les images sont contiguë dans la page, comme un menu de navigation. Définir les coordonnées de chaque segment dans une carte d&rsquo;image peut être fastidieux et générateur d&rsquo;erreurs. L&rsquo;utilisation de cartes-images pour la navigation casse l&rsquo;accessibilité de la page, donc non recommandé.</p>
+
+<p>Les <strong>images en ligne</strong> utilisent le <a href="http://tools.ietf.org/html/rfc2397"><code>data:</code> URL scheme</a> pour intégrer les données d&rsquo;image dans la page en cours. Cela peut augmenter la taille de votre document HTML. En combinant des images en ligne dans vos feuilles de style (en cache) est un moyen de réduire les requêtes HTTP et éviter d&rsquo;augmenter la taille de vos pages. Les images en ligne ne sont pas encore prise en charge dans tous les navigateurs principaux.</p>
+
+<p>Réduire le nombre de requêtes HTTP de votre page est un point de départ idéal. C&rsquo;est la recommandation qui permet d&rsquo;améliorer les performances pour les nouveaux visiteurs de manière la plus significative. Comme décrit dans le billet de blog de Tenni Theurer <a href="http://yuiblog.com/blog/2007/01/04/performance-research-part-2/">Browser Cache Usage - Exposed!</a>, 40 à 60% des visiteurs quotidiens de votre site le consulte avec un cache navigateur vide. Améliorer le temps de chargement pour ces nouveaux visiteurs est la clé d&rsquo;une meilleure expérience utilisateur.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#num_http">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
+
+        <div id="ycdn"></div>
+        <span class="hidden" itemprop="alternateName">ycdn</span>
+
+        <h2>
+            <a itemprop="url" href="#ycdn">
+                <span itemprop="name">Utiliser un réseau de diffusion de contenu (CDN)</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ycdn.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">server</span>
+        
+
+        <div itemprop="description">
+            <p>La proximité de l&rsquo;utilisateur par rapport à votre serveur web a un impact sur les temps de réponse. Le déploiement de votre contenu sur plusieurs serveurs géographiquement dispersés rendra vos pages plus rapides du point de vue de l&rsquo;utilisateur. Mais par où commencer ?</p>
+
+<p>Dans un premier temps, ne tentez pas la refonte de votre application web pour travailler en mode distribué afin de mettre en œuvre du contenu dispersé géographiquement. Selon l&rsquo;application, l&rsquo;évolution de l&rsquo;architecture pourrait inclure des tâches redoutables telles que la synchronisation d&rsquo;états ​​de session et la réplication de transactions de base de données de serveurs à serveurs répartis géographiquement. Vous pourriez être retardés, voir ne jamais atteindre l&rsquo;objectif visant à réduire la distance entre les utilisateurs et le contenu si vous souhaitez passer par cette étape d&rsquo;amélioration d&rsquo;architecture applicative.</p>
+
+<p>Rappelez-vous que 80 à 90% du temps de réponse de l&rsquo;utilisateur final est passé à télécharger tous les composants de la page: images, feuilles de style, scripts, flash, etc. C&rsquo;est la <em>règle d&rsquo;or de la performance</em>. Plutôt que de partir sur la refonte de votre architecture applicative, il vaut mieux d&rsquo;abord répartir votre contenu statique. Non seulement il permet une plus grande réduction des temps de réponse, mais il est de plus facile à mettre en œuvre grâce à des réseaux de diffusion de contenu.</p>
+
+<p>Un réseau de diffusion de contenu (CDN) est un ensemble de serveurs Web répartis sur plusieurs endroits géographiques pour fournir un contenu de façon plus efficace aux utilisateurs. Le serveur sélectionné pour fournir du contenu à un utilisateur spécifique est généralement basé sur une mesure de proximité de réseau. Par exemple, le serveur avec le moins de sauts de réseau ou le serveur avec le meilleur temps de réponse est choisi.</p>
+
+<p>Certaines grandes entreprises de l&rsquo;Internet possèdent leur propre CDN, mais il peut être moins cher d&rsquo;utiliser un fournisseur de services CDN, comme <a href="http://www.akamai.com/">Akamai Technologies</a>, <a href="http://www.edgecast.com/">EdgeCast</a> ou <a href="http://www.level3.com/index.cfm?pageID=36">level3</a>. Pour les entreprises qui démarrent et les sites web privés, le coût d&rsquo;un service CDN peut être prohibitif. Mais que votre public cible grandisse et devienne plus global, et alors un CDN est nécessaire pour obtenir des temps de réponse rapides. Chez Yahoo!, ceux qui ont déplacés le contenu statique de leurs serveurs d&rsquo;applications Web à un CDN (à la fois chez des prestataires externes comme ceux mentionnés ci-dessus et leur propre <a href="https://cwiki.apache.org/TS/traffic-server.html">CDN</a> chez Yahoo) améliorent le temps de réponse de l&rsquo;utilisateur final de 20% ou plus. Le passage à un CDN est un changement de code relativement facile qui va considérablement améliorer la vitesse de votre site web.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#cdn">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
+
+        <div id="yexpires"></div>
+        <span class="hidden" itemprop="alternateName">yexpires</span>
+
+        <h2>
+            <a itemprop="url" href="#yexpires">
+                <span itemprop="name">Ajouter des en-têtes Expires ou Cache-Control</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yexpires.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">server</span>
+        
+
+        <div itemprop="description">
+            <p>Il ya deux aspects à cette règle:</p>
+
+<ul>
+<li>Pour les composants statiques: Mettre en œuvre une politique du «n&rsquo;expire jamais» par l&rsquo;utilisation d&rsquo;en-têtes Expire fixés loin dans le futur.</li>
+<li>Pour les composants dynamiques: utiliser un en-tête Cache-Control approprié pour aider le navigateur avec les requêtes conditionnelles.</li>
+</ul>
+
+<p>Le design des pages web est de plus en plus riche, ce qui signifie plus de scripts, plus de feuilles de style, plus d&rsquo;images et de Flash dans la page. Un nouveau visiteur de votre page peut avoir à faire plusieurs requêtes HTTP, mais en utilisant l&rsquo;en-tête Expire, vous rendez ces composants cachables. Cela évite les requêtes HTTP inutiles sur les pages vues ultérieurement. Les en-têtes Expire sont le plus souvent utilisés avec des images; mais ils doivent être utilisés sur tous les composants, y compris les scripts, les feuilles de style et les composants Flash.</p>
+
+<p>Les navigateurs (et les proxies) utilisent un cache afin de réduire le nombre et la taille des requêtes HTTP, ce qui rend les pages Web plus rapide au nioveau chargement. Un serveur web utilise l&rsquo;en-tête Expire dans la réponse HTTP pour indiquer au client combien de temps un composant peut être mis en cache. Une date lointaine dans l&rsquo;en-tête Expire indique au navigateur que cette réponse reste valide jusqu&rsquo;au 15 Avril 2010.</p>
+
+<pre><code>Expires: Thu, 15 Apr 2010 20:00:00 GMT
+</code></pre>
+
+<p>Si votre serveur est Apache, utilisez la directive ExpiresDefault qui permet de fixer une date d&rsquo;expiration par rapport à la date actuelle. Cet exemple de directive ExpiresDefault fixe la date d&rsquo;expiration dans 10 ans à partir du moment de la demande.</p>
+
+<pre><code>ExpiresDefault &quot;access plus 10 years&quot;
+</code></pre>
+
+<p>Gardez à l&rsquo;esprit, si vous utilisez un en-tête Expire loin dans le futur que vous devrez changer le nom de fichier du composant à chaque fois que celui-ci est modifié. Chez Yahoo!, un numéro de version est intégré dans le nom de fichier du composant, par exemple yahoo_2.0.6.js.</p>
+
+<p>Utiliser un en-tête Expire loin dans le futur affecte uniquement les pages vues d&rsquo;un utilisateur revenant sur votre site. Cela n&rsquo;a aucun effet sur ​​le nombre de requêtes HTTP nécessaires quand un utilisateur visite votre site pour la première fois et que la mémoire cache du navigateur est vide. Par conséquent, l&rsquo; impact de cette amélioration de la performance dépend de la fréquence d&rsquo;utilisateurs réguliers. Ceux-ci possèdent en effet un cache amorcé. (Un «cache amorcé» contient déjà tous les éléments de la page.) Nous <a href="http://yuiblog.com/blog/2007/01/04/performance-research-part-2/">avons mesuré ceci chez Yahoo!</a> et trouvé que le nombre de pages vues avec un cache amorcé est de 75 à 85 %. En utilisant un en-tête Expire loin dans le futur, vous augmentez le nombre de composants qui sont mis en cache par le navigateur et re-utilisé sur les vues ultérieures de pages sans envoyer un seul octet sur ​​la connexion Internet de l&rsquo;utilisateur.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#expires">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
+
+        <div id="ycompress"></div>
+        <span class="hidden" itemprop="alternateName">ycompress</span>
+
+        <h2>
+            <a itemprop="url" href="#ycompress">
+                <span itemprop="name">Compresser avec Gzip les composants</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ycompress.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">server</span>
+        
+
+        <div itemprop="description">
+            <p>Le temps nécessaire pour transférer une requête HTTP et la réponse sur le réseau peut être sensiblement réduit par les décisions prises par les ingénieurs front-end. Il est vrai que la vitesse de la bande passante de l&rsquo;utilisateur final, le fournisseur de services Internet, la proximité des points de peering de change, etc. sont hors du contrôle de l&rsquo;équipe de développement. Mais il y a d&rsquo;autres variables qui influent le temps de réponse. La compression réduit les temps de réponse en diminuant la taille de la réponse HTTP.</p>
+
+<p>À partir de HTTP/1.1, les clients Web indiquent support pour la compression de l&rsquo;en-tête Accept-Encoding dans la requête HTTP .</p>
+
+<pre><code>Accept-Encoding: gzip, deflate
+</code></pre>
+
+<p>Si le serveur Web voit cet en-tête dans la demande , il peut comprimer la réponse en utilisant l&rsquo;une des méthodes énumérées par le client . Le serveur web informe le client Web de cette via l&rsquo;en-tête Content-Encoding dans la réponse.</p>
+
+<pre><code>Content-Encoding: gzip
+</code></pre>
+
+<p>Gzip est la méthode de compression la plus populaire et efficace pour le moment. Il a été développé par le projet GNU et normalisé par la <a href="http://www.ietf.org/rfc/rfc1952.txt">RFC 1952</a>. Le seule autre format de compression que vous êtes susceptible de voir est deflate, mais il est moins efficace et moins populaire .</p>
+
+<p>Utiliser Gzip diminue généralement la taille de la réponse d&rsquo;environ 70%. Environ 90 % du trafic Internet d&rsquo;aujourd&rsquo;hui se déplace à travers des navigateurs qui prétendent supporter gzip. Si vous utilisez Apache, le module pour configurer gzip dépend de votre version : Apache 1.3 utilise <a href="http://sourceforge.net/projects/mod-gzip/">mod_gzip</a> alors qu&rsquo;Apache 2.x utilise <a href="http://httpd.apache.org/docs/2.0/mod/mod_deflate.html">mod_deflate</a>.</p>
+
+<p>Il ya des problèmes connus avec les navigateurs et les proxies qui peuvent causer une incohérence entre ce que le navigateur attend et ce qu&rsquo;il reçoit en contenu compressé. Heureusement, ces cas diminuent au fur et à mesure que disparaissent les plus anciens navigateurs. Les modules Apache peuvent aider en ajoutant l&rsquo;en-tête de réponse Vary automatiquement.</p>
+
+<p>Les serveurs décident quoi gzipper en se basant sur le type de fichier, mais ils sont généralement trop restreints dans ce qu&rsquo;ils décident de compresser. La plupart des sites web gzip leurs documents HTML. Il est également intéressant de gzipper vos scripts et les feuilles de style, ce que ne font pas de nombreux sites Web. En fait, il est intéressant de compresser toute réponse de texte, y compris XML et JSON. Les images et les fichiers PDF ne doivent pas être compressés au format gzip, car ils le sont déjà par d&rsquo;autres moyens. Essayer de les gzipper entraîne non seulement un gaspillage de CPU mais peut potentiellement augmenter la taille des fichiers résultants.</p>
+
+<p>Gzipper autant que possible les fichiers est un moyen facile de réduire le poids de la page et d&rsquo;accélérer l&rsquo;expérience utilisateur.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#gzip">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-css " style="padding-bottom:1em;">
+
+        <div id="ycsstop"></div>
+        <span class="hidden" itemprop="alternateName">ycsstop</span>
+
+        <h2>
+            <a itemprop="url" href="#ycsstop">
+                <span itemprop="name">Mettre les feuilles de style en début de page</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ycsstop.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">css</span>
+        
+
+        <div itemprop="description">
+            <p>Dans nos recherches sur la performance chez Yahoo!, nous avons découvert que le déplacement des feuilles de style dans la partie HEAD du document rend les pages <em>apparemment</em> plus rapides à charger. C&rsquo;est parce que mettre des feuilles de style dans la partie HEAD d&rsquo;un document permet à la page d&rsquo;être rendue progressivement.</p>
+
+<p>Les ingénieurs se souciant de performance veulent une page à chargement progressif, c&rsquo;est que nous voulons pour que le navigateur affiche n&rsquo;importe quel contenu le plus rapidement que possible. Ceci est particulièrement important pour les pages avec beaucoup de contenu et pour les utilisateurs de connexions Internet lentes. L&rsquo;importance de donner aux utilisateurs un retour visuel, tels que des indicateurs de progrès a été bien <a href="http://www.useit.com/papers/responsetime.html">documenté</a>. Dans notre cas, la page HTML est l&rsquo;indicateur de progression! Lorsque le navigateur charge la page progressivement; l&rsquo;en-tête, la barre de navigation, le logo en haut, etc. tous ces éléments servent de feedback visuel pour l&rsquo;utilisateur qui est en attente de la page. Cela améliore l&rsquo;expérience globale de l&rsquo;utilisateur.</p>
+
+<p>Le problème en mettant les feuilles en bas de document est l&rsquo;interdiction du rendu progressif dans de nombreux navigateurs, y compris Internet Explorer. Ces navigateurs bloquent tout rendu pour éviter d&rsquo;avoir à redessiner des éléments de la page si leurs styles changent. L&rsquo;utilisateur est scotché une page blanche .</p>
+
+<p>La <a href="http://www.w3.org/TR/html4/struct/links.html#h-12.3">spécification HTML</a> stipule clairement que les feuilles de style doivent être incluses dans la partie HEAD de la page. &ldquo;Contrairement à la balise A, la balise [LINK] ne peut apparaître que dans la section HEAD d&rsquo;un document mais peut apparaître plusieurs fois.&rdquo; Aucune des alternatives comme les flashs de contenus non stylés ou le grand écran blanc ne valent de prendre le risque. La solution optimale est de suivre la spécification HTML et de charger vos feuilles de style dans la partie HEAD du document.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#css_top">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-javascript " style="padding-bottom:1em;">
+
+        <div id="yjsbottom"></div>
+        <span class="hidden" itemprop="alternateName">yjsbottom</span>
+
+        <h2>
+            <a itemprop="url" href="#yjsbottom">
+                <span itemprop="name">Mettres les scripts en bas de page</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yjsbottom.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">javascript</span>
+        
+
+        <div itemprop="description">
+            <p>Le problème des par scripts est qu&rsquo;ils bloquent les téléchargements en parallèle. La <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html#sec8.1.4">spécification HTTP/1.1</a> suggère que les navigateurs ne téléchargent pas plus de deux composants en parallèle par nom d&rsquo;hôte. Si vous servez vos images à partir de plusieurs noms d&rsquo;hôtes, vous pouvez obtenir plus de deux téléchargements en parallèle. Cependant, pendant le téléchargement d&rsquo;un script, le navigateur ne démarre pas d&rsquo;autres téléchargements y compris sur différents noms de domaine.</p>
+
+<p>Dans certaines situations, il n&rsquo;est pas facile de déplacer ses scripts en bas de page. Si, par exemple, le script utilise <code>document.write</code> pour insérer une partie du contenu de la page, il ne peut pas être déplacé plus bas dans la page. Il pourrait s&rsquo;en suivre des problèmes de scope. Dans de nombreux cas, il existe des moyens de contourner ces situations.</p>
+
+<p>Une autre suggestion qui revient souvent est l&rsquo;utilisation de scripts différés. L&rsquo;attribut <code>DEFER</code> indique que le script ne contient pas document.write. C&rsquo;est un indication pour les navigateurs qu&rsquo;ils peuvent continuer le rendu de la page. Malheureusement, Firefox ne prend pas en charge l&rsquo;attribut <code>DEFER</code>. Dans Internet Explorer, le script peut être différé mais pas autant que vous le souhaitez. Si un script peut être différé, il peut également être déplacé vers le bas de la page. Cela rendra vos pages Web plus rapides à charger.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#js_bottom">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-javascript tag-css " style="padding-bottom:1em;">
+
+        <div id="yexternal"></div>
+        <span class="hidden" itemprop="alternateName">yexternal</span>
+
+        <h2>
+            <a itemprop="url" href="#yexternal">
+                <span itemprop="name">Rendre JavaScript et les CSS externes</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yexternal.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">javascript</span>
+        
+            <span class="tags label label-default">css</span>
+        
+
+        <div itemprop="description">
+            <p>Beaucoup des règles de performance traitent de la façon dont les composants externes sont gérés. Toutefois, avant que ces éléments apparaissent, vous devez vous poser une question plus fondamentale: Les scripts JavaScript et les feuilles de style CSS doivent-ils être contenus dans des fichiers externes ou en ligne dans la page elle-même ?</p>
+
+<p>L&rsquo;utilisation des fichiers externes produit généralement des pages plus rapides parce que les fichiers JavaScript et CSS sont mis en cache par le navigateur. JavaScript et CSS en ligne dans les documents HTML sont téléchargés chaque fois que le document HTML est demandé. Cela réduit le nombre de requêtes HTTP nécessaires mais augmente la taille du document HTML. D&rsquo;autre part, si le code JavaScript et CSS dans des fichiers externes sont mis en cache par le navigateur, la taille du document HTML est réduite sans augmenter le nombre de requêtes HTTP.</p>
+
+<p>Le facteur clé est donc la fréquence avec laquelle les composants CSS et JavaScript externes sont mis en cache par rapport au nombre de documents HTML demandés. Ce facteur, bien que difficile à quantifier, peut être mesuré à l&rsquo;aide de divers paramètres. Si les utilisateurs de votre site voient plusieurs pages par session et que  nombre de celles-ci ré-utilisent les mêmes scripts et feuilles de style, alors il y a un plus grand bénéfice potentiel à utiliser des fichiers externes en cache.</p>
+
+<p>De nombreux sites Web échouent sur ces mesures. Pour ces sites, la meilleure solution consiste généralement à déployer le code JavaScript et les feuilles de style CSS dans des fichiers externes. La seule exception où les mettre en ligne est préférable est les pages d&rsquo;accueil, tels que <a href="http://www.yahoo.com">Yahoo!</a> et <a href="http://my.yahoo.com">Mon Yahoo! </a>. Les pages d&rsquo;accueil qui ont peu de vues (voir une seule) par session peuvent trouver que JavaScript et CSS en ligne résultent dans des temps de réponse plus rapides pour l&rsquo;utilisateur final.</p>
+
+<p>Pour les pages d&rsquo;accueil qui sont généralement les premières d&rsquo;une suite de pages vues, il existe des techniques qui s&rsquo;appuient sur la réduction de requêtes HTTP que fournit le mode en ligne ainsi que les avantages de la mise en cache obtenus grâce à l&rsquo;utilisation de fichiers externes. Une de ces techniques consiste à charger en ligne le JavaScript et les CSS dans la page d&rsquo;accueil mais en téléchargeant dynamiquement les fichiers externes aprsè le chargment de la page. Les pages suivantes pourraient alors référencer les fichiers externes qui devraient déjà être dans le cache du navigateur.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#external">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-css " style="padding-bottom:1em;">
+
+        <div id="yexpressions"></div>
+        <span class="hidden" itemprop="alternateName">yexpressions</span>
+
+        <h2>
+            <a itemprop="url" href="#yexpressions">
+                <span itemprop="name">Éviter les expressions CSS</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yexpressions.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">css</span>
+        
+
+        <div itemprop="description">
+            <p>Les expressions CSS sont un moyen puissant (et dangereux) pour définir des propriétés CSS dynamiquement. Elles ont été prises en charge dans Internet Explorer à partir de la version 5, mais ont été rendues <a href="http://msdn.microsoft.com/en-us/library/ms537634%28VS.85%29.aspx">obsolètes à partir de IE8</a>. Par exemple, la couleur de fond peut être configuré pour alterner toutes les heures en utilisant une expressions CSS:</p>
+
+<pre><code>background-color: expression( (new Date()).getHours()%2 ? &quot;#B8D4FF&quot; : &quot;#F08A00&quot; );
+</code></pre>
+
+<p>Comme démontré ci-dessus, la méthode <code>expression</code> accepte une expression JavaScript. La propriété CSS est réglée sur le résultat de l&rsquo;évaluation de l&rsquo;expression JavaScript. La méthode <code>expression</code> est ignorée par les autres navigateurs, elle est donc utile pour définir les propriétés d&rsquo;Internet Explorer nécessaires pour créer une expérience cohérente à travers les autres navigateurs .</p>
+
+<p>Le problème avec les expressions, c&rsquo;est qu&rsquo;elles sont évaluées plus souvent que ce à quoi la plupart des gens pourraient s&rsquo;attendre. Non seulement elles sont évaluées lorsque la page est rendue et redimensionnée mais aussi lorsque la page défile et même lorsque l&rsquo;utilisateur déplace la souris sur la page. Ajouter un compteur à l&rsquo;expression CSS nous permet de garder une trace de quand et combien de fois une expression CSS est évaluée. Déplacer la souris dans la page peut facilement générer plus de 10.000 évaluations.</p>
+
+<p>Une façon de réduire le nombre de fois que votre expression CSS est évaluée est d&rsquo;utiliser des expressions uniques dans le temps. La première fois l&rsquo;expression est évaluée, elle définit la propriété de style pour une valeur explicite qui remplace l&rsquo;expression CSS. Si la propriété de style doit être définie de façon dynamique tout au long de la vie de la page, utilisez comme approche alternative des gestionnaires d&rsquo;événements au lieu d&rsquo;expressions CSS. Si vous devez utiliser des expressions CSS, rappelez-vous qu&rsquo;elles peuvent être évaluées des milliers de fois et pourraient affecter la performance de votre page.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#css_expressions">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="ydns"></div>
+        <span class="hidden" itemprop="alternateName">ydns</span>
+
+        <h2>
+            <a itemprop="url" href="#ydns">
+                <span itemprop="name">Réduire le nombre de résolutions DNS</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ydns.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>Le système de noms de domaines (DNS ) fait correspondre les noms d&rsquo;hôtes en adresses IP, tout comme les carnets d&rsquo;adresse font correspondre les noms des personnes à leurs numéros de téléphone. Lorsque vous tapez www.yahoo.com dans votre navigateur, un résolveur DNS contacté par le navigateur renvoie l&rsquo;adresse IP de ce serveur. Les requêtes DNS ont un coût. Il faut généralement 20 à 120 millisecondes à un serveur DNS pour rechercher l&rsquo;adresse IP d&rsquo;un nom d&rsquo;hôte donné. Le navigateur ne peut télécharger quoi que ce soit de cet hôte jusqu&rsquo;à ce que la recherche DNS ne soit terminée.</p>
+
+<p>Les recherches DNS sont mises en cache pour améliorer les performances. Cette mise en cache peut se produire sur un serveur de mise en cache spéciale maintenu par le réseau du FAI ou local de l&rsquo;utilisateur. Il ya aussi la mise en cache qui se produit sur l&rsquo;ordinateur de l&rsquo; utilisateur. Les informations DNS reste dans le cache DNS du système d&rsquo;exploitation (le «service Client DNS» sur Microsoft Windows). La plupart des navigateurs ont leurs propres caches distincts de la mémoire cache du système d&rsquo;exploitation. Tant que le navigateur conserve un enregistrement DNS dans son propre cache, ça ne dérange pas le système d&rsquo;exploitation avec une demande d&rsquo; enregistrement.</p>
+
+<p>Internet Explorer met en cache les recherches DNS pendant 30 minutes par défaut, tel que spécifié par le paramètre <code>DnsCacheTimeout</code> de la base des registres. Firefox met en cache les recherches DNS pendant 1 minute , contrôlé par le paramètre de configuration <code>network.dnsCacheExpiration</code>. (Fasterfox change ce paramètre à 1 heure.)</p>
+
+<p>Lorsque le cache DNS du client est vide (à la fois le navigateur et le système d&rsquo;exploitation), le nombre de requêtes DNS est égal au nombre de noms d&rsquo;hôte uniques dans la page web. Cela inclut les noms d&rsquo;hôte utilisés dans l&rsquo;URL de la page, des images, des fichiers de scripts, feuilles de style, objets Flash, etc. Réduire le nombre de noms d&rsquo;hôtes uniques réduit le nombre de requêtes DNS.</p>
+
+<p>Réduire le nombre de noms d&rsquo;hôtes uniques a le potentiel de réduire la quantité de téléchargement parallèle qui se déroule dans la page. Éviter les recherches DNS coupe les temps de réponse mais la réduction de téléchargements parallèles peut augmenter les temps de réponse. Ma ligne directrice est de diviser ces composants sur au moins deux mais pas sur plus de quatre noms d&rsquo;hôtes. Il en résulte un bon compromis entre réduction des requêtes DNS et pourcentage élevé de téléchargements parallèles.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#dns_lookups">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-javascript tag-css " style="padding-bottom:1em;">
+
+        <div id="yminify"></div>
+        <span class="hidden" itemprop="alternateName">yminify</span>
+
+        <h2>
+            <a itemprop="url" href="#yminify">
+                <span itemprop="name">Minimifier JavaScript et CSS</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yminify.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">javascript</span>
+        
+            <span class="tags label label-default">css</span>
+        
+
+        <div itemprop="description">
+            <p>La minification consiste à enlever des caractères inutiles à partir du code afin de réduire sa taille; ce qui améliore les temps de chargement. Lorsque le code est minifié, tous les commentaires sont supprimés ainsi que les caractères inutiles ou blancs (espace, saut de ligne, tabulations). Dans le cas du langage JavaScript, ceci améliore les performances de temps de réponse en raison de la taille du fichier téléchargé plus réduite. Deux outils populaires pour minifier le code JavaScript sont <a href="http://crockford.com/javascript/jsmin">JSMin</a> et <a href="http://developer.yahoo.com/yui/compressor/">YUI Compressor</a>. Le compresseur YUI PEUT aussi minifier les CSS.</p>
+
+<p>L&rsquo;obfuscation est une alternative qui peut être appliqué au code source. Plus complexe que la minification et donc plus susceptibles de générer des bugs à la suite de l&rsquo;étape de brouillage proprement dite. Dans une enquête sur dix sites web américains, la minification permet une réduction de taille de 21 % contre 25% pour l&rsquo;obfuscation. Bien que l&rsquo;obfuscation ai une réduction de taille supérieure, il reste moins risqué de minifier le JavaScript.</p>
+
+<p>En plus de minifier les scripts externes et les feuilles de styles, les blocs en ligne <code>&lt;script&gt;</code> et <code>&lt;style&gt;</code> peuvent et doivent également être minifiés. Même si vous gzippez les scripts et les styles, le sminifier en plus permet encore de réduire la taille de 5% ou plus. Vu que l&rsquo;utilisation et la taille de code JavaScript et de feuilles de style CSS augmente, les économies réalisées par minification du code sont plus grandes.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#minify">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="yredirects"></div>
+        <span class="hidden" itemprop="alternateName">yredirects</span>
+
+        <h2>
+            <a itemprop="url" href="#yredirects">
+                <span itemprop="name">Éviter les redirections</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yredirects.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>Les redirections sont effectuées en utilisant les codes d&rsquo;état 301 et 302 . Voici un exemple d&rsquo;en-têtes HTTP contenus dans une réponse 301 :</p>
+
+<pre><code>HTTP/1.1 301 Moved Permanently
+Location: http://example.com/newuri
+Content-Type: text/html
+</code></pre>
+
+<p>Le navigateur conduit automatiquement l&rsquo;utilisateur vers l&rsquo;URL spécifiée dans le champ <code>Location</code>. Toutes les informations nécessaires pour une redirection sont contenues dans les en-têtes. Le corps de la réponse est généralement vide. Malgré leur nom, aucune réponse 301 302 n&rsquo;est mise en cache dans la pratique, sauf si des en-têtes supplémentaires, comme <code>Expire</code> ou <code>Cache-Control</code> indiquent qu&rsquo;elle devrait l&rsquo;être. La balise meta refresh et JavaScript sont d&rsquo;autres façons de diriger les utilisateurs vers une URL différente, mais si vous devez faire une redirection, la technique préférée est d&rsquo;utiliser les codes d&rsquo;état HTTP 3xx standards, principalement pour s&rsquo;assurer que le bouton de retour du navigateur fonctionne correctement.</p>
+
+<p>La principale chose à retenir est que les redirections ralentissent l&rsquo;expérience utilisateur. L&rsquo;insertion d&rsquo;une redirection entre l&rsquo;utilisateur et le document HTML retarde tout le rendu de la page puisqu&rsquo;aucun composant ne peut commencer à être téléchargé jusqu&rsquo;à ce que le document HTML ne soit arrivé.</p>
+
+<p>L&rsquo;une des redirections les plus inutiles est aussi l&rsquo;une des plus fréquentes et les développeurs web ne sont généralement pas au courant. Elle se produit quand une barre oblique (/) est absente depuis une URL qui devrait en avoir une. Par exemple, aller à <a href="http://astrology.yahoo.com/astrology entraîne une réponse 301 contenant une redirection vers [http://astrology.yahoo.com / astrologie/](http://astrology.yahoo.com/astrology/">http://astrology.yahoo.com/astrology</a> (notez le slash ajouté). Ce problème est résolu dans Apache en utilisant les directives <code>Alias</code>, <code>mod_rewrite</code> ou <code>DirectorySlash directive</code>.</p>
+
+<p>La connexion d&rsquo;un ancien site Web vers un nouveau est un autre usage répandu pour les redirections. D&rsquo;autres incluent reliant les différentes parties d&rsquo;un site Web et de diriger l&rsquo; utilisateur en fonction de certaines conditions (type de navigateur, type de compte utilisateur, etc.). Utiliser une redirection pour connecter deux sites Web est simple et nécessite peu de code supplémentaire. Bien que l&rsquo;utilisation des redirections dans ces situations réduit la complexité pour les développeurs, elle dégrade l&rsquo;expérience utilisateur. Si la redirection a lieu sur le même serveur, il est possible d&rsquo;utiliser <code>Alias​​</code> et <code>mod_rewrite</code> comme alternatives pour cette utilisation de redirections. Si un changement de nom de domaine est la cause de l&rsquo;utilisation de redirections, une alternative est de créer un CNAME (un enregistrement DNS qui crée un pointage d&rsquo;alias de nom d&rsquo;un domaine à l&rsquo;autre) en combinaison avec <code>Alias</code> ou <code>mod_rewrite</code>.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#redirects">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-javascript tag-css " style="padding-bottom:1em;">
+
+        <div id="ydupes"></div>
+        <span class="hidden" itemprop="alternateName">ydupes</span>
+
+        <h2>
+            <a itemprop="url" href="#ydupes">
+                <span itemprop="name">Supprimer les scripts en doublons</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ydupes.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">javascript</span>
+        
+            <span class="tags label label-default">css</span>
+        
+
+        <div itemprop="description">
+            <p>Inclure le même fichier JavaScript à deux reprises dans une seule page nuit à la performance. Ce n&rsquo;est pas aussi rare qu&rsquo;on pourrait le penser. Un examen des dix meilleurs sites web américains montre que deux d&rsquo;entre eux contiennent un script dupliqué. Deux principaux facteurs augmentent les chances d&rsquo;un script d&rsquo;être dupliqué dans une page Web: la taille de l&rsquo;équipe et le nombre de scripts. Lorsque cela arrive, le doublon met à mal les performances en créant des requêtes HTTP inutiles et l&rsquo;exécution de code JavaScript perdu.</p>
+
+<p>Des requêtes HTTP inutiles se produisent dans Internet Explorer mais pas dans Firefox. Dans Internet Explorer, si un script externe est inclus deux fois et n&rsquo;est pas mis en cache, il génère deux requêtes HTTP lors du chargement de la page. Même si le script est mis en cache, des requêtes HTTP supplémentaires se produisent lorsque l&rsquo;utilisateur recharge la page.</p>
+
+<p>En plus de générer des requêtes HTTP inutiles, du temps est perdu à interpréter le script plusieurs fois. Cette exécution JavaScript redondante se passe dans Firefox et Internet Explorer, indépendamment du fait que le script est mis en cache.</p>
+
+<p>Une façon d&rsquo;éviter d&rsquo;inclure accidentellement le même script deux fois est de mettre en place un module de gestion de scripts dans votre système de templates. La manière typique d&rsquo;inclure un script est d&rsquo;utiliser la balise SCRIPT dans votre page HTML.</p>
+
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;menu_1.0.17.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Une alternative en PHP serait de créer une fonction appelée <code>insertScript</code>.</p>
+
+<pre><code>&lt;?php insertScript(&quot;menu.js&quot;) ?&gt;
+</code></pre>
+
+<p>En plus de prévenir le même script d&rsquo;être inséré à plusieurs reprises, cette fonction pourrait traiter d&rsquo;autres choses avec des scripts, tels que le contrôle des dépendances et l&rsquo;ajout de numéros de version pour les noms de fichiers de scripts. Ceci afin de bénéficer des en-têtes Expire.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#js_dupes">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
+
+        <div id="yetags"></div>
+        <span class="hidden" itemprop="alternateName">yetags</span>
+
+        <h2>
+            <a itemprop="url" href="#yetags">
+                <span itemprop="name">Configurer les ETags</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yetags.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">server</span>
+        
+
+        <div itemprop="description">
+            <p>Les balises d&rsquo;entités (ETAG) sont un mécanisme que les serveurs web et les navigateurs utilisent pour déterminer si le composant dans le cache du navigateur correspond à celui sur le serveur d&rsquo;origine (Une «entité» est un autre mot pour désigner «composant»: images, scripts, feuilles de style, etc). Les ETags ont été ajoutés pour fournir un mécanisme de validation des entités qui est plus souple que la date de dernière modification. Un ETag est une chaîne qui identifie de manière unique une version spécifique d&rsquo;un composant. Les seules contraintes de format sont que la chaîne soit indiquée entre guillements. Le serveur d&rsquo;origine spécifie le ETag du composant en utilisant <code>ETag</code> dans l&rsquo;en-tête de réponse.</p>
+
+<pre><code>HTTP/1.1 200 OK
+Last-Modified: Tue, 12 Dec 2006 03:03:59 GMT
+ETag: &quot;10c24bc-4ab-457e1c1f&quot;
+Content-Length: 12195
+</code></pre>
+
+<p>Plus tard, si le navigateur doit valider un composant, il utilise l&rsquo;en-tête <code>If-None-Match</code> pour passer le ETag vers le serveur d&rsquo;origine. Si les ETags correspondent, un code de statut 304 est renvoyé réduisant la réponse à 12 195 octets pour cet exemple.</p>
+
+<pre><code>GET /i/yahoo.gif HTTP/1.1
+Host: us.yimg.com
+If-Modified-Since: Tue, 12 Dec 2006 03:03:59 GMT
+If-None-Match: &quot;10c24bc-4ab-457e1c1f&quot;
+HTTP/1.1 304 Not Modified
+</code></pre>
+
+<p>Le problème avec les ETags est qu&rsquo;ils sont généralement construits en utilisant des attributs qui les rendent uniques à un serveur, unique à l&rsquo;hébergement d&rsquo;un site. Les ETags ne correspondent pas lorsque un navigateur obtient le composant d&rsquo;origine d&rsquo;un serveur et essaie de valider ce composant sur ​​un serveur différent, une situation très fréquente sur ​​les sites Web qui utilisent un cluster de serveurs pour traiter les demandes. Par défaut, Apache et IIS intégrent les données dans le ETag, ce qui réduit considérablement les chances de réussite des tests de validité sur les sites Web avec plusieurs serveurs.</p>
+
+<p>Le format ETag pour Apache 1.3 et 2.x est <code>inode-size-timestamp</code>. Même si un fichier peut résider dans le même répertoire sur plusieurs serveurs, avoir la même taille de fichier, les mêmes permissions , le même horodatage, etc, son inode est différente d&rsquo;un serveur à l&rsquo;autre.</p>
+
+<p>IIS 5.0 et 6.0 ont un problème semblable avec ETags. Le format de ETags sur IIS est <code>Filetimestamp:ChangeNumber</code>. <code>ChangeNumber</code> est un compteur utilisé pour suivre les changements de configuration de IIS. Il est peu probable que le <code>ChangeNumber</code> soit le même sur tous les serveurs IIS derrière un site web.</p>
+
+<p>Le résultat final pour les ETags générés par Apache et IIS pour le même composant ne correspondent pas d&rsquo;un serveur à un autre. Si les ETags ne correspondent pas, l&rsquo;utilisateur ne reçoit pas la petite et rapide réponse 304 pour lesquels ils on été prévus. Au contraire, ils obtiendront une réponse normale 200 avec toutes les données pour le composant. Si vous hébergez votre site web sur un seul serveur, ce n&rsquo;est pas un problème. Mais si vous avez plusieurs serveurs d&rsquo;hébergement de votre site web, et que vous utilisez Apache ou IIS avec la configuration ETag par défaut, les utilisateurs ont des pages plus lentes, vos serveurs ont une charge plus élevée, vous consommez plus de bande passante, et les proxies ne peuvent mettre en cache votre contenu de manière efficace. Même si vos composants ont un en-tête <code>Expire</code> lointain, une requête GET conditionnelle est toujours faite à chaque fois que l&rsquo;utilisateur appuie sur Recharger ou Actualiser.</p>
+
+<p>Si vous ne tirez pas parti du modèle de validation flexible que les ETags fournissent, il est préférable de simplement retirer les ETag partout. L&rsquo;en-tête <code>Last-Modified</code> valide sur la base de l&rsquo;horodatage du composant. Retirer les ETag réduit à la fois la taille des en-têtes HTTP de la réponse et des demandes ultérieures. Cet <a href="http://support.microsoft.com/?id=922733">article du support technique Microsoft</a> décrit comment supprimer les ETags. Dans Apache, cela se fait simplement en ajoutant la ligne suivante à votre fichier de configuration d&rsquo;Apache :</p>
+
+<pre><code> FileETag none
+</code></pre>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#etags">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="yxhr"></div>
+        <span class="hidden" itemprop="alternateName">yxhr</span>
+
+        <h2>
+            <a itemprop="url" href="#yxhr">
+                <span itemprop="name">Rendre les requêtes Ajax cachables</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yxhr.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>Un des avantages cités d&rsquo;Ajax est qu&rsquo;il fournit une rétroaction instantanée à l&rsquo;utilisateur car il demande des informations de manière asynchrone à partir du serveur Web. Cependant, utiliser Ajax n&rsquo;est pas une garantie que l&rsquo;utilisateur ne sera pas en train de se tourner les pouces en attendant le retour des réponses Asynchronous JavaScript and XML. Dans de nombreuses applications, maintenir l&rsquo;attente de l&rsquo;utilisateur dépend de la façon dont Ajax est utilisé. Par exemple, dans un client de messagerie basé sur le Web, l&rsquo;utilisateur sera maintenu en attendant les résultats d&rsquo;une requête Ajax pour trouver tous les messages électroniques correspondant aux critères de recherche. Il est important de se rappeler que «asynchrone» ne signifie pas «instantané».</p>
+
+<p>Pour améliorer les performances, il est important d&rsquo;optimiser ces réponses Ajax. Le moyen le plus important pour améliorer les performances Ajax est de servir les réponses mises en cache, comme indiqué dans <a href="# expire">Ajouter une expiration ou un en-tête Cache-Control</a>. D&rsquo;autres règles s&rsquo;appliquent également à pour Ajax:</p>
+
+<ul>
+<li><a href="#gzip">Gzipper les composants</a></li>
+<li><a href="#dns_lookups">Réduire le nombre de requêtes DNS</a></li>
+<li><a href="#minify">Minifier JavaScript</a></li>
+<li><a href="#redirects">Éviter les redirections</a></li>
+<li><a href="#etags">Configurer les ETags</a></li>
+</ul>
+
+<p>Voyons un exemple. Un client de messagerie Web 2.0 peut utiliser Ajax pour télécharger le carnet d&rsquo;adresses de l&rsquo;utilisateur à des fins d&rsquo;auto-complétion. Si l&rsquo;utilisateur n&rsquo;a pas modifié son carnet d&rsquo;adresse depuis la dernière fois, la réponse du carnet d&rsquo;adresses précédente pourrait être lu à partir du cache si cette réponse Ajax a été mise en cache avec un en-tête Expire ou Cache-Control. Le navigateur doit être informé quand utiliser une réponse de carnet d&rsquo;adresses précédemment mise en cache par rapport à en demander une nouvelle. Cela pourrait se faire par l&rsquo;ajout d&rsquo;un horodatage dans le carnet d&rsquo;adresse URL Ajax indiquant la dernière fois que l&rsquo;utilisateur a modifié son carnet d&rsquo;adresses. Par exemple, <code>&amp;t=1190241612</code>. Si le carnet d&rsquo;adresses n&rsquo;a pas été modifié depuis le dernier téléchargement, l&rsquo;horodatage sera le même et le carnet d&rsquo;adresses sera lu à partir de la mémoire cache du navigateur, éliminant un aller-retour HTTP supplémentaire. Si l&rsquo;utilisateur a modifié son carnet d&rsquo;adresses, l&rsquo;horodatage assure que la nouvelle URL ne correspond pas à la réponse mise en cache, et le navigateur demandera une nouvelle réponse du carnet d&rsquo;adresses à jour .</p>
+
+<p>Même si vos réponses Ajax sont créées dynamiquement, et qu&rsquo;elles ne sontt applicables qu&rsquo;à un seul utilisateur, elles peuvent encore être mis en cache. Cela rendra vos applications Web 2.0 plus rapide .</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#cacheajax">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
+
+        <div id="yflush"></div>
+        <span class="hidden" itemprop="alternateName">yflush</span>
+
+        <h2>
+            <a itemprop="url" href="#yflush">
+                <span itemprop="name">Nettoyer le tampon très tôt</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yflush.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">server</span>
+        
+
+        <div itemprop="description">
+            <p>Lorsque les utilisateurs demandent une page, il peut se passer 200 à 500 ms au niveau du serveur pour assembler la page HTML. Pendant ce temps, le navigateur est inactif, en attente des données qui vont arriver. En PHP vous avez la fonction <a href="http://php.net/flush">flush()</a>. Elle vous permet d&rsquo;envoyer une partie de la réponse HTML afin que le navigateur puisse commencer la récupération des composants pendant que votre serveur backend est occupé avec le reste de la page HTML. L&rsquo;avantage est surtout visible sur les backends occupés ou les interfaces légères.</p>
+
+<p>Un bon endroit pour nettoyer le tampon est juste après la partie HEAD du document. Le code HTML contenu dans cette partie est généralement plus facile à produire et il vous permet d&rsquo;inclure tout les fichiers CSS et JavaScript. Le navigateur peut commencer à charger en parallèle alors que le backend est en cours de traitement.</p>
+
+<p>Exemple:</p>
+
+<pre><code>    ... &lt;!-- css, js --&gt;
+    &lt;/head&gt;
+    &lt;?php flush(); ?&gt;
+    &lt;body&gt;
+      ... &lt;!-- content --&gt;
+</code></pre>
+
+<p><a href="http://search.yahoo.com">Yahoo! search</a> a été un des pionniers au niveau recherche sur les tests utilisateurs afin de prouver les avantages de l&rsquo;utilisation de cette technique .</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#flush">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
+
+        <div id="yxhrmethod"></div>
+        <span class="hidden" itemprop="alternateName">yxhrmethod</span>
+
+        <h2>
+            <a itemprop="url" href="#yxhrmethod">
+                <span itemprop="name">Utiliser GET pour les requêtes Ajax</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yxhrmethod.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">server</span>
+        
+
+        <div itemprop="description">
+            <p>L&rsquo;équipe de <a href="http://mail.yahoo.com">Yahoo! Mail</a> a constaté que lors de l&rsquo;utilisation de <code>XMLHttpRequest</code>, POST est mis en œuvre dans les navigateurs comme un processus en deux étapes: l&rsquo;envoi des en-têtes puis l&rsquo;envoi de données. Il est donc préférable d&rsquo;utiliser GET, qui ne prend qu&rsquo;un paquet TCP pour envoyer (sauf si vous avez un grand nombre de cookies). La longueur maximale pour une URL dans IE est 2K, donc si vous envoyez des données de plus de 2K vous pourriez ne pas être en mesure d&rsquo;utiliser GET.</p>
+
+<p>Un côté intéressant est que POST sans affichage réels de données se comporte comme GET. Sur la base des spécifications <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP</a>, GET est destiné à récupérer des informations. Il serait donc très judicieux (sémantiquement) d&rsquo;utiliser GET lorsque vous récupérez des données, par opposition à l&rsquo;envoi de données à stocker côté serveur.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#ajax_get">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="ypostload"></div>
+        <span class="hidden" itemprop="alternateName">ypostload</span>
+
+        <h2>
+            <a itemprop="url" href="#ypostload">
+                <span itemprop="name">Post-charger les composants</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ypostload.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>Les redirections sont effectuées en utilisant les codes d&rsquo;état 301 et 302. Voici un exemple des en-têtes HTTP dans une réponse 301:</p>
+
+<pre><code>HTTP/1.1 301 Moved Permanently
+Location: http://example.com/newuri
+Content-Type: text/html
+</code></pre>
+
+<p>Vous pouvez jeter un oeil de plus près à votre page et vous vous demandez : «Qu&rsquo;est-ce qui est absolument nécessaire afin d&rsquo;initier le rendu de la page?». Le reste du contenu et des composants peut attendre.</p>
+
+<p>JavaScript est un candidat idéal pour la séparation avant et après l&rsquo;événement onload. Par exemple, si vous avez du code JavaScript et des bibliothèques qui font du glisser-déposer et autres animations, celles-ci peuvent attendre. Glisser des éléments sur la page vient après le rendu initial. Autres endroits pour chercher des candidats pour le post chargement: Le contenu caché (il apparaît après une action de l&rsquo;utilisateur) et les images en dessous de la ligne de flotaison.</p>
+
+<p>Les outils pour vous aider dans votre effort: <a href="http://developer.yahoo.com/yui/imageloader/">YUI Image Loader</a> vous permet de retarder les images sous laz ligne de flotaison et le <a href="http://developer.yahoo.com/yui/get/">YUI Get Utility</a> est un moyen facile d&rsquo;inclure du JS et des CSS à la volée. Pour voir un exemple, jetez un oeil à <a href="http://www.yahoo.com">La page d&rsquo;accueil de Yahoo!</a> avec le panneau réseau de Firebug activé.</p>
+
+<p>C&rsquo;est une bonne chose que les objectifs de performance soient en adéquation avec d&rsquo;autres bonnes pratiques de développement web. Dans ce cas, l&rsquo;idée d&rsquo;améliorations progressives nous dit que le JavaScript, quand il est supporté; peut améliorer l&rsquo;expérience utilisateur. Mais vous devez vous assurer que la page fonctionne même sans JavaScript. Ainsi, après que vous ayez fait en sorte que la page fonctionne, vous pouvez l&rsquo;améliorer avec quelques scripts en post-chargement qui donneront plus de peps à celle-ci tels que le glisser-déposer et les animations.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#postload">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="ypreload"></div>
+        <span class="hidden" itemprop="alternateName">ypreload</span>
+
+        <h2>
+            <a itemprop="url" href="#ypreload">
+                <span itemprop="name">Précharger les composants</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ypreload.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>le préchargement peut sembler de prime abord l&rsquo;exact opposé du post-chargement, mais il a en fait un objectif différent. Le préchargement de composants consiste à profiter du temps où le navigateur est inactif pour charger des composants de la demande dont vous aurez besoin plus tard (comme les images, les styles et les scripts). De cette façon, lorsque l&rsquo;internaute visite la page suivante, vous pourriez avoir la plupart des composants déjà dans le cache et votre page se chargera beaucoup plus rapidement pour l&rsquo;utilisateur .</p>
+
+<p>Il y a en fait plusieurs types de préchargements :</p>
+
+<ul>
+<li>Préchargement <em>inconditionnel</em> - dès que l&rsquo;événement onload se produit, allez-y et récupérez quelques composants supplémentaires. Vérifiez google.com pour voir un exemple de la façon dont une image composée de  sprites est demandé onload. Cette image composée de sprites n&rsquo;est pas nécessaire sur la page d&rsquo;accueil de google.com, mais elle est nécessaire sur la page de résultat de recherche consécutive.</li>
+<li>Préchargement <em>conditionnel</em> - basé sur une action de l&rsquo;utilisateur à faire une supposition éclairée de la prochaine étape de l&rsquo;utilisateur et précharger en conséquence. Sur <a href="http://search.yahoo.com">search.yahoo.com</a> vous pouvez voir comment certains composants supplémentaires sont demandés après que vous ayez commencés à taper dans la zone de saisie.</li>
+<li>Préchargement <em>prévu</em> - précharge à l&rsquo;avance avant de lancer une refonte du design d&rsquo;un site. Il arrive souvent après une refonte que vous entendiez : «Le nouveau site est cool, mais il est plus lent qu&rsquo;avant». Une partie du problème pourrait être que les utilisateurs étaient en visite sur votre ancien site avec un cache complet, mais le nouveau est toujours parcouru avec un cache vide. Vous pouvez atténuer cet effet secondaire par le préchargement des composants avant même de lancer la refonte. Votre ancien site utilise le temps pendant lequel le navigateur est inactif pour demander des images et des scripts qui seront utilisés par le nouveau site.</li>
+</ul>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#preload">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="ymindom"></div>
+        <span class="hidden" itemprop="alternateName">ymindom</span>
+
+        <h2>
+            <a itemprop="url" href="#ymindom">
+                <span itemprop="name">Réduire le nombre d’éléments du DOM</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ymindom.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>Une page complexe signifie plus d&rsquo;octets à télécharger et aussi un accès au DOM plus lent en JavaScript. Cela fait une différence si vous parcourez 500 ou 5000 éléments DOM sur la page lorsque vous souhaitez ajouter un gestionnaire d&rsquo;événements par exemple.</p>
+
+<p>Un nombre élevé d&rsquo;éléments DOM peut être un symptôme qu&rsquo;il ya quelque chose qui devrait être amélioré avec le balisage de la page sans nécessairement supprimer le contenu. Utilisez-vous des tableaux imbriqués à des fins de mise en page ? Ajoutez-vous plus de balises <code>&lt;div&gt;</code> seulement pour résoudre des problèmes de mise en page ? Peut-être y a t&rsquo;il une meilleure façon, sémantiquement plus correct de faire votre balisage .</p>
+
+<p>Les <a href="http://developer.yahoo.com/yui/">YUI CSS utilitaires</a> sont une aide préciseuse pour la mise en page: grids.css peut vous aider pour la disposition générale, fonts.css et reset.css peuvent vous aider à redéfinir la mise en forme par défaut du navigateur. C&rsquo;est une chance de repartir de zéro et de réfléchir à votre balisage, par exemple utiliser <code>&lt;div&gt;</code> seulement quand c&rsquo;est logique sémantiquement et non parce que la balise rend une nouvelle ligne.</p>
+
+<p>Le nombre d&rsquo;éléments DOM est facile à tester, il suffit de taper dans la console de Firebug: <code>document.getElementsByTagName('*').length</code>.</p>
+
+<p>Et combien d&rsquo;éléments DOM sont trop nombreux? Vérifiez d&rsquo;autres pages similaires possédant un bon balisage. Par exemple, <a href="http://www.yahoo.com">Yahoo!</a> est une page très chargée et reste pourtant sous la barre des 700 éléments (balises HTML).</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#min_dom">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="ysplit"></div>
+        <span class="hidden" itemprop="alternateName">ysplit</span>
+
+        <h2>
+            <a itemprop="url" href="#ysplit">
+                <span itemprop="name">Répartir les composants sur plusieurs domaines</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ysplit.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>La répartition des composant permet de maximiser le nombre de téléchargements parallèles. Assurez-vous de ne pas utiliser plus de 2-4 domaines en raison du coût de recherche DNS. Par exemple, vous pouvez héberger votre code HTML et du contenu dynamique sur <code>www.example.org</code> et répartir les composants statiques entre <code>static1.example.org</code> et <code>static2.example.org</code>.</p>
+
+<p>Visitez &ldquo;<a href="http://yuiblog.com/blog/2007/04/11/performance-research-part-4/">Maximizing Parallel Downloads in the Carpool Lane</a>&rdquo; de Tenni Theurer et Patty Chi pour plus d&rsquo;informations.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#split">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="yiframes"></div>
+        <span class="hidden" itemprop="alternateName">yiframes</span>
+
+        <h2>
+            <a itemprop="url" href="#yiframes">
+                <span itemprop="name">Minimiser le nombre de iframes</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yiframes.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>Les iframes permettent d&rsquo;insérer un document HTML dans le document parent. Il est important de comprendre comment fonctionnent les iframes afin de les utiliser efficacement.</p>
+
+<p>Les avantages <code>&amp;lt;iframe&amp;gt;</code>:</p>
+
+<ul>
+<li>Aide à la teneur de scripts de tierce partie comme des badges et des annonces</li>
+<li>Bac à sable de sécurité</li>
+<li>Téléchargement des scripts en parallèle</li>
+</ul>
+
+<p>Les inconvénients &lt;iframe&gt;:</p>
+
+<ul>
+<li>Coûte cher même si vide</li>
+<li>Bloque l&rsquo;événement onload</li>
+<li>Pas sémantique</li>
+</ul>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#iframes">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
+
+        <div id="yno404"></div>
+        <span class="hidden" itemprop="alternateName">yno404</span>
+
+        <h2>
+            <a itemprop="url" href="#yno404">
+                <span itemprop="name">Éviter les erreurs 404</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yno404.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">content</span>
+        
+
+        <div itemprop="description">
+            <p>Les requêtes HTTP sont chères alors faire une requête HTTP et obtenir une réponse (404 Not Found) est totalement inutile et va ralentir l&rsquo;expérience utilisateur sans aucun avantage.</p>
+
+<p>Certains sites ont des pages 404 utiles &ldquo;Vouliez-vous dire X?&rdquo;, qui est excellent pour l&rsquo;expérience utilisateur mais aussi un gaspillage des ressources du serveur (base de données, etc.). C&rsquo;est Particulièrement mauvais quand le lien à un JavaScript externe est faux et que le résultat est un 404. Tout d&rsquo;abord, ce téléchargement va bloquer les téléchargements parallèles. De plus, le navigateur peut essayer d&rsquo;analyser le corps de la réponse 404 comme s&rsquo;il s&rsquo;agissait du code JavaScript et en essayant de trouver quelque chose d&rsquo;utilisable en elle.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#no404">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-cookie " style="padding-bottom:1em;">
+
+        <div id="ymincookie"></div>
+        <span class="hidden" itemprop="alternateName">ymincookie</span>
+
+        <h2>
+            <a itemprop="url" href="#ymincookie">
+                <span itemprop="name">Réduire la taille des cookies</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ymincookie.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">cookie</span>
+        
+
+        <div itemprop="description">
+            <p>Les cookies HTTP sont utilisés pour une variété de raisons comme l&rsquo;authentification et la personnalisation. L&rsquo;information sur les cookies est échangée dans les en-têtes HTTP entre les serveurs Web et les navigateurs. Il est important de garder la taille des cookies aussi basse que possible pour minimiser l&rsquo;impact sur ​​le temps de réponse de l&rsquo;utilisateur.</p>
+
+<p>Consultez <a href="http://yuiblog.com/blog/2007/03/01/performance-research-part-3/">&ldquo;When the Cookie Crumbles&rdquo;</a> par Tenni Theurer et Patty Chi pour plus d&rsquo;informations. Les points importants de cette recherche:</p>
+
+<ul>
+<li>Éliminer les cookies inutiles.</li>
+<li>Gardez leur taille aussi faible que possible afin de minimiser l&rsquo;impact sur le temps de réponse de l&rsquo;utilisateur.</li>
+<li>Stockez vos cookies au niveau de domaine approprié afin que les autres sous-domaines ne soient pas affectés.</li>
+<li>Définir une date d&rsquo;expiration appropriée. Une date d&rsquo;expiration antérieure voir aucune supprime le cookie plus tôt, améliorant par là le temps de réponse de l&rsquo;utilisateur.</li>
+</ul>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#cookie_size">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-cookie " style="padding-bottom:1em;">
+
+        <div id="ycookiefree"></div>
+        <span class="hidden" itemprop="alternateName">ycookiefree</span>
+
+        <h2>
+            <a itemprop="url" href="#ycookiefree">
+                <span itemprop="name">Utiliser des domaines sans cookies pour les composants</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ycookiefree.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">cookie</span>
+        
+
+        <div itemprop="description">
+            <p>Lorsque le navigateur envoie une requête pour une image statique et envoie des cookies avec la demande , le serveur n&rsquo;a pas d&rsquo; utilisation de ces cookies. Ils créent du trafic réseau pour aucune raison valable. Vous devez vous assurer que les composants statiques soient demandés sans cookies. Créez un sous-domaine et hébergez y tous vos composants statiques.</p>
+
+<p>Si votre domaine est <code>www.example.org</code>, vous pouvez héberger vos composants statiques sur <code>static.example.org</code>. Toutefois, si vous avez déjà configuré les cookies sur le domaine de premier niveau <code>example.org</code> par opposition à <code>www.example.org</code>, alors toutes les demandes vers <code>static.example.org</code> comprendront des cookies. EDans ce cas, vous pouvez acheter un tout nouveau domaine, y héberger vos composants statiques et garder ce nom de domaine libre de tout cookie. Yahoo! utilise <code>yimg.com</code>, YouTube utilise <code>ytimg.com</code>, Amazon utilise <code>image -amazon.com</code> et ainsi de suite.</p>
+
+<p>Un autre avantage de mettre les composants statiques sur un domaine libre de cookie est que certains mandataires pourraient refuser de mettre en cache les composants demandés avec des cookies. Sur une note liée , si vous vous demandez si vous devez utiliser example.org ou www.example.org pour votre page d&rsquo;accueil, envisager l&rsquo;impact des cookies. Omettre www ne vous laisse pas d&rsquo;autre choix que d&rsquo;écrire des cookies pour <code>*.example.org</code>. Pour des raisons de performances, il est préférable d&rsquo;utiliser le sous-domaine www et d&rsquo;écrire les cookies sur ce sous-domaine.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#cookie_free">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-javascript " style="padding-bottom:1em;">
+
+        <div id="ydom_access"></div>
+        <span class="hidden" itemprop="alternateName">ydom_access</span>
+
+        <h2>
+            <a itemprop="url" href="#ydom_access">
+                <span itemprop="name">Minimiser les accès DOM</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ydom_access.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">javascript</span>
+        
+
+        <div itemprop="description">
+            <p>L&rsquo;accès aux éléments du DOM avec JavaScript est lent. Afin d&rsquo;avoir une page plus réactive, vous devez:</p>
+
+<ul>
+<li>Mettre en cahe les références à des éléments accessibles.</li>
+<li>Mettre à jour les nœuds «hors ligne» et les ajouter ensuite à l&rsquo;arbre.</li>
+<li>Éviter de corriger la mise en page avec JavaScript.</li>
+</ul>
+
+<p>Consultez le YUI theatre&rsquo;s <a href="http://yuiblog.com/blog/2007/12/20/video-lecomte/">&ldquo;High Performance Ajax Applications&rdquo;</a> de Julien Lecomte pour plus d&rsquo;informations.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#dom_access">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-javascript " style="padding-bottom:1em;">
+
+        <div id="yevents"></div>
+        <span class="hidden" itemprop="alternateName">yevents</span>
+
+        <h2>
+            <a itemprop="url" href="#yevents">
+                <span itemprop="name">Développer des gestionnaires d’événements intelligents</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yevents.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">javascript</span>
+        
+
+        <div itemprop="description">
+            <p>Parfois, les pages se ressentent comme moins réactives à cause des trop nombreux gestionnaires d&rsquo;événements attachés aux différents éléments de l&rsquo;arborescence DOM et qui sont ensuite exécutés trop souvent. C&rsquo;est pourquoi l&rsquo;utilisation d&rsquo;une <em>délégation d&rsquo;événement</em> est une bonne approche. Si vous avez 10 boutons à l&rsquo;intérieur d&rsquo;un <code>div</code>, attachez un seul gestionnaire d&rsquo;événements sur le div au lieu d&rsquo;un gestionnaire pour chaque bouton. Les événements vont survenir afin que vous soyez en mesure de capturer l&rsquo;événement et déterminer de quel bouton il provient.</p>
+
+<p>Vous n&rsquo;avez pas besoin d&rsquo;attendre l&rsquo;événement onload pour commencer à faire quelque chose avec l&rsquo;arborescence DOM. Souvent, tout ce dont vous avez besoin est que l&rsquo;élément auquel vous souhaitez accéder soit disponible dans l&rsquo;arbre. Vous n&rsquo;avez pas à attendre que toutes les images soient téléchargées. <code>DOMContentLoaded</code> est l&rsquo;événement que vous pouvez envisager d&rsquo;utiliser à la place de onload , mais jusqu&rsquo;à ce qu&rsquo;il soit disponible dans tous les navigateurs, vous pouvez utiliser l&rsquo;utilitaire <a href="http://developer.yahoo.com/yui/event/">YUI  Event</a> qui a une méthode <code>onAvailable</code>.</p>
+
+<p>Consultez le YUI theatre&rsquo;s <a href="http://yuiblog.com/blog/2007/12/20/video-lecomte/">&ldquo;High Performance Ajax  Applications&rdquo;</a> de Julien Lecomte pour plus d&rsquo;informations.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#events">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-css " style="padding-bottom:1em;">
+
+        <div id="ycsslink"></div>
+        <span class="hidden" itemprop="alternateName">ycsslink</span>
+
+        <h2>
+            <a itemprop="url" href="#ycsslink">
+                <span itemprop="name">Utiliser &lt;link&gt; plutôt que @import</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ycsslink.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">css</span>
+        
+
+        <div itemprop="description">
+            <p>Une des meilleures pratiques précédentes indique que les feuilles de style CSS devraient être chargées en haut de pages afin de permettre le rendu progressif.</p>
+
+<p>Dans IE <code>@import</code> se comporte comme utilisant <code>&lt;link&gt;</code> en bas de page, il est donc préférable de ne pas l&rsquo;utiliser.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#csslink">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-css " style="padding-bottom:1em;">
+
+        <div id="ynofilter"></div>
+        <span class="hidden" itemprop="alternateName">ynofilter</span>
+
+        <h2>
+            <a itemprop="url" href="#ynofilter">
+                <span itemprop="name">Éviter les filtres</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ynofilter.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">css</span>
+        
+
+        <div itemprop="description">
+            <p>Le filtre propriétaire IE <code>AlphaImageLoader</code> vise à régler un problème de couleurs vraies semi-transparentes dans les versions IE &lt;7. Le problème avec ce filtre est qu&rsquo;il bloque le rendu. Le navigateur se bloque lorsque l&rsquo;image est en cours de téléchargement. Il augmente également la consommation de mémoire et est appliqué par élément, et non par image, de sorte que le problème est multiplié.</p>
+
+<p>La meilleure approche est d&rsquo;éviter <code>AlphaImageLoader</code> complètement et d&rsquo;utiliser une version dégradée PNG8 à la place. Fonctionne dans IE. Si vous avez absolument besoin du filtre <code>AlphaImageLoader</code>, utilisez le vieux hack <code>_filter</code> afin de ne pas pénaliser vos utilisateurs IE7+.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#no_filters">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-images " style="padding-bottom:1em;">
+
+        <div id="yopt_images"></div>
+        <span class="hidden" itemprop="alternateName">yopt_images</span>
+
+        <h2>
+            <a itemprop="url" href="#yopt_images">
+                <span itemprop="name">Optimiser les images</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yopt_images.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">images</span>
+        
+
+        <div itemprop="description">
+            <p>Quand le designer en a fini avec la création des images pour votre page web, il y a encore certaines choses que vous pouvez essayer de faire avant d&rsquo;envoyer les images sur votre serveur web.</p>
+
+<ul>
+<li>Vous pouvez vérifier les images GIF et voir si elles utilisent une taille de palette correspondant au nombre de couleurs dans l&rsquo;image. L&rsquo;utilisation de <a href="http://www.imagemagick.org">imagemagick</a> rend cette vérification facile en utilisant <code>identifier-verbose image.gif</code> Lorsque vous voyez une image de 4 couleurs utilisant une palette de 256 couleurs, il y a place à amélioration.</li>
+<li>Essayez de convertir les fichiers GIF en PNG pour voir si la taille diminue. C&rsquo;est le cas plus souvent qu&rsquo;on ne le croit. Les développeurs hésitent souvent à utiliser le format PNG en raison de sa prise en charge limitée dans les navigateurs. C&rsquo;est maintenant du passé. Le seul vrai problème est la transparence alpha dans les couleurs vraies PNG. Mais là encore, GIF ne ne fait pas mieux et ne prend pas en charge la transparence variable. Donc, tout ce que GIF peut faire, une palette PNG (PNG8) peut le faire (sauf pour les animations). Cette simple commande <code>imagemagick</code> donne un PNG totalement sûr à utiliser: <code>convert image.gif image.png</code> &ldquo; Tout ce que nous disons, c&rsquo;est donnez une chance au PiNG !&rdquo;</li>
+<li>Exécutez <a href="http://pmt.sourceforge.net/pngcrush/">pngcrush</a> ou tout autre outil d&rsquo;optimisation PNG sur tous vos PNG. Exemple: <code>pngcrush image.png -rem alla -reduce -brute result.png</code></li>
+<li>Exécutez <code>jpegtran</code> sur tous vos fichiers JPEG. Cet outil effectue des opérations JPEG sans perte comme la rotation et peut également être utilisé pour optimiser et supprimer commentaires et autres informations inutiles (telles que les informations EXIF) de vos images. <code>jpegtran -copy none -optimize -perfect src.jpg dest.jpg</code>.</li>
+</ul>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#opt_images">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-images " style="padding-bottom:1em;">
+
+        <div id="yopt_sprites"></div>
+        <span class="hidden" itemprop="alternateName">yopt_sprites</span>
+
+        <h2>
+            <a itemprop="url" href="#yopt_sprites">
+                <span itemprop="name">Optimiser les sprites CSS</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yopt_sprites.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">images</span>
+        
+
+        <div itemprop="description">
+            <ul>
+<li>Organiser les images dans l&rsquo;image-objet horizontalement plutôt que verticalement donne en général un fichier de plus petite taille.</li>
+<li>La combinaison de couleurs similaires dans un un sprite vous aide à n&rsquo;utiliser que peu de couleurs, idéalement sous les 256 afin d&rsquo;intégrer un PNG8.</li>
+<li>&ldquo;Soyez mobile-friendly&rdquo; et ne pas laisser de grands espaces entre les images d&rsquo;un sprite. Cela n&rsquo;affecte pas tant que ça la taille du fichier mais nécessite moins de mémoire au terminal utilisateur pour décompresser l&rsquo;image en une carte de pixels. Une image de 100x100 représente 10 mille pixels là où une image de 1000x1000 est composée de 1 millions de pixels.</li>
+</ul>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#opt_sprites">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-images " style="padding-bottom:1em;">
+
+        <div id="yimgnoscale"></div>
+        <span class="hidden" itemprop="alternateName">yimgnoscale</span>
+
+        <h2>
+            <a itemprop="url" href="#yimgnoscale">
+                <span itemprop="name">Ne pas mettre à l’échelle les images en HTML</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yimgnoscale.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">images</span>
+        
+
+        <div itemprop="description">
+            <p>Ne pas utiliser une image plus grande que votre besoin sous prétexte de pouvoir définir la largeur et la hauteur en HTML. Si vous avez besoin <code>&lt;img width=&quot;100&quot; height=&quot;100&quot; src=&quot;mycat.jpg&quot; alt=&quot;My Cat&quot; /&gt;</code> alors votre image (Mycat.jpg) devrait faire 100x100px plutôt qu&rsquo;utiliser une image de 500x500px réduite.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#no_scale">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-images " style="padding-bottom:1em;">
+
+        <div id="yfavicon"></div>
+        <span class="hidden" itemprop="alternateName">yfavicon</span>
+
+        <h2>
+            <a itemprop="url" href="#yfavicon">
+                <span itemprop="name">Faire un petit favicon.ico et le rendre cachable</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yfavicon.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">images</span>
+        
+
+        <div itemprop="description">
+            <p>Le favicon.ico est une image qui réside à la racine de votre serveur. C&rsquo;est un mal nécessaire parce que même si vous ne vous en souciez pas, un navigateur saura toujours le demander. Il est donc préférable de ne pas répondre avec un <code>404 Not Found</code>. En outre, depuis qu&rsquo;il est sur ​​le même serveur, des cookies sont envoyés chaque fois qu&rsquo;il est demandé. Cette image interfère également avec la séquence de téléchargement. Par exemple dans IE, lorsque vous demandez des composants supplémentaires dans le onload, le favicon sera téléchargé avant ces composants supplémentaires.</p>
+
+<p>Donc, pour pallier les inconvénients d&rsquo;avoir un favicon.ico, assurez-vous de:</p>
+
+<ul>
+<li>Le faire petit, de préférence sous les 1K.</li>
+<li>Régler l&rsquo;en-tête Set Expire de façon confortable pour vous (puisque vous ne pouvez pas le renommer si vous décidez de le changer). Vous pouvez probablement régler l&rsquo;en-tête Expires quelques mois dans le futur. Vérifier la dernière date de modification de votre favicon.ico actuelle peut aider à faire un choix éclairé.</li>
+</ul>
+
+<p><a href="http://www.imagemagick.org">ImageMagick</a> peut vous aider à créer de petits favicons.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#favicon">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-mobile " style="padding-bottom:1em;">
+
+        <div id="yunder25"></div>
+        <span class="hidden" itemprop="alternateName">yunder25</span>
+
+        <h2>
+            <a itemprop="url" href="#yunder25">
+                <span itemprop="name">Garder les composants sous les 25 KO</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yunder25.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">mobile</span>
+        
+
+        <div itemprop="description">
+            <p>Cette restriction est liée au fait que l&rsquo;iPhone ne mettra pas en cache de composants plus grands que 25K. Notez que c&rsquo;est la taille <em>non compressée</em>. C&rsquo;est là où la minification est importante parce que gzip seul peut ne pas suffire.</p>
+
+<p>Pour plus d&rsquo;informations, consultez &ldquo;<a href="http://yuiblog.com/blog/2008/02/06/iphone-cacheability/">Performance Research, Part 5: iPhone Cacheability - Making it Stick</a>&rdquo; par Wayne Shea et Tenni Theurer.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#under25">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-mobile " style="padding-bottom:1em;">
+
+        <div id="ymultipart"></div>
+        <span class="hidden" itemprop="alternateName">ymultipart</span>
+
+        <h2>
+            <a itemprop="url" href="#ymultipart">
+                <span itemprop="name">Rassembler les composants en un document multi-parties</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ymultipart.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">mobile</span>
+        
+
+        <div itemprop="description">
+            <p>Rassembler les composants dans un document multi-parties; comme un e-mail avec pièces jointes, permet de récupérer plusieurs composants avec une seule requête HTTP (souvenez-vous: les demandes HTTP sont chères). Lorsque vous utilisez cette technique, vérifiez d&rsquo;abord si le terminal utilisateur la prend en charge (iPhone ne fonctionne pas).</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#multipart">Reference</a>
+    </div>
+</section>
+	  
+	    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
+
+        <div id="yemptysrc"></div>
+        <span class="hidden" itemprop="alternateName">yemptysrc</span>
+
+        <h2>
+            <a itemprop="url" href="#yemptysrc">
+                <span itemprop="name">Éviter les balises image src vides</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yemptysrc.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">server</span>
+        
+
+        <div itemprop="description">
+            <p>Il est plus fréquent qu&rsquo;on ne le croit de trouver des images avec un attribut <strong>src</strong> vide. Ceci apparaît sous deux formes:</p>
+
+<ol>
+<li>En HTML</li>
+</ol>
+
+<pre><code>&lt;img src=&quot;&quot;&gt;
+</code></pre>
+
+<ol>
+<li>En JavaScript</li>
+</ol>
+
+<pre><code>var img = new Image();
+img.src = &quot;&quot;;
+</code></pre>
+
+<p>Les deux formes provoquent le même effet: Le navigateur fait une nouvelle demande à votre serveur.</p>
+
+<ul>
+<li><strong>Internet Explorer</strong> fait une demande pour le répertoire dans lequel se trouve la page.</li>
+<li><strong>Safari et Chrome</strong> font la demande à la page elle-même.</li>
+<li><strong>Firefox</strong> 3 et les versions antérieures se comportent comme Safari et Chrome, mais la version 3.5 a abordé cette question dans le rapport de <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=444931">[bug 444931]</a> et n&rsquo;envoie donc plus de nouvelle demande.</li>
+<li><strong>Opéra</strong> ne fait rien.</li>
+</ul>
+
+<p><strong>Pourquoi est-ce un mauvais comportement ?</strong></p>
+
+<ol>
+<li>Paralyse vos serveurs en envoyant une grande quantité de trafic inattendu, surtout pour les pages qui obtiennent des millions de pages vues par jour.</li>
+<li>Perte de puissance de calcul pour générer une page qui ne sera jamais vue.</li>
+<li>Données de l&rsquo;utilisateur éventuellement corrompues. Si vous suivez l&rsquo;état de la requête, que ce soit par cookies ou d&rsquo;une autre manière, vous avez la possibilité de détruire les données. Même si la demande d&rsquo;image ne ​​renvoie pas d&rsquo;image, tous les en-têtes sont lus et acceptés par le navigateur, y compris tous les cookies. Alors que le reste de la réponse est rejetée, des dégâts peuvent déjà être faits.</li>
+</ol>
+
+<p>La cause de ce comportement est la façon dont la résolution URI est effectuée dans les navigateurs. Ce comportement est défini dans la RFC 3986 - Uniform Resource Identifiers. Quand une chaîne vide est rencontrée comme URI, celui-ci est considéré comme un URI relatif et est résolu selon l&rsquo;algorithme défini dans la section 5.2. Cet exemple spécifique, une chaîne vide, est cotée à la section 5.4. Firefox, Safari et Chrome ont tous résolus ce problème de chaîne vide correctement dans leur cahier des charges, alors que Internet Explorer le résoud de façon incorrecte, apparemment en ligne avec une version antérieure de la spécification, RFC 2396 - Uniform Resource Identifiers (rendue obsolète par la RFC 3986). Ainsi, techniquement, les navigateurs font ce qu&rsquo;ils sont censés faire pour résoudre les URI relatifs. Le problème est que dans ce contexte, la chaîne vide est clairement involontaire.</p>
+
+<p>À la section 4.8.2, HTML5 ajoute à la description de l&rsquo;attribut src de la balise l&rsquo;indication aux navigateurs de ne pas faire une demande supplémentaire:</p>
+
+<blockquote>
+<p>L&rsquo;attribut src doit être présent et doit contenir une URL valide de référencement d&rsquo;une image, éventuellement animée mais non-interactive, ni paginée ou scriptée. Si l&rsquo;URI de base de l&rsquo;élément est la même que l&rsquo;adresse du document, alors la valeur de l&rsquo;attribut src ne peut pas être une chaîne vide .</p>
+</blockquote>
+
+<p>Heureusement, les navigateurs n&rsquo;auront plus ce problème à l&rsquo;avenir. Malheureusement, il n&rsquo;existe pas de telle clause pour <code>&lt;script src=&quot;&quot;&gt;</code> et <code>&lt;lien href=&quot;&quot;&gt;</code>. Peut-être qu&rsquo;il est encore temps de faire cet ajustement pour s&rsquo;assurer que les navigateurs n&rsquo;implémentent ce comportement pas accident.</p>
+
+<p>Cette règle a été inspiré par le gourou JavaScript Yahoo! Nicolas C. Zakas. Pour plus d&rsquo;informations, consultez son article &ldquo;<a href="http://www.nczonline.net/blog/2009/11/30/empty-image-src-can-destroy-your-site/">Empty image src can destroy your site</a>&rdquo;.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#emptysrc">Reference</a>
+    </div>
+</section>
+	  
+  </div>
+</div>
+
+
+<hr>
+<div class="container footer">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+		YSlow are licensed under the <a href="https://raw.github.com/marcelduran/yslow/master/LICENSE.txt">New BSD License</a>.<br>
+		YSlow also includes files from the <a href="http://yuilibrary.com/">Yahoo! User Interface library</a>, which are licensed under the <a href="http://yuilibrary.com/license/">BSD license</a>.<br>
+		Translations are licensed under the <a href="https://raw.github.com/checkmyws/yslow-rules/master/LICENSE">MIT License</a>.
+    </div>
+  </div>
+</div>
+    <noscript></noscript>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
+  </body>
+</html>
