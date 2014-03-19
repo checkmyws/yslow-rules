@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="summary hidden-xs">
+        <ol>
+          {{ range .Data.Pages.ByWeight }}
+          <li class="rule {{ range .Params.tags }}tag-{{ . }} {{ end }}">
+            <a href="#{{ .Params.id }}">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ol>
+      </div>
+      <div class="summary-small visible-xs">
+        <ol>
+          {{ range .Data.Pages.ByWeight }}
+          <li class="rule {{ range .Params.tags }}tag-{{ . }} {{ end }}">
+            <a href="#{{ .Params.id }}">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

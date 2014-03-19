@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Pull Master
+git checkout master
+if [ "$?" != 0 ]; then exit $?; fi
+
+git pull origin master
+if [ "$?" != 0 ]; then exit $?; fi
+
+
+# Clean and build
+rm -Rf public/*
+./hugo
+
+# Default language
+cp public/en/index.html public/
+echo "User-agent: *" > public/robots.txt
+
+# Push on GitHub
+git add --ignore-removal -f public
+git commit -m "Publish on gh-pages" public
+if [ "$?" != 0 ]; then exit $?; fi
+
+git push
+if [ "$?" != 0 ]; then exit $?; fi
+
+# Publish
+git branch -D gh-pages
+git subtree split --prefix public -b gh-pages
+git push -f origin gh-pages:gh-pages

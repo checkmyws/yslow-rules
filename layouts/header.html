@@ -1,0 +1,76 @@
+<div id="top"></div>
+
+<div class="header">
+  <div class="hidden-xs stars_1"></div>
+  <div class="hidden-xs stars_2"></div>
+
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">YSlow Rules</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+       
+        {{ range first 1 .Data.Pages }}
+          {{ $template := printf "leads/%s" .Params.locales }}
+          {{ .Render $template }}
+        {{ end }}
+
+      </div>
+      <div class="col-xs-12">
+        <span class="pull-right links">
+          <ul>
+            <li>
+              <a href="http://yslow.org/"><img height=24 src="{{ .Site.BaseUrl }}/img/yslow.png">YSlow.org</a>
+            </li>
+            <li>
+              <a href="http://www.checkmy.ws/"><img width=24 src="{{ .Site.BaseUrl }}/img/checkmyws.png">Check my Website</a>
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li>
+        <a onclick="clickTag('all');">All</a>
+      </li>
+      {{ range $key, $value := .Site.Indexes.tags }}
+      <li>
+        <a onclick="clickTag('{{ $key }}');">{{ title $key }}</a>
+      </li>
+      {{ end }}
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a href="{{ .Site.BaseUrl }}/en">
+          <img src="{{ .Site.BaseUrl }}/css/blank.gif" class="flag flag-us" alt="English" />
+        </a>
+      </li>
+      <li>
+        <a href="{{ .Site.BaseUrl }}/fr">
+          <img src="{{ .Site.BaseUrl }}/css/blank.gif" class="flag flag-fr" alt="Français" />
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container intro">
+  <div class="row">
+    <div class="col-xs-12">
+      {{ range first 1 .Data.Pages }}
+        {{ $template := printf "intro/%s" .Params.locales }}
+        {{ .Render $template }}
+      {{ end }}
+    </div>
+  </div>
+</div>

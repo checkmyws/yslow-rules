@@ -1,0 +1,6 @@
+---
+indexes:
+ locale: 'locales'
+ tag: 'tags'
+baseurl: 'http://checkmyws.github.io/yslow-rules'
+---

@@ -1,0 +1,28 @@
+<section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule {{ range .Params.tags }}tag-{{ . }} {{ end }}" style="padding-bottom:1em;">
+
+        <div id="{{ .Params.id }}"></div>
+        <span class="hidden" itemprop="alternateName">{{ .Params.id }}</span>
+
+        <h2>
+            <a itemprop="url" href="#{{ .Params.id }}">
+                <span itemprop="name">{{ .Title }}</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/{{ .Params.locales }}/{{ .Params.id }}.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        {{ range .Params.tags }}
+            <span class="tags label label-default">{{ . }}</span>
+        {{ end }}
+
+        <div itemprop="description">
+            {{ .Content }}
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="{{ .Params.yahoo }}">Reference</a>
+    </div>
+</section>
