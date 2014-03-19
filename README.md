@@ -1,4 +1,4 @@
 yslow-rules
 ===========
 
-YSlow Rules
+This is a tranlslation project of the Yahoo! YSlow Rules.
