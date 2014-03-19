@@ -3,7 +3,7 @@ yslow-rules
 
 This is a translation project of the Yahoo! YSlow Rules maintained with the help of contributors:
 
-- Steve Souders, creator of YSlow
+- [Steve Souders](http://stevesouders.com/), creator of YSlow
 - Yahoo! Inc.
 - Marcel Duran, maintainer of [YSlow.org](http://yslow.org/)
 - [Check my Website](http://www.checkmy.ws/) for the french translation
