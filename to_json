@@ -29,7 +29,7 @@ for locale in locales:
             content = f.readlines()
 
         _id = _id.decode('utf-8')
-        title = _id.decode('utf-8')
+        title = title.decode('utf-8')
 
         content = [c.decode('utf-8') for c in content]
         content = "".join(content)
