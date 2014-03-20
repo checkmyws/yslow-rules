@@ -1,5 +1,6 @@
 ycsstop
 Put Stylesheets at Top
+css 
 <p>While researching performance at Yahoo!, we discovered that moving stylesheets to the document HEAD makes pages <em>appear</em> to be loading faster. This is because putting stylesheets in the HEAD allows the page to render progressively.</p>
 
 <p>Front-end engineers that care about performance want a page to load progressively; that is, we want the browser to display whatever content it has as soon as possible. This is especially important for pages with a lot of content and for users on slower Internet connections. The importance of giving users visual feedback, such as progress indicators, has been well researched and <a href="http://www.useit.com/papers/responsetime.html">documented</a>. In our case the HTML page is the progress indicator! When the browser loads the page progressively the header, the navigation bar, the logo at the top, etc. all serve as visual feedback for the user who is waiting for the page. This improves the overall user experience.</p>

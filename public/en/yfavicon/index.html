@@ -1,5 +1,6 @@
 yfavicon
 Make favicon.ico Small and Cacheable
+images 
 <p>The favicon.ico is an image that stays in the root of your server. It&rsquo;s a necessary evil because even if you don&rsquo;t care about it the browser will still request it, so it&rsquo;s better not to respond with a <code>404 Not Found</code>. Also since it&rsquo;s on the same server, cookies are sent every time it&rsquo;s requested. This image also interferes with the download sequence, for example in IE when you request extra components in the onload, the favicon will be downloaded before these extra components.</p>
 
 <p>So to mitigate the drawbacks of having a favicon.ico make sure:</p>

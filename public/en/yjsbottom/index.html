@@ -1,5 +1,6 @@
 yjsbottom
 Put Scripts at Bottom
+javascript 
 <p>The problem caused by scripts is that they block parallel downloads. The <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html#sec8.1.4">HTTP/1.1 specification</a> suggests that browsers download no more than two components in parallel per hostname. If you serve your images from multiple hostnames, you can get more than two downloads to occur in parallel. While a script is downloading, however, the browser won&rsquo;t start any other downloads, even on different hostnames.</p>
 
 <p>In some situations it&rsquo;s not easy to move scripts to the bottom. If, for example, the script uses <code>document.write</code> to insert part of the page&rsquo;s content, it can&rsquo;t be moved lower in the page. There might also be scoping issues. In many cases, there are ways to workaround these situations.</p>

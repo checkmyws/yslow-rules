@@ -1,5 +1,6 @@
 yxhrmethod
 Utiliser GET pour les requêtes Ajax
+server 
 <p>L&rsquo;équipe de <a href="http://mail.yahoo.com">Yahoo! Mail</a> a constaté que lors de l&rsquo;utilisation de <code>XMLHttpRequest</code>, POST est mis en œuvre dans les navigateurs comme un processus en deux étapes : l&rsquo;envoi des en-têtes puis l&rsquo;envoi de données. Il est donc préférable d&rsquo;utiliser GET, qui ne prend qu&rsquo;un paquet TCP pour envoyer (sauf si vous avez un grand nombre de cookies). La longueur maximale pour une URL dans IE est 2K, donc si vous envoyez des données de plus de 2K vous pourriez ne pas être en mesure d&rsquo;utiliser GET.</p>
 
 <p>Un côté intéressant est que POST sans affichage réel de données se comporte comme GET. Sur la base des spécifications <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP</a>, GET est destiné à récupérer des informations. Il serait donc très judicieux (sémantiquement) d&rsquo;utiliser GET lorsque vous récupérez des données, par opposition à l&rsquo;envoi de données à stocker côté serveur.</p>

@@ -1,5 +1,6 @@
 ynofilter
 Avoid Filters
+css 
 <p>The IE-proprietary <code>AlphaImageLoader</code> filter aims to fix a problem with semi-transparent true color PNGs in IE versions &lt; 7. The problem with this filter is that it blocks rendering and freezes the browser while the image is being downloaded. It also increases memory consumption and is applied per element, not per image, so the problem is multiplied.</p>
 
 <p>The best approach is to avoid <code>AlphaImageLoader</code> completely and use gracefully degrading PNG8 instead, which are fine in IE. If you absolutely need <code>AlphaImageLoader</code>, use the underscore hack <code>_filter</code> as to not penalize your IE7+ users.</p>
