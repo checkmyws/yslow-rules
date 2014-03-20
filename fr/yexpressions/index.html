@@ -1,0 +1,75 @@
+<!doctype html>
+
+
+
+ <html class="no-js"> 
+
+  <head>
+    <title>YSlow - rules</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta name="description" content="YSlow rules">
+    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
+
+    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
+ 
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
+  </head>
+
+  <body>
+
+    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
+      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+    </a>
+
+<div class="container">
+  <div class="row">
+    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-css " style="padding-bottom:1em;">
+
+        <div id="yexpressions"></div>
+        <span class="hidden" itemprop="alternateName">yexpressions</span>
+
+        <h2>
+            <a itemprop="url" href="#yexpressions">
+                <span itemprop="name">Éviter les expressions CSS</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yexpressions.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">css</span>
+        
+
+        <div itemprop="description">
+            <p>Les expressions CSS sont un moyen puissant (et dangereux) pour définir des propriétés CSS dynamiquement. Elles ont été prises en charge dans Internet Explorer à partir de la version 5, mais ont été rendues <a href="http://msdn.microsoft.com/en-us/library/ms537634%28VS.85%29.aspx">obsolètes à partir de IE8</a>. Par exemple, la couleur de fond peut être configurée pour alterner toutes les heures en utilisant une expression CSS :</p>
+
+<pre><code>background-color: expression( (new Date()).getHours()%2 ? &quot;#B8D4FF&quot; : &quot;#F08A00&quot; );
+</code></pre>
+
+<p>Comme démontré ci-dessus, la méthode <code>expression</code> accepte une expression JavaScript. La propriété CSS est réglée sur le résultat de l&rsquo;évaluation de l&rsquo;expression JavaScript. La méthode <code>expression</code> est ignorée par les autres navigateurs, elle est donc utile pour définir les propriétés d&rsquo;Internet Explorer nécessaires pour créer une expérience cohérente à travers les autres navigateurs.</p>
+
+<p>Le problème avec les expressions, c&rsquo;est qu&rsquo;elles sont évaluées plus souvent que ce à quoi la plupart des gens pourraient s&rsquo;attendre. Non seulement elles sont évaluées lorsque la page est rendue et redimensionnée mais aussi lorsque la page défile et même lorsque l&rsquo;utilisateur déplace la souris sur la page. Ajouter un compteur à l&rsquo;expression CSS nous permet de garder une trace de quand et combien de fois une expression CSS est évaluée. Déplacer la souris dans la page peut facilement générer plus de 10.000 évaluations.</p>
+
+<p>Une façon de réduire le nombre de fois que votre expression CSS est évaluée est d&rsquo;utiliser des expressions uniques dans le temps. La première fois l&rsquo;expression est évaluée, elle définit la propriété de style pour une valeur explicite qui remplace l&rsquo;expression CSS. Si la propriété de style doit être définie de façon dynamique tout au long de la vie de la page, utilisez comme approche alternative des gestionnaires d&rsquo;événements au lieu d&rsquo;expressions CSS. Si vous devez utiliser des expressions CSS, rappelez-vous qu&rsquo;elles peuvent être évaluées des milliers de fois et pourraient affecter la performance de votre page.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#css_expressions">Reference</a>
+    </div>
+</section>
+  </div>
+</div>
+
+    <noscript></noscript>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+
+
+
+ <html class="no-js"> 
+
+  <head>
+    <title>YSlow - rules</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta name="description" content="YSlow rules">
+    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
+
+    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
+ 
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
+  </head>
+
+  <body>
+
+    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
+      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+    </a>
+
+<div class="container">
+  <div class="row">
+    <section itemscope itemtype="http://schema.org/Property"> 
+    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
+
+        <div id="yexpires"></div>
+        <span class="hidden" itemprop="alternateName">yexpires</span>
+
+        <h2>
+            <a itemprop="url" href="#yexpires">
+                <span itemprop="name">Ajouter des en-têtes Expires ou Cache-Control</span>
+            </a>
+        </h2>
+
+        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yexpires.md" target="_blank">
+            <span class="pull-right glyphicon glyphicon-edit"></span>
+        </a>
+
+        Tags:
+        
+            <span class="tags label label-default">server</span>
+        
+
+        <div itemprop="description">
+            <p>Il ya deux aspects à cette règle :</p>
+
+<ul>
+<li>Pour les composants statiques : mettre en œuvre une politique du «n&rsquo;expire jamais» par l&rsquo;utilisation d&rsquo;en-têtes Expire fixés loin dans le futur.</li>
+<li>Pour les composants dynamiques : utiliser un en-tête Cache-Control approprié pour aider le navigateur avec les requêtes conditionnelles.</li>
+</ul>
+
+<p>Le design des pages web est de plus en plus riche, ce qui signifie plus de scripts, plus de feuilles de style, plus d&rsquo;images et de Flash dans la page. Un nouveau visiteur de votre page peut avoir à faire plusieurs requêtes HTTP, mais en utilisant l&rsquo;en-tête Expire, vous rendez ces composants cachables. Cela évite les requêtes HTTP inutiles sur les pages vues ultérieurement. Les en-têtes Expire sont le plus souvent utilisés avec des images, mais ils doivent être utilisés sur tous les composants, y compris les scripts, les feuilles de style et les composants Flash.</p>
+
+<p>Les navigateurs (et les proxies) utilisent un cache afin de réduire le nombre et la taille des requêtes HTTP, ce qui accélère le chargement des pages. Un serveur web utilise l&rsquo;en-tête Expire dans la réponse HTTP pour indiquer au client combien de temps un composant peut être mis en cache. Une date lointaine dans l&rsquo;en-tête Expire indique au navigateur que cette réponse reste valide jusqu&rsquo;au 15 Avril 2015.</p>
+
+<pre><code>Expires: Thu, 15 Apr 2015 20:00:00 GMT
+</code></pre>
+
+<p>Si votre serveur est Apache, utilisez la directive ExpiresDefault qui permet de fixer une date d&rsquo;expiration par rapport à la date actuelle. Cet exemple de directive ExpiresDefault fixe la date d&rsquo;expiration dans 10 ans à partir du moment de la demande.</p>
+
+<pre><code>ExpiresDefault &quot;access plus 10 years&quot;
+</code></pre>
+
+<p>Gardez à l&rsquo;esprit, si vous utilisez un en-tête Expire loin dans le futur que vous devrez changer le nom de fichier du composant à chaque fois que celui-ci est modifié. Chez Yahoo!, un numéro de version est intégré dans le nom de fichier du composant, par exemple yahoo_2.0.6.js.</p>
+
+<p>Utiliser un en-tête Expire loin dans le futur affecte uniquement les pages vues d&rsquo;un utilisateur revenant sur votre site. Cela n&rsquo;a aucun effet sur ​​le nombre de requêtes HTTP nécessaires quand un utilisateur visite votre site pour la première fois et que la mémoire cache du navigateur est vide. Par conséquent, l&rsquo; impact de cette amélioration de la performance dépend de la fréquence d&rsquo;utilisateurs réguliers. Ceux-ci possèdent en effet un cache amorcé. (Un «cache amorcé» contient déjà tous les éléments de la page.) Nous <a href="http://yuiblog.com/blog/2007/01/04/performance-research-part-2/">avons mesuré ceci chez Yahoo!</a> et trouvé que le nombre de pages vues avec un cache amorcé est de 75 à 85 %. En utilisant un en-tête Expire loin dans le futur, vous augmentez le nombre de composants qui sont mis en cache par le navigateur et re-utilisés sur les vues ultérieures de pages sans envoyer un seul octet sur ​​la connexion Internet de l&rsquo;utilisateur.</p>
+
+        </div>
+        <br>
+        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#expires">Reference</a>
+    </div>
+</section>
+  </div>
+</div>
+
+    <noscript></noscript>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
+  </body>
+</html>
