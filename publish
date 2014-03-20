@@ -16,6 +16,7 @@ rm -Rf public/*
 cp public/en/index.html public/
 echo "User-agent: *" > public/robots.txt
 ./to_json
+./to_pomo
 
 # Push on GitHub
 git add --ignore-removal -f public

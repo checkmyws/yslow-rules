@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+# -*- coding: utf8 -*-
+from __future__ import unicode_literals
+
+import os
+import json
+import polib
+
+base_path = "public/locales"
+
+try:
+    os.mkdir(base_path)
+except:
+    pass
+
+with open("public/rules.json", 'r') as f:
+    raw = json.load(f, encoding="utf-8")
+
+for locale, rules in raw.items():
+    po = polib.POFile()
+
+    po.metadata = {
+        'Project-Id-Version': '1.0',
+        'Report-Msgid-Bugs-To': 'contact@checkmy.ws',
+        'MIME-Version': '1.0',
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Content-Transfer-Encoding': '8bit',
+    }
+
+    for rule in rules:
+        base_id = "yslow.%s" % rule["id"]
+
+        entry = polib.POEntry(
+            msgid=base_id,
+            msgstr=rule["content"]
+        )
+        po.append(entry)
+
+        entry = polib.POEntry(
+            msgid="%s.title" % base_id,
+            msgstr=rule["title"]
+        )
+        po.append(entry)
+
+    po_path = "%s/%s.po" % (base_path, locale)
+    po.save(po_path)
+
+    mo_path = "%s/%s.mo" % (base_path, locale)
+    po.save_as_mofile(mo_path)
+
