@@ -14,7 +14,7 @@ We use Github and [Hugo](http://hugo.spf13.com/) to produce the web pages from i
 
 ## The repository organisation
 
-- `content` : the main direcotry for the rules in every languages
+- `content` : The main direcotry for the rules in every languages
 - `content/en` : The official english rules taken from Yahoo
 - `content/fr` : The rules in french. 
 - `layouts` : Templates and layouts for the web pages
