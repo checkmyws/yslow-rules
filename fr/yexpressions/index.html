@@ -1,5 +1,6 @@
 yexpressions
 Éviter les expressions CSS
+css 
 <p>Les expressions CSS sont un moyen puissant (et dangereux) pour définir des propriétés CSS dynamiquement. Elles ont été prises en charge dans Internet Explorer à partir de la version 5, mais ont été rendues <a href="http://msdn.microsoft.com/en-us/library/ms537634%28VS.85%29.aspx">obsolètes à partir de IE8</a>. Par exemple, la couleur de fond peut être configurée pour alterner toutes les heures en utilisant une expression CSS :</p>
 
 <pre><code>background-color: expression( (new Date()).getHours()%2 ? &quot;#B8D4FF&quot; : &quot;#F08A00&quot; );

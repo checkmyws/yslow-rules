@@ -1,5 +1,6 @@
 ycookiefree
 Utiliser des domaines sans cookies pour les composants
+cookie 
 <p>Lorsque le navigateur envoie une requête pour une image statique et envoie un/des cookie(s) avec la demande, le serveur n&rsquo;a pas l&rsquo;utilité de ces cookies. Ils créent du trafic réseau sans raison valable. Vous devez vous assurer que les composants statiques soient demandés sans cookies. Créez un sous-domaine et hébergez-y tous vos composants statiques.</p>
 
 <p>Si votre domaine est <code>www.example.org</code>, vous pouvez héberger vos composants statiques sur <code>static.example.org</code>. Toutefois, si vous avez déjà configuré les cookies sur le domaine de premier niveau <code>example.org</code> par opposition à <code>www.example.org</code>, alors toutes les demandes vers <code>static.example.org</code> comprendront des cookies. Dans ce cas, vous pouvez acheter un tout nouveau domaine, y héberger vos composants statiques et garder ce nom de domaine libre de tout cookie. Yahoo! utilise <code>yimg.com</code>, YouTube utilise <code>ytimg.com</code>, Amazon utilise <code>image-amazon.com</code> et ainsi de suite.</p>

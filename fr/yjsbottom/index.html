@@ -1,5 +1,6 @@
 yjsbottom
 Mettres les scripts en bas de page
+javascript 
 <p>Le problème des scripts est qu&rsquo;ils bloquent les téléchargements en parallèle. La <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html#sec8.1.4">spécification HTTP/1.1</a> suggère que les navigateurs ne téléchargent pas plus de deux composants en parallèle par nom d&rsquo;hôte. Si vous servez vos images à partir de plusieurs noms d&rsquo;hôtes, vous pouvez obtenir plus de deux téléchargements en parallèle. Cependant, pendant le téléchargement d&rsquo;un script, le navigateur ne démarre pas d&rsquo;autres téléchargements y compris sur différents noms de domaine.</p>
 
 <p>Dans certaines situations, il n&rsquo;est pas facile de déplacer ses scripts en bas de page. Si, par exemple, le script utilise <code>document.write</code> pour insérer une partie du contenu de la page, il ne peut pas être déplacé plus bas dans la page. Il pourrait s&rsquo;ensuivre des problèmes de visibilité. Dans de nombreux cas, il existe des moyens de contourner ces situations.</p>

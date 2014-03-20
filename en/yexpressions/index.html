@@ -1,5 +1,6 @@
 yexpressions
 Avoid CSS expressions
+css 
 <p>CSS expressions are a powerful (and dangerous) way to set CSS properties dynamically. They were supported in Internet Explorer starting with version 5, but were <a href="http://msdn.microsoft.com/en-us/library/ms537634%28VS.85%29.aspx">deprecated starting with IE8</a>. As an example, the background color could be set to alternate every hour using CSS expressions:</p>
 
 <pre><code>background-color: expression( (new Date()).getHours()%2 ? &quot;#B8D4FF&quot; : &quot;#F08A00&quot; );
