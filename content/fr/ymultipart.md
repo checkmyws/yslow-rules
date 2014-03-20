@@ -9,4 +9,4 @@ notoc: "true"
 description: ""
 ---
 
-Rassembler les composants dans un document multi-parties; comme un e-mail avec pièces jointes, permet de récupérer plusieurs composants avec une seule requête HTTP (souvenez-vous: les demandes HTTP sont chères). Lorsque vous utilisez cette technique, vérifiez d'abord si le terminal utilisateur la prend en charge (iPhone ne fonctionne pas).
+Rassembler les composants dans un document multi-parties (comme un e-mail avec des pièces jointes), permet de récupérer plusieurs composants en une seule requête HTTP (souvenez-vous : les requêtes HTTP sont coûteuses). Lorsque vous utilisez cette technique, vérifiez d'abord si le terminal utilisateur la prend en charge (Ceci ne fonctionne pas sur iPhone).
