@@ -1,70 +1,7 @@
-<!doctype html>
-
-
-
- <html class="no-js"> 
-
-  <head>
-    <title>YSlow - rules</title>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <meta name="description" content="YSlow rules">
-    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
-
-    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
- 
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
-  </head>
-
-  <body>
-
-    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
-      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
-    </a>
-
-<div class="container">
-  <div class="row">
-    <section itemscope itemtype="http://schema.org/Property"> 
-    <div class="col-xs-12 rule tag-cookie " style="padding-bottom:1em;">
-
-        <div id="ycookiefree"></div>
-        <span class="hidden" itemprop="alternateName">ycookiefree</span>
-
-        <h2>
-            <a itemprop="url" href="#ycookiefree">
-                <span itemprop="name">Utiliser des domaines sans cookies pour les composants</span>
-            </a>
-        </h2>
-
-        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ycookiefree.md" target="_blank">
-            <span class="pull-right glyphicon glyphicon-edit"></span>
-        </a>
-
-        Tags:
-        
-            <span class="tags label label-default">cookie</span>
-        
-
-        <div itemprop="description">
-            <p>Lorsque le navigateur envoie une requête pour une image statique et envoie un/des cookie(s) avec la demande, le serveur n&rsquo;a pas l&rsquo;utilité de ces cookies. Ils créent du trafic réseau sans raison valable. Vous devez vous assurer que les composants statiques soient demandés sans cookies. Créez un sous-domaine et hébergez-y tous vos composants statiques.</p>
+ycookiefree
+Utiliser des domaines sans cookies pour les composants
+<p>Lorsque le navigateur envoie une requête pour une image statique et envoie un/des cookie(s) avec la demande, le serveur n&rsquo;a pas l&rsquo;utilité de ces cookies. Ils créent du trafic réseau sans raison valable. Vous devez vous assurer que les composants statiques soient demandés sans cookies. Créez un sous-domaine et hébergez-y tous vos composants statiques.</p>
 
 <p>Si votre domaine est <code>www.example.org</code>, vous pouvez héberger vos composants statiques sur <code>static.example.org</code>. Toutefois, si vous avez déjà configuré les cookies sur le domaine de premier niveau <code>example.org</code> par opposition à <code>www.example.org</code>, alors toutes les demandes vers <code>static.example.org</code> comprendront des cookies. Dans ce cas, vous pouvez acheter un tout nouveau domaine, y héberger vos composants statiques et garder ce nom de domaine libre de tout cookie. Yahoo! utilise <code>yimg.com</code>, YouTube utilise <code>ytimg.com</code>, Amazon utilise <code>image-amazon.com</code> et ainsi de suite.</p>
 
 <p>Un autre avantage de mettre les composants statiques sur un domaine sans cookie est que certains mandataires pourraient refuser de mettre en cache les composants demandés avec des cookies. Sur une note liée, si vous vous demandez si vous devez utiliser example.org ou www.example.org pour votre page d&rsquo;accueil, envisagez l&rsquo;impact des cookies. Omettre www ne vous laisse pas d&rsquo;autre choix que d&rsquo;écrire des cookies pour <code>*.example.org</code>. Pour des raisons de performances, il est préférable d&rsquo;utiliser le sous-domaine www et d&rsquo;écrire les cookies sur ce sous-domaine.</p>
-
-        </div>
-        <br>
-        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#cookie_free">Reference</a>
-    </div>
-</section>
-  </div>
-</div>
-
-    <noscript></noscript>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
-  </body>
-</html>

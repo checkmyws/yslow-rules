@@ -1,55 +1,6 @@
-<!doctype html>
-
-
-
- <html class="no-js"> 
-
-  <head>
-    <title>YSlow - rules</title>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <meta name="description" content="YSlow rules">
-    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
-
-    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
- 
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
-  </head>
-
-  <body>
-
-    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
-      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
-    </a>
-
-<div class="container">
-  <div class="row">
-    <section itemscope itemtype="http://schema.org/Property"> 
-    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
-
-        <div id="yredirects"></div>
-        <span class="hidden" itemprop="alternateName">yredirects</span>
-
-        <h2>
-            <a itemprop="url" href="#yredirects">
-                <span itemprop="name">Avoid Redirects</span>
-            </a>
-        </h2>
-
-        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/en/yredirects.md" target="_blank">
-            <span class="pull-right glyphicon glyphicon-edit"></span>
-        </a>
-
-        Tags:
-        
-            <span class="tags label label-default">content</span>
-        
-
-        <div itemprop="description">
-            <p>Redirects are accomplished using the 301 and 302 status codes. Here&rsquo;s an example of the HTTP headers in a 301 response:</p>
+yredirects
+Avoid Redirects
+<p>Redirects are accomplished using the 301 and 302 status codes. Here&rsquo;s an example of the HTTP headers in a 301 response:</p>
 
 <pre><code>HTTP/1.1 301 Moved Permanently
 Location: http://example.com/newuri
@@ -63,17 +14,3 @@ Content-Type: text/html
 <p>One of the most wasteful redirects happens frequently and web developers are generally not aware of it. It occurs when a trailing slash (/) is missing from a URL that should otherwise have one. For example, going to <a href="http://astrology.yahoo.com/astrology">http://astrology.yahoo.com/astrology</a> results in a 301 response containing a redirect to <a href="http://astrology.yahoo.com/astrology/">http://astrology.yahoo.com/astrology/</a> (notice the added trailing slash). This is fixed in Apache by using <code>Alias</code> or <code>mod_rewrite</code>, or the <code>DirectorySlash</code> directive if you&rsquo;re using Apache handlers.</p>
 
 <p>Connecting an old web site to a new one is another common use for redirects. Others include connecting different parts of a website and directing the user based on certain conditions (type of browser, type of user account, etc.). Using a redirect to connect two web sites is simple and requires little additional coding. Although using redirects in these situations reduces the complexity for developers, it degrades the user experience. Alternatives for this use of redirects include using <code>Alias</code> and <code>mod_rewrite</code> if the two code paths are hosted on the same server. If a domain name change is the cause of using redirects, an alternative is to create a CNAME (a DNS record that creates an alias pointing from one domain name to another) in combination with <code>Alias</code> or <code>mod_rewrite</code>.</p>
-
-        </div>
-        <br>
-        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#redirects">Reference</a>
-    </div>
-</section>
-  </div>
-</div>
-
-    <noscript></noscript>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
-  </body>
-</html>

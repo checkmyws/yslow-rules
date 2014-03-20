@@ -1,55 +1,6 @@
-<!doctype html>
-
-
-
- <html class="no-js"> 
-
-  <head>
-    <title>YSlow - rules</title>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <meta name="description" content="YSlow rules">
-    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
-
-    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
- 
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
-  </head>
-
-  <body>
-
-    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
-      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
-    </a>
-
-<div class="container">
-  <div class="row">
-    <section itemscope itemtype="http://schema.org/Property"> 
-    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
-
-        <div id="ynumreq"></div>
-        <span class="hidden" itemprop="alternateName">ynumreq</span>
-
-        <h2>
-            <a itemprop="url" href="#ynumreq">
-                <span itemprop="name">Réduire le nombre de requêtes HTTP</span>
-            </a>
-        </h2>
-
-        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ynumreq.md" target="_blank">
-            <span class="pull-right glyphicon glyphicon-edit"></span>
-        </a>
-
-        Tags:
-        
-            <span class="tags label label-default">content</span>
-        
-
-        <div itemprop="description">
-            <p>80% du temps de réponse de l&rsquo;utilisateur final est passé sur le front-end. La majeure partie de ce temps est consacrée au téléchargement de tous les composants de la page : images, feuilles de style, scripts, flash, etc. Réduire le nombre de composants réduit le nombre de requêtes HTTP nécessaires pour rendre la page. C&rsquo;est la clé de pages plus rapides.</p>
+ynumreq
+Réduire le nombre de requêtes HTTP
+<p>80% du temps de réponse de l&rsquo;utilisateur final est passé sur le front-end. La majeure partie de ce temps est consacrée au téléchargement de tous les composants de la page : images, feuilles de style, scripts, flash, etc. Réduire le nombre de composants réduit le nombre de requêtes HTTP nécessaires pour rendre la page. C&rsquo;est la clé de pages plus rapides.</p>
 
 <p>Une façon de réduire le nombre de composants dans la page est de simplifier la conception de la page. Mais existe-t-il un moyen de créer des pages avec un contenu plus riche tout en conservant des temps de réponse rapides ? Voici quelques techniques pour réduire le nombre de requêtes HTTP, tout en conservant des pages riches d&rsquo;un point de vue design.</p>
 
@@ -62,17 +13,3 @@
 <p>Les <strong>images en ligne</strong> utilisent le <a href="http://tools.ietf.org/html/rfc2397"><code>data:</code> URL scheme</a> pour intégrer les données d&rsquo;image dans la page en cours. Cela peut augmenter la taille de votre document HTML. Combiner des images en ligne dans vos feuilles de style (en cache) est un moyen de réduire les requêtes HTTP et éviter d&rsquo;augmenter la taille de vos pages. Les images en ligne ne sont pas encore prise en charge dans tous les navigateurs principaux.</p>
 
 <p>Réduire le nombre de requêtes HTTP de votre page est un point de départ idéal. C&rsquo;est la recommandation qui permet d&rsquo;améliorer les performances pour les nouveaux visiteurs de manière la plus significative. Comme décrit dans le billet de blog de Tenni Theurer <a href="http://yuiblog.com/blog/2007/01/04/performance-research-part-2/">Browser Cache Usage - Exposed!</a>, 40 à 60% des visiteurs quotidiens de votre site le consultent avec un cache navigateur vide. Améliorer le temps de chargement pour ces nouveaux visiteurs est la clé d&rsquo;une meilleure expérience utilisateur.</p>
-
-        </div>
-        <br>
-        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#num_http">Reference</a>
-    </div>
-</section>
-  </div>
-</div>
-
-    <noscript></noscript>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
-  </body>
-</html>

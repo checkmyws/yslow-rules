@@ -1,55 +1,6 @@
-<!doctype html>
-
-
-
- <html class="no-js"> 
-
-  <head>
-    <title>YSlow - rules</title>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <meta name="description" content="YSlow rules">
-    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
-
-    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
- 
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
-  </head>
-
-  <body>
-
-    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
-      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
-    </a>
-
-<div class="container">
-  <div class="row">
-    <section itemscope itemtype="http://schema.org/Property"> 
-    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
-
-        <div id="ycdn"></div>
-        <span class="hidden" itemprop="alternateName">ycdn</span>
-
-        <h2>
-            <a itemprop="url" href="#ycdn">
-                <span itemprop="name">Utiliser un réseau de diffusion de contenu (CDN)</span>
-            </a>
-        </h2>
-
-        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ycdn.md" target="_blank">
-            <span class="pull-right glyphicon glyphicon-edit"></span>
-        </a>
-
-        Tags:
-        
-            <span class="tags label label-default">server</span>
-        
-
-        <div itemprop="description">
-            <p>La proximité de l&rsquo;utilisateur par rapport à votre serveur web a un impact sur les temps de réponse. Le déploiement de votre contenu sur plusieurs serveurs géographiquement dispersés rendra vos pages plus rapides du point de vue de l&rsquo;utilisateur. Mais par où commencer ?</p>
+ycdn
+Utiliser un réseau de diffusion de contenu (CDN)
+<p>La proximité de l&rsquo;utilisateur par rapport à votre serveur web a un impact sur les temps de réponse. Le déploiement de votre contenu sur plusieurs serveurs géographiquement dispersés rendra vos pages plus rapides du point de vue de l&rsquo;utilisateur. Mais par où commencer ?</p>
 
 <p>Dans un premier temps, ne tentez pas la refonte de votre application web pour travailler en mode distribué afin de mettre en œuvre du contenu dispersé géographiquement. Selon l&rsquo;application, l&rsquo;évolution de l&rsquo;architecture pourrait inclure des tâches redoutables telles que la synchronisation d&rsquo;états ​​de session et la réplication de transactions de base de données de serveurs à serveurs répartis géographiquement. Vous pourriez être retardés, voire ne jamais atteindre l&rsquo;objectif visant à réduire la distance entre les utilisateurs et le contenu si vous souhaitez passer par cette étape d&rsquo;amélioration d&rsquo;architecture applicative.</p>
 
@@ -58,17 +9,3 @@
 <p>Un réseau de diffusion de contenu (CDN) est un ensemble de serveurs Web répartis sur plusieurs endroits géographiques pour fournir un contenu de façon plus efficace aux utilisateurs. Le serveur sélectionné pour fournir du contenu à un utilisateur spécifique est généralement basé sur une mesure de proximité de réseau. Par exemple, le serveur avec le moins de sauts de réseau ou le serveur avec le meilleur temps de réponse est choisi.</p>
 
 <p>Certaines grandes entreprises de l&rsquo;Internet possèdent leur propre CDN, mais il peut être moins cher d&rsquo;utiliser un fournisseur de services CDN, comme <a href="http://www.akamai.com/">Akamai Technologies</a>, <a href="http://www.edgecast.com/">EdgeCast</a> ou <a href="http://www.level3.com/index.cfm?pageID=36">level3</a>. Pour les entreprises qui démarrent et les sites web privés, le coût d&rsquo;un service CDN peut être prohibitif. Mais que votre public cible grandisse et devienne plus global, et alors un CDN est nécessaire pour obtenir des temps de réponse rapides. Chez Yahoo!, ceux qui ont déplacé le contenu statique de leurs serveurs d&rsquo;applications Web à un CDN (à la fois chez des prestataires externes comme ceux mentionnés ci-dessus et leur propre <a href="https://cwiki.apache.org/TS/traffic-server.html">CDN</a> chez Yahoo) améliorent le temps de réponse de l&rsquo;utilisateur final de 20% ou plus. Le passage à un CDN est un changement de code relativement facile qui va considérablement améliorer la vitesse de votre site web.</p>
-
-        </div>
-        <br>
-        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#cdn">Reference</a>
-    </div>
-</section>
-  </div>
-</div>
-
-    <noscript></noscript>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
-  </body>
-</html>

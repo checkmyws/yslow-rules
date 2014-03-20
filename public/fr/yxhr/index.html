@@ -1,55 +1,6 @@
-<!doctype html>
-
-
-
- <html class="no-js"> 
-
-  <head>
-    <title>YSlow - rules</title>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <meta name="description" content="YSlow rules">
-    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
-
-    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
- 
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
-  </head>
-
-  <body>
-
-    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
-      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
-    </a>
-
-<div class="container">
-  <div class="row">
-    <section itemscope itemtype="http://schema.org/Property"> 
-    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
-
-        <div id="yxhr"></div>
-        <span class="hidden" itemprop="alternateName">yxhr</span>
-
-        <h2>
-            <a itemprop="url" href="#yxhr">
-                <span itemprop="name">Rendre les requêtes Ajax cachables</span>
-            </a>
-        </h2>
-
-        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yxhr.md" target="_blank">
-            <span class="pull-right glyphicon glyphicon-edit"></span>
-        </a>
-
-        Tags:
-        
-            <span class="tags label label-default">content</span>
-        
-
-        <div itemprop="description">
-            <p>Un des avantages cités d&rsquo;Ajax est qu&rsquo;il fournit une rétroaction instantanée à l&rsquo;utilisateur car il demande des informations de manière asynchrone à partir du serveur Web. Cependant, utiliser Ajax n&rsquo;est pas une garantie que l&rsquo;utilisateur ne sera pas en train de se tourner les pouces en attendant le retour des réponses Asynchronous JavaScript and XML. Dans de nombreuses applications, maintenir l&rsquo;attente de l&rsquo;utilisateur dépend de la façon dont Ajax est utilisé. Par exemple, dans un client de messagerie basé sur le Web, l&rsquo;utilisateur sera maintenu en attendant les résultats d&rsquo;une requête Ajax pour trouver tous les messages électroniques correspondant aux critères de recherche. Il est important de se rappeler que «asynchrone» ne signifie pas «instantané».</p>
+yxhr
+Rendre les requêtes Ajax cachables
+<p>Un des avantages cités d&rsquo;Ajax est qu&rsquo;il fournit une rétroaction instantanée à l&rsquo;utilisateur car il demande des informations de manière asynchrone à partir du serveur Web. Cependant, utiliser Ajax n&rsquo;est pas une garantie que l&rsquo;utilisateur ne sera pas en train de se tourner les pouces en attendant le retour des réponses Asynchronous JavaScript and XML. Dans de nombreuses applications, maintenir l&rsquo;attente de l&rsquo;utilisateur dépend de la façon dont Ajax est utilisé. Par exemple, dans un client de messagerie basé sur le Web, l&rsquo;utilisateur sera maintenu en attendant les résultats d&rsquo;une requête Ajax pour trouver tous les messages électroniques correspondant aux critères de recherche. Il est important de se rappeler que «asynchrone» ne signifie pas «instantané».</p>
 
 <p>Pour améliorer les performances, il est important d&rsquo;optimiser ces réponses Ajax. Le moyen le plus important pour améliorer les performances Ajax est de servir les réponses mises en cache, comme indiqué dans <a href="# expire">Ajouter une expiration ou un en-tête Cache-Control</a>. D&rsquo;autres règles s&rsquo;appliquent également à pour Ajax:</p>
 
@@ -64,17 +15,3 @@
 <p>Voyons un exemple. Un client de messagerie Web 2.0 peut utiliser Ajax pour télécharger le carnet d&rsquo;adresses de l&rsquo;utilisateur à des fins d&rsquo;auto-complétion. Si l&rsquo;utilisateur n&rsquo;a pas modifié son carnet d&rsquo;adresse depuis la dernière fois, la réponse du carnet d&rsquo;adresses précédente pourrait être lue à partir du cache si cette réponse Ajax a été mise en cache avec un en-tête Expire ou Cache-Control. Le navigateur doit être informé quand utiliser une réponse de carnet d&rsquo;adresses précédemment mise en cache par rapport à en demander une nouvelle. Cela pourrait se faire par l&rsquo;ajout d&rsquo;un horodatage dans le carnet d&rsquo;adresse URL Ajax indiquant la dernière fois que l&rsquo;utilisateur a modifié son carnet d&rsquo;adresses. Par exemple, <code>&amp;t=1190241612</code>. Si le carnet d&rsquo;adresses n&rsquo;a pas été modifié depuis le dernier téléchargement, l&rsquo;horodatage sera le même et le carnet d&rsquo;adresses sera lu à partir de la mémoire cache du navigateur, éliminant un aller-retour HTTP supplémentaire. Si l&rsquo;utilisateur a modifié son carnet d&rsquo;adresses, l&rsquo;horodatage assure que la nouvelle URL ne correspond pas à la réponse mise en cache, et le navigateur demandera une nouvelle réponse du carnet d&rsquo;adresses à jour .</p>
 
 <p>Même si vos réponses Ajax sont créées dynamiquement, et qu&rsquo;elles ne sontt applicables qu&rsquo;à un seul utilisateur, elles peuvent encore être mises en cache. Cela rendra vos applications Web 2.0 plus rapides.</p>
-
-        </div>
-        <br>
-        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#cacheajax">Reference</a>
-    </div>
-</section>
-  </div>
-</div>
-
-    <noscript></noscript>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
-  </body>
-</html>
