@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+# -*- coding: utf8 -*-
+
+import os, json
+
+locales = ['en', 'fr']
+data = {}
+
+for locale in locales:
+    data[locale] = []
+    path = "public/%s" % locale
+
+    for dirname, dirnames, filenames in os.walk(path):
+        if dirname == path:
+            continue
+
+        index = "%s/index.html" % dirname
+        
+        with open(index, 'r') as f:
+            _id = f.readline()[:-1]
+            title = f.readline()[:-1]
+            content = f.readlines()
+
+        content = "".join(content)
+        content = content.replace("\n", "")
+
+        rule = {
+            'id': _id,
+            'title': title,
+            'content': content
+        }
+
+        data[locale].append(rule)
+
+        json_path = "%s/rule.json" % dirname
+        with open(json_path, 'w') as f:
+            json.dump(rule, f)
+
+    json_path = "public/%s/rules.json" % locale
+    with open(json_path, 'w') as f:
+        json.dump(data[locale], f)
+
+json_path = "public/rules.json"
+with open(json_path, 'w') as f:
+    json.dump(data, f)

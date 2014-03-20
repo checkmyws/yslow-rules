@@ -15,6 +15,7 @@ rm -Rf public/*
 # Default language
 cp public/en/index.html public/
 echo "User-agent: *" > public/robots.txt
+./to_json
 
 # Push on GitHub
 git add --ignore-removal -f public
