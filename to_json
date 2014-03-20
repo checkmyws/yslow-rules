@@ -26,10 +26,14 @@ for locale in locales:
         with open(index, 'r') as f:
             _id = f.readline()[:-1]
             title = f.readline()[:-1]
+            tags = f.readline()[:-2]
             content = f.readlines()
 
         _id = _id.decode('utf-8')
         title = title.decode('utf-8')
+        tags = tags.decode('utf-8')
+
+        tags = tags.split(" ")
 
         content = [c.decode('utf-8') for c in content]
         content = "".join(content)
@@ -38,6 +42,7 @@ for locale in locales:
         rule = {
             'id': _id.encode('utf-8'),
             'title': title.encode('utf-8'),
+            'tags': [t.encode('utf-8') for t in tags],
             'content': content.encode('utf-8')
         }
 

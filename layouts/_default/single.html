@@ -1,3 +1,4 @@
 {{ .Params.id }}
 {{ .Title }}
+{{ range .Params.tags }}{{ . }} {{ end }}
 {{ .Content }}
