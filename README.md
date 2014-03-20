@@ -28,6 +28,13 @@ You can find translations as JSON format (`UTF-8`):
 - [`/fr/rules.json`](http://checkmyws.github.io/yslow-rules/fr/rules.json): ex: All rules in French
 - [`/fr/ycdn/rule.json`](http://checkmyws.github.io/yslow-rules/fr/ycdn/rule.json): ex: `ycdn` rule in French
 
+## PO Export
+
+You can find translations as PO format (`UTF-8`):
+- [`/locales/en.po`](http://checkmyws.github.io/yslow-rules/locales/en.po): English
+- [`/locales/fr.po`](http://checkmyws.github.io/yslow-rules/locales/fr.po): French
+- ...
+
 ## How to help
 
 You can make a new translation available by copying the `en` directory in `locale`. `locale` is the code of the translated language. If you make a spanish translation, this gives you a `es` folder. Translate every rule in the folder and you're done. Give attention to change the locale in the header of the rule.
