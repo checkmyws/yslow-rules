@@ -32,6 +32,8 @@ You can make a beautiful design for the website.
 You can tell the word about the project to empower new translators. We all need performant websites all around the world :)
 
 ## Licenses
-YSlow are licensed under the <a href="https://raw.github.com/marcelduran/yslow/master/LICENSE.txt">New BSD License</a>.<br>
-		YSlow also includes files from the <a href="http://yuilibrary.com/">Yahoo! User Interface library</a>, which are licensed under the <a href="http://yuilibrary.com/license/">BSD license</a>.<br>
-		Translations are licensed under the <a href="https://raw.github.com/checkmyws/yslow-rules/master/LICENSE">MIT License</a>
+YSlow are licensed under the [New BSD License](https://raw.github.com/marcelduran/yslow/master/LICENSE.txt).
+
+YSlow also includes files from the [Yahoo! User Interface library](http://yuilibrary.com/), which are licensed under the [BSD license](http://yuilibrary.com/license/).
+
+Translations are licensed under the [MIT License](https://raw.github.com/checkmyws/yslow-rules/master/LICENSE).
