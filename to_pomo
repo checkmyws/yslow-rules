@@ -21,6 +21,7 @@ for locale, rules in raw.items():
 
     po.metadata = {
         'Project-Id-Version': '1.0',
+        'Language': locale,
         'Report-Msgid-Bugs-To': 'contact@checkmy.ws',
         'MIME-Version': '1.0',
         'Content-Type': 'text/plain; charset=utf-8',
