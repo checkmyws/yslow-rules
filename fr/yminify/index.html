@@ -1,72 +1,7 @@
-<!doctype html>
-
-
-
- <html class="no-js"> 
-
-  <head>
-    <title>YSlow - rules</title>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <meta name="description" content="YSlow rules">
-    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
-
-    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
- 
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
-  </head>
-
-  <body>
-
-    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
-      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
-    </a>
-
-<div class="container">
-  <div class="row">
-    <section itemscope itemtype="http://schema.org/Property"> 
-    <div class="col-xs-12 rule tag-javascript tag-css " style="padding-bottom:1em;">
-
-        <div id="yminify"></div>
-        <span class="hidden" itemprop="alternateName">yminify</span>
-
-        <h2>
-            <a itemprop="url" href="#yminify">
-                <span itemprop="name">Minimifier JavaScript et CSS</span>
-            </a>
-        </h2>
-
-        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/yminify.md" target="_blank">
-            <span class="pull-right glyphicon glyphicon-edit"></span>
-        </a>
-
-        Tags:
-        
-            <span class="tags label label-default">javascript</span>
-        
-            <span class="tags label label-default">css</span>
-        
-
-        <div itemprop="description">
-            <p>La minification consiste à enlever des caractères inutiles à partir du code afin de réduire sa taille; ce qui améliore les temps de chargement. Lorsque le code est minifié, tous les commentaires sont supprimés ainsi que les caractères inutiles ou blancs (espaces, sauts de ligne, tabulations). Dans le cas du langage JavaScript, ceci améliore les performances de temps de réponse en raison de la taille du fichier téléchargé plus réduite. Deux outils populaires pour minifier le code JavaScript sont <a href="http://crockford.com/javascript/jsmin">JSMin</a> et <a href="http://developer.yahoo.com/yui/compressor/">YUI Compressor</a>. Le compresseur YUI PEUT aussi minifier les CSS.</p>
+yminify
+Minimifier JavaScript et CSS
+<p>La minification consiste à enlever des caractères inutiles à partir du code afin de réduire sa taille; ce qui améliore les temps de chargement. Lorsque le code est minifié, tous les commentaires sont supprimés ainsi que les caractères inutiles ou blancs (espaces, sauts de ligne, tabulations). Dans le cas du langage JavaScript, ceci améliore les performances de temps de réponse en raison de la taille du fichier téléchargé plus réduite. Deux outils populaires pour minifier le code JavaScript sont <a href="http://crockford.com/javascript/jsmin">JSMin</a> et <a href="http://developer.yahoo.com/yui/compressor/">YUI Compressor</a>. Le compresseur YUI PEUT aussi minifier les CSS.</p>
 
 <p>L&rsquo;obfuscation est une alternative qui peut être appliquée au code source. Plus complexe que la minification et donc plus susceptible de générer des bugs à la suite de l&rsquo;étape de brouillage proprement dite. Dans une enquête sur dix sites web américains, la minification permet une réduction de taille de 21% contre 25% pour l&rsquo;obfuscation. Bien que l&rsquo;obfuscation ait une réduction de taille supérieure, il reste moins risqué de minifier le JavaScript.</p>
 
 <p>En plus de minifier les scripts externes et les feuilles de style, les blocs en ligne <code>&lt;script&gt;</code> et <code>&lt;style&gt;</code> peuvent et doivent également être minifiés. Même si vous gzippez les scripts et les styles, les minifier en plus permet encore de réduire la taille de 5% ou plus. Vu que l&rsquo;utilisation et la taille de code JavaScript et de feuilles de style CSS augmente, les économies réalisées par minification du code sont plus grandes.</p>
-
-        </div>
-        <br>
-        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#minify">Reference</a>
-    </div>
-</section>
-  </div>
-</div>
-
-    <noscript></noscript>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
-  </body>
-</html>

@@ -1,55 +1,6 @@
-<!doctype html>
-
-
-
- <html class="no-js"> 
-
-  <head>
-    <title>YSlow - rules</title>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <meta name="description" content="YSlow rules">
-    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
-
-    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
- 
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
-  </head>
-
-  <body>
-
-    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
-      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
-    </a>
-
-<div class="container">
-  <div class="row">
-    <section itemscope itemtype="http://schema.org/Property"> 
-    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
-
-        <div id="ycompress"></div>
-        <span class="hidden" itemprop="alternateName">ycompress</span>
-
-        <h2>
-            <a itemprop="url" href="#ycompress">
-                <span itemprop="name">Compresser avec Gzip les composants</span>
-            </a>
-        </h2>
-
-        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/fr/ycompress.md" target="_blank">
-            <span class="pull-right glyphicon glyphicon-edit"></span>
-        </a>
-
-        Tags:
-        
-            <span class="tags label label-default">server</span>
-        
-
-        <div itemprop="description">
-            <p>Le temps nécessaire pour transférer une requête HTTP et la réponse sur le réseau peut être sensiblement réduit par les décisions prises par les ingénieurs front-end. Il est vrai que la vitesse de la bande passante de l&rsquo;utilisateur final, le fournisseur de services Internet, la proximité des points de peering de change, etc. sont hors du contrôle de l&rsquo;équipe de développement. Mais il y a d&rsquo;autres variables qui influent sur le temps de réponse. La compression réduit les temps de réponse en diminuant la taille de la réponse HTTP.</p>
+ycompress
+Compresser avec Gzip les composants
+<p>Le temps nécessaire pour transférer une requête HTTP et la réponse sur le réseau peut être sensiblement réduit par les décisions prises par les ingénieurs front-end. Il est vrai que la vitesse de la bande passante de l&rsquo;utilisateur final, le fournisseur de services Internet, la proximité des points de peering de change, etc. sont hors du contrôle de l&rsquo;équipe de développement. Mais il y a d&rsquo;autres variables qui influent sur le temps de réponse. La compression réduit les temps de réponse en diminuant la taille de la réponse HTTP.</p>
 
 <p>À partir de HTTP/1.1, les clients Web indiquent leur support de la compression avec l&rsquo;en-tête Accept-Encoding dans la requête HTTP.</p>
 
@@ -70,17 +21,3 @@
 <p>Les serveurs décident quoi gzipper en se basant sur le type de fichier, mais ils sont généralement trop restreints dans ce qu&rsquo;ils décident de compresser. La plupart des sites web gzip leurs documents HTML. Il est également intéressant de gzipper vos scripts et les feuilles de style, ce que ne font pas de nombreux sites Web. En fait, il est intéressant de compresser toute réponse de texte, y compris XML et JSON. Les images et les fichiers PDF ne doivent pas être compressés au format gzip, car ils le sont déjà par d&rsquo;autres moyens. Essayer de les gzipper entraîne non seulement un gaspillage de CPU mais peut potentiellement augmenter la taille des fichiers résultants.</p>
 
 <p>Gzipper autant que possible les fichiers est un moyen facile de réduire le poids de la page et d&rsquo;accélérer l&rsquo;expérience utilisateur.</p>
-
-        </div>
-        <br>
-        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#gzip">Reference</a>
-    </div>
-</section>
-  </div>
-</div>
-
-    <noscript></noscript>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
-  </body>
-</html>

@@ -1,55 +1,6 @@
-<!doctype html>
-
-
-
- <html class="no-js"> 
-
-  <head>
-    <title>YSlow - rules</title>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <meta name="description" content="YSlow rules">
-    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
-
-    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
- 
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
-  </head>
-
-  <body>
-
-    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
-      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
-    </a>
-
-<div class="container">
-  <div class="row">
-    <section itemscope itemtype="http://schema.org/Property"> 
-    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
-
-        <div id="yexpires"></div>
-        <span class="hidden" itemprop="alternateName">yexpires</span>
-
-        <h2>
-            <a itemprop="url" href="#yexpires">
-                <span itemprop="name">Add Expires or Cache-Control Header</span>
-            </a>
-        </h2>
-
-        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/en/yexpires.md" target="_blank">
-            <span class="pull-right glyphicon glyphicon-edit"></span>
-        </a>
-
-        Tags:
-        
-            <span class="tags label label-default">server</span>
-        
-
-        <div itemprop="description">
-            <p>There are two aspects to this rule:</p>
+yexpires
+Add Expires or Cache-Control Header
+<p>There are two aspects to this rule:</p>
 
 <ul>
 <li>For static components: implement &ldquo;Never expire&rdquo; policy by setting far future <code>Expires</code> header</li>
@@ -71,17 +22,3 @@
 <p>Keep in mind, if you use a far future Expires header you have to change the component&rsquo;s filename whenever the component changes. At Yahoo! we often make this step part of the build process: a version number is embedded in the component&rsquo;s filename, for example, yahoo_2.0.6.js.</p>
 
 <p>Using a far future Expires header affects page views only after a user has already visited your site. It has no effect on the number of HTTP requests when a user visits your site for the first time and the browser&rsquo;s cache is empty. Therefore the impact of this performance improvement depends on how often users hit your pages with a primed cache. (A &ldquo;primed cache&rdquo; already contains all of the components in the page.) We <a href="http://yuiblog.com/blog/2007/01/04/performance-research-part-2/">measured this at Yahoo!</a> and found the number of page views with a primed cache is 75-85%. By using a far future Expires header, you increase the number of components that are cached by the browser and re-used on subsequent page views without sending a single byte over the user&rsquo;s Internet connection.</p>
-
-        </div>
-        <br>
-        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#expires">Reference</a>
-    </div>
-</section>
-  </div>
-</div>
-
-    <noscript></noscript>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
-  </body>
-</html>

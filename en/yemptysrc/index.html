@@ -1,55 +1,6 @@
-<!doctype html>
-
-
-
- <html class="no-js"> 
-
-  <head>
-    <title>YSlow - rules</title>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <meta name="description" content="YSlow rules">
-    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
-
-    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
- 
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
-  </head>
-
-  <body>
-
-    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
-      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
-    </a>
-
-<div class="container">
-  <div class="row">
-    <section itemscope itemtype="http://schema.org/Property"> 
-    <div class="col-xs-12 rule tag-server " style="padding-bottom:1em;">
-
-        <div id="yemptysrc"></div>
-        <span class="hidden" itemprop="alternateName">yemptysrc</span>
-
-        <h2>
-            <a itemprop="url" href="#yemptysrc">
-                <span itemprop="name">Avoid Empty Image src</span>
-            </a>
-        </h2>
-
-        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/en/yemptysrc.md" target="_blank">
-            <span class="pull-right glyphicon glyphicon-edit"></span>
-        </a>
-
-        Tags:
-        
-            <span class="tags label label-default">server</span>
-        
-
-        <div itemprop="description">
-            <p>Image with empty string <strong>src</strong> attribute occurs more than one will expect. It appears in two form:</p>
+yemptysrc
+Avoid Empty Image src
+<p>Image with empty string <strong>src</strong> attribute occurs more than one will expect. It appears in two form:</p>
 
 <ol>
 <li>straight HTML</li>
@@ -94,17 +45,3 @@ img.src = &quot;&quot;;
 <p>Hopefully, browsers will not have this problem in the future. Unfortunately, there is no such clause for <code>&lt;script src=&quot;&quot;&gt;</code> and <code>&lt;link href=&quot;&quot;&gt;</code>. Maybe there is still time to make that adjustment to ensure browsers don&rsquo;t accidentally implement this behavior.</p>
 
 <p>This rule was inspired by Yahoo!&rsquo;s JavaScript guru Nicolas C. Zakas. For more information check out his article &ldquo;<a href="http://www.nczonline.net/blog/2009/11/30/empty-image-src-can-destroy-your-site/">Empty image src can destroy your site</a>&rdquo;.</p>
-
-        </div>
-        <br>
-        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#emptysrc">Reference</a>
-    </div>
-</section>
-  </div>
-</div>
-
-    <noscript></noscript>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
-  </body>
-</html>

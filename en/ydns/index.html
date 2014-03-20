@@ -1,55 +1,6 @@
-<!doctype html>
-
-
-
- <html class="no-js"> 
-
-  <head>
-    <title>YSlow - rules</title>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <meta name="description" content="YSlow rules">
-    <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
-
-    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
- 
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
-  </head>
-
-  <body>
-
-    <a href="https://github.com/checkmyws/yslow-rules" class="hidden-xs">
-      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
-    </a>
-
-<div class="container">
-  <div class="row">
-    <section itemscope itemtype="http://schema.org/Property"> 
-    <div class="col-xs-12 rule tag-content " style="padding-bottom:1em;">
-
-        <div id="ydns"></div>
-        <span class="hidden" itemprop="alternateName">ydns</span>
-
-        <h2>
-            <a itemprop="url" href="#ydns">
-                <span itemprop="name">Reduce DNS lookups</span>
-            </a>
-        </h2>
-
-        <a href="https://github.com/checkmyws/yslow-rules/edit/master/content/en/ydns.md" target="_blank">
-            <span class="pull-right glyphicon glyphicon-edit"></span>
-        </a>
-
-        Tags:
-        
-            <span class="tags label label-default">content</span>
-        
-
-        <div itemprop="description">
-            <p>The Domain Name System (DNS) maps hostnames to IP addresses, just as phonebooks map people&rsquo;s names to their phone numbers. When you type www.yahoo.com into your browser, a DNS resolver contacted by the browser returns that server&rsquo;s IP address. DNS has a cost. It typically takes 20-120 milliseconds for DNS to lookup the IP address for a given hostname. The browser can&rsquo;t download anything from this hostname until the DNS lookup is completed.</p>
+ydns
+Reduce DNS lookups
+<p>The Domain Name System (DNS) maps hostnames to IP addresses, just as phonebooks map people&rsquo;s names to their phone numbers. When you type www.yahoo.com into your browser, a DNS resolver contacted by the browser returns that server&rsquo;s IP address. DNS has a cost. It typically takes 20-120 milliseconds for DNS to lookup the IP address for a given hostname. The browser can&rsquo;t download anything from this hostname until the DNS lookup is completed.</p>
 
 <p>DNS lookups are cached for better performance. This caching can occur on a special caching server, maintained by the user&rsquo;s ISP or local area network, but there is also caching that occurs on the individual user&rsquo;s computer. The DNS information remains in the operating system&rsquo;s DNS cache (the &ldquo;DNS Client service&rdquo; on Microsoft Windows). Most browsers have their own caches, separate from the operating system&rsquo;s cache. As long as the browser keeps a DNS record in its own cache, it doesn&rsquo;t bother the operating system with a request for the record.</p>
 
@@ -58,17 +9,3 @@
 <p>When the client&rsquo;s DNS cache is empty (for both the browser and the operating system), the number of DNS lookups is equal to the number of unique hostnames in the web page. This includes the hostnames used in the page&rsquo;s URL, images, script files, stylesheets, Flash objects, etc. Reducing the number of unique hostnames reduces the number of DNS lookups.</p>
 
 <p>Reducing the number of unique hostnames has the potential to reduce the amount of parallel downloading that takes place in the page. Avoiding DNS lookups cuts response times, but reducing parallel downloads may increase response times. My guideline is to split these components across at least two but no more than four hostnames. This results in a good compromise between reducing DNS lookups and allowing a high degree of parallel downloads.</p>
-
-        </div>
-        <br>
-        <a href="#top">Top</a> | <a itemprop="sameAs" href="http://developer.yahoo.com/performance/rules.html#dns_lookups">Reference</a>
-    </div>
-</section>
-  </div>
-</div>
-
-    <noscript></noscript>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
-  </body>
-</html>
