@@ -21,6 +21,13 @@ We use Github and [Hugo](http://hugo.spf13.com/) to produce the web pages from i
 - `layouts/leads` : The HTML for the page lead. One par available language.
 - `layouts/intro` : The HTML for the page introduction. One par available language.
 
+## JSON Export
+
+You can find translations as JSON format (`UTF-8`):
+- [`/rules.json`](http://checkmyws.github.io/yslow-rules/rules.json): All rules in any languages
+- [`/fr/rules.json`](http://checkmyws.github.io/yslow-rules/fr/rules.json): ex: All rules in French
+- [`/fr/ycdn/rule.json`](http://checkmyws.github.io/yslow-rules/fr/ycdn/rule.json): ex: `ycdn` rule in French
+
 ## How to help
 
 You can make a new translation available by copying the `en` directory in `locale`. `locale` is the code of the translated language. If you make a spanish translation, this gives you a `es` folder. Translate every rule in the folder and you're done. Give attention to change the locale in the header of the rule.
