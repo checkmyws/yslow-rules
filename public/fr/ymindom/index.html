@@ -51,13 +51,13 @@
         <div itemprop="description">
             <p>Une page complexe signifie plus d&rsquo;octets à télécharger et aussi un accès au DOM plus lent en JavaScript. Cela fait une différence si vous parcourez 500 ou 5000 éléments DOM sur la page lorsque vous souhaitez ajouter un gestionnaire d&rsquo;événements par exemple.</p>
 
-<p>Un nombre élevé d&rsquo;éléments DOM peut être un symptôme qu&rsquo;il ya quelque chose qui devrait être amélioré avec le balisage de la page sans nécessairement supprimer le contenu. Utilisez-vous des tableaux imbriqués à des fins de mise en page ? Ajoutez-vous plus de balises <code>&lt;div&gt;</code> seulement pour résoudre des problèmes de mise en page ? Peut-être y a t&rsquo;il une meilleure façon, sémantiquement plus correct de faire votre balisage .</p>
+<p>Un nombre élevé d&rsquo;éléments DOM peut être un symptôme qu&rsquo;il ya quelque chose qui devrait être amélioré avec le balisage de la page sans nécessairement supprimer du contenu. Utilisez-vous des tableaux imbriqués à des fins de mise en page ? Ajoutez-vous plus de balises <code>&lt;div&gt;</code> seulement pour résoudre des problèmes de mise en page ? Peut-être y a t&rsquo;il une meilleure façon, sémantiquement plus correcte, de faire votre balisage.</p>
 
-<p>Les <a href="http://developer.yahoo.com/yui/">YUI CSS utilitaires</a> sont une aide préciseuse pour la mise en page: grids.css peut vous aider pour la disposition générale, fonts.css et reset.css peuvent vous aider à redéfinir la mise en forme par défaut du navigateur. C&rsquo;est une chance de repartir de zéro et de réfléchir à votre balisage, par exemple utiliser <code>&lt;div&gt;</code> seulement quand c&rsquo;est logique sémantiquement et non parce que la balise rend une nouvelle ligne.</p>
+<p>Les <a href="http://developer.yahoo.com/yui/">YUI CSS utilitaires</a> sont une aide précieuse pour la mise en page : grids.css peut vous aider pour la disposition générale, fonts.css et reset.css peuvent vous aider à redéfinir la mise en forme par défaut du navigateur. C&rsquo;est une chance de repartir de zéro et de réfléchir à votre balisage, par exemple utilisez des <code>&lt;div&gt;</code> seulement quand c&rsquo;est logique sémantiquement et non parce que la balise rend une nouvelle ligne.</p>
 
-<p>Le nombre d&rsquo;éléments DOM est facile à tester, il suffit de taper dans la console de Firebug: <code>document.getElementsByTagName('*').length</code>.</p>
+<p>Le nombre d&rsquo;éléments DOM est facile à tester, il suffit de taper dans la console de Firebug : <code>document.getElementsByTagName('*').length</code>.</p>
 
-<p>Et combien d&rsquo;éléments DOM sont trop nombreux? Vérifiez d&rsquo;autres pages similaires possédant un bon balisage. Par exemple, <a href="http://www.yahoo.com">Yahoo!</a> est une page très chargée et reste pourtant sous la barre des 700 éléments (balises HTML).</p>
+<p>Et combien d&rsquo;éléments DOM sont trop nombreux ? Vérifiez d&rsquo;autres pages similaires possédant un bon balisage. Par exemple, <a href="http://www.yahoo.com">Yahoo!</a> est une page très chargée et reste pourtant sous la barre des 700 éléments (balises HTML).</p>
 
         </div>
         <br>

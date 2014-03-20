@@ -10,7 +10,7 @@ notoc: "true"
 description: ""
 ---
 
-Inclure le même fichier JavaScript à deux reprises dans une seule page nuit à la performance. Ce n'est pas aussi rare qu'on pourrait le penser. Un examen des dix meilleurs sites web américains montre que deux d'entre eux contiennent un script dupliqué. Deux principaux facteurs augmentent les chances d'un script d'être dupliqué dans une page Web: la taille de l'équipe et le nombre de scripts. Lorsque cela arrive, le doublon met à mal les performances en créant des requêtes HTTP inutiles et l'exécution de code JavaScript perdu.
+Inclure le même fichier JavaScript à deux reprises dans une seule page nuit à la performance. Ce n'est pas aussi rare qu'on pourrait le penser. Un examen des dix meilleurs sites web américains montre que deux d'entre eux contiennent un script dupliqué. Deux principaux facteurs augmentent les chances d'un script d'être dupliqué dans une page Web : la taille de l'équipe et le nombre de scripts. Lorsque cela arrive, le doublon met à mal les performances en créant des requêtes HTTP inutiles et l'exécution de code JavaScript perdu.
 
 Des requêtes HTTP inutiles se produisent dans Internet Explorer mais pas dans Firefox. Dans Internet Explorer, si un script externe est inclus deux fois et n'est pas mis en cache, il génère deux requêtes HTTP lors du chargement de la page. Même si le script est mis en cache, des requêtes HTTP supplémentaires se produisent lorsque l'utilisateur recharge la page.
 

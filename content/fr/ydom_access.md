@@ -9,9 +9,9 @@ notoc: "true"
 description: ""
 ---
 
-L'accès aux éléments du DOM avec JavaScript est lent. Afin d'avoir une page plus réactive, vous devez:
+L'accès aux éléments du DOM avec JavaScript est lent. Afin d'avoir une page plus réactive, vous devez :
 
-- Mettre en cahe les références à des éléments accessibles.
+- Mettre en cache les références à des éléments accessibles.
 - Mettre à jour les nœuds «hors ligne» et les ajouter ensuite à l'arbre.
 - Éviter de corriger la mise en page avec JavaScript.
 
