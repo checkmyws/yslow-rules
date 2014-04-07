@@ -1,14 +1,14 @@
 ---
 weight: 150
 id: "yxhrmethod"
-title: "Use GET for AJAX Requests"
+title: "Usar GET para peticiones AJAX
 yahoo: "http://developer.yahoo.com/performance/rules.html#ajax_get"
 tags: ["server"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-The [Yahoo! Mail](http://mail.yahoo.com) team found that when using `XMLHttpRequest`, POST is implemented in the browsers as a two-step process: sending the headers first, then sending data. So it's best to use GET, which only takes one TCP packet to send (unless you have a lot of cookies). The maximum URL length in IE is 2K, so if you send more than 2K data you might not be able to use GET.
+El equipo de [Yahoo! Mail](http://mail.yahoo.com) que cuando se usaba `XMLHttpRequest`, el POST es implementado en los navegadores en un proceso de dos pasos: enviando las cabeceras primero, luego se envían los datos. Por lo tanto es mejor usar GET, el cual solo envía un paquete (a menos que tengas un montón de cookies). La longitud máxima en Internet Explorer es de 2kb, de modo que si necesitas enviar mas de 2kb no será capaz de usar GET.
 
-An interesting side affect is that POST without actually posting any data behaves like GET. Based on the [HTTP specs](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html), GET is meant for retrieving information, so it makes sense (semantically) to use GET when you're only requesting data, as opposed to sending data to be stored server-side.
+Un lado interesante es que el envío mediante POST sin ningún dato, hace que se comporte como GET. Basado en las [especificaciones HTTP](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html), GET es para recuperar la información, así tiene sentido (semánticamente) el usar GET sólo para la solicitudes de datos, a diferencia del envío de datos para ser guardados en el servidor.

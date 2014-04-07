@@ -1,19 +1,19 @@
 ---
 weight: 145
 id: "yflush"
-title: "Flush the Buffer Early"
+title: "Vaciar Buffer temprano"
 yahoo: "http://developer.yahoo.com/performance/rules.html#flush"
 tags: ["server"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-When users request a page, it can take anywhere from 200 to 500ms for the backend server to stitch together the HTML page. During this time, the browser is idle as it waits for the data to arrive. In PHP you have the function [flush()](http://php.net/flush). It allows you to send your partially ready HTML response to the browser so that the browser can start fetching components while your backend is busy with the rest of the HTML page. The benefit is mainly seen on busy backends or light frontends.
+Cuando los usuarios solicitan una página, se puede tomar de 200 a 500 milisegundos para el servidor crear el código html. Durante este tiempo, el navegador está inactivo ya que espera la llegada de los datos. En PHP tienes la función [flush()](http://php.net/flush). La que te permite enviar una respuesta HTML parcialmente lista al navegador así el navegador puede comenzar a buscar los componentes mientras que en el fondo está ocupado con el resto de la página HTML. El beneficio se encuentra principalmente en fondos ocupados o portadas ligeras.
 
-A good place to consider flushing is right after the HEAD because the HTML for the head is usually easier to produce and it allows you to include any CSS and JavaScript files for the browser to start fetching in parallel while the backend is still processing.
+Un buen lugar para considerar esto es inmediatamente después de la cabecera, es generalmente más fácil de producir y permite incluir cualquier cualquier archivo CSS o Javascript para que el navegador comience a buscar en paralelo mientras en el fondo está aun procesando.
 
-Example:
+Ejemplo:
 
 ~~~
     ... <!-- css, js -->
