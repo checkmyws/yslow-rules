@@ -1,7 +1,7 @@
 ---
 weight: 250
 id: "yevents"
-title: "Develop Smart Event Handlers"
+title: "Delegación de eventos"
 yahoo: "http://developer.yahoo.com/performance/rules.html#events"
 tags: ["javascript"]
 locales: "es"
