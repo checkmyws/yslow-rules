@@ -1,0 +1,10 @@
+ypostload
+Retrasar carga de componentes
+content 
+<p>Usted puede ver más de cerca su página y preguntarse: “Qué es absolutamente necesario para crear la página de inicio?”. El resto del contenido y los componentes pueden esperar.</p>
+
+<p>JavaScript es un candidato ideal para dividir antes y después del evento onload. Por ejemplo si usted tiene el código y las librerías necesarias para hacer un “arrastrar y soltar” y animaciones, esos pueden esperar porque el arrastre de los elementos en la página vienen después del renderizado inicial. Otros lugares que lucen como candidatos para el post-loading incluyen el contenido oculto (contenido que aparece luego de una acción del usuario) y las imágenes ocultas.</p>
+
+<p>Tools to help you out in your effort: <a href="http://developer.yahoo.com/yui/imageloader/">YUI Image Loader</a> allows you to delay images below the fold and the <a href="http://developer.yahoo.com/yui/get/">YUI Get utility</a> is an easy way to include JS and CSS on the fly. For an example in the wild take a look at <a href="http://www.yahoo.com">Yahoo! Home Page</a> with Firebug&rsquo;s Net Panel turned on.</p>
+
+<p>Es bueno cuando se obtienen los resultados deseados con otras prácticas de desarrollo web. En este caso, la idea de la progresiva mejora de Javascript nos dice que, cuando cuentan con el soporte, pueden mejorar la experiencia del usuario, pero debe asegurarse de que la página igualmente funcione sin javascript. Así, luego de que usted se haya cerciorado que la página funciona correctamente, usted puede mejorarla con algunos scripts para acicalarla con funcionalidades como el arrastrar y soltar y animaciones.</p>

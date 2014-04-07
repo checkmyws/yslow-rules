@@ -1,0 +1,8 @@
+yevents
+Delegación de eventos
+javascript 
+<p>Algunas veces las páginas tienen menos respuesta a cada uno de los manejadores de <em>eventos adjuntados</em> a diferentes elementos del árbol DOM, los cuales son ejecutados con demasiada frecuencia. Esa es la razón por la que usar delegación de eventos es una buena práctica. Si tienes 10 botones dentro de un <code>div</code>, conecte un solo evento a la capa, en lugar de un manejador para cada botón. Englobe los eventos, de modo que usted pueda encontrar el evento y averiguar de qué botón se originó.</p>
+
+<p>Además no es necesario esperar a la carga del evento para comenzar a hacer algo con el árbol DOM. A menudo todo lo que se necesita es que elemento al cual quiere acceder esté disponible en el árbol. Usted no necesita esperar a a que todas las imágenes se hayan descargado. El <code>DOMContentLoaded</code> es el evento que usted puede usar e lugar de onload.</p>
+
+<p>For more information check the YUI theatre&rsquo;s <a href="http://yuiblog.com/blog/2007/12/20/video-lecomte/">&ldquo;High Performance Ajax  Applications&rdquo;</a> by  Julien Lecomte.</p>

@@ -1,0 +1,6 @@
+yno404
+Evitar 404
+content 
+<p>Las peticiones HTTP son costosas, de modo que hacer una petición HTTP y no obtener un resultado (ej. error 404 Not Found) son totalmente innecesarias y ralentizarán la experiencia del usuario sin ningún beneficio.</p>
+
+<p>Algunos sitios tienen páginas 404 con contenido útil “¿Quizá está buscando X?”, lo cual es ideal para la experiencia del usuario, pero además representan un desperdicio de recursos del servidor (como la base de datos, etc.). Es particularmente malo cuando el enlace a un javascript externo falla y ello deriva en una página 404. Primero, esta descarga bloqueará las demás descargas paralelas. Luego el navegador tratará de interpretar el cuerpo de la respuesta 404 como si fuera el mismo código javascript, intentando hallar algo usable en él.</p>

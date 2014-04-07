@@ -1,0 +1,17 @@
+yflush
+Vaciar Buffer temprano
+server 
+<p>Cuando los usuarios solicitan una página, se puede tomar de 200 a 500 milisegundos para el servidor crear el código html. Durante este tiempo, el navegador está inactivo ya que espera la llegada de los datos. En PHP tienes la función <a href="http://php.net/flush">flush()</a>. La que te permite enviar una respuesta HTML parcialmente lista al navegador así el navegador puede comenzar a buscar los componentes mientras que en el fondo está ocupado con el resto de la página HTML. El beneficio se encuentra principalmente en fondos ocupados o portadas ligeras.</p>
+
+<p>Un buen lugar para considerar esto es inmediatamente después de la cabecera, es generalmente más fácil de producir y permite incluir cualquier cualquier archivo CSS o Javascript para que el navegador comience a buscar en paralelo mientras en el fondo está aun procesando.</p>
+
+<p>Ejemplo:</p>
+
+<pre><code>    ... &lt;!-- css, js --&gt;
+    &lt;/head&gt;
+    &lt;?php flush(); ?&gt;
+    &lt;body&gt;
+      ... &lt;!-- content --&gt;
+</code></pre>
+
+<p><a href="http://search.yahoo.com">Yahoo! search</a> pioneered research and real user testing to prove the benefits of using this technique.</p>
