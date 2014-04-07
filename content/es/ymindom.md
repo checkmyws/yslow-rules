@@ -3,7 +3,7 @@ weight: 180
 id: "ymindom"
 title: "Reducir número de elementos DOM"
 yahoo: "http://developer.yahoo.com/performance/rules.html#min_dom"
-tags: ["contenido"]
+tags: ["content"]
 locales: "es"
 notoc: "true"
 description: ""

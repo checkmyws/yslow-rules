@@ -4,7 +4,7 @@ id: "yxhr"
 title: "Ajax cacheable"
 yahoo: "http://developer.yahoo.com/performance/rules.html#cacheajax"
 discuss: "http://developer.yahoo.net/blog/archives/2007/09/high_performanc_12.html"
-tags: ["contenido"]
+tags: ["content"]
 locales: "es"
 notoc: "true"
 description: ""

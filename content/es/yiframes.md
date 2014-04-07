@@ -1,24 +1,25 @@
 ---
 weight: 200
 id: "yiframes"
-title: "Minimize Number of iframes"
+title: "Minimizar número de Iframes"
 yahoo: "http://developer.yahoo.com/performance/rules.html#iframes"
 tags: ["content"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-Iframes allow an HTML document to be inserted in the parent document. It's important to understand how iframes work so they can be used effectively.
+Los Iframes permiten que un documento HTML sea insertado en un documento padre. Es importante entender cómo trabajan los iframes para que puedan ser usados eficazmente.
 
 `&lt;iframe&gt;` pros:
 
--   Helps with slow third-party content like badges and ads
--   Security sandbox
--   Download scripts in parallel
+-   Ayuda con lentitud a contenidos de terceros como logotipos y anuncios
+-   Seguridad sandbox
+-   Descargar scripts en paralelo
 
-&lt;iframe&gt; cons:
+&lt;iframe&gt; contras:
 
--   Costly even if blank
--   Blocks page onload
--   Non-semantic
+- Costosos, aunque estén en blanco
+- Bloquean la carga de la página
+- son Anti-semánticos
+

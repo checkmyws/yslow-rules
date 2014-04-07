@@ -4,7 +4,7 @@ id: "yredirects"
 title: "Evitar redirecciones"
 yahoo: "http://developer.yahoo.com/performance/rules.html#redirects"
 discuss: "http://developer.yahoo.net/blog/archives/2007/07/high_performanc_9.html"
-tags: ["contenido"]
+tags: ["content"]
 locales: "es"
 notoc: "true"
 description: ""

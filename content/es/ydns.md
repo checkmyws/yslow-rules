@@ -4,7 +4,7 @@ id: "ydns"
 title: "Reducir búsquedas DNS"
 yahoo: "http://developer.yahoo.com/performance/rules.html#dns_lookups"
 discuss: "http://developer.yahoo.net/blog/archives/2007/07/high_performanc_7.html"
-tags: ["contenido"]
+tags: ["content"]
 locales: "es"
 notoc: "true"
 description: ""

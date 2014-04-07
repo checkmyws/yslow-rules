@@ -1,14 +1,14 @@
 ---
 weight: 190
 id: "ysplit"
-title: "Split Components Across Domains"
+title: "Separar componentes con dominios"
 yahoo: "http://developer.yahoo.com/performance/rules.html#split"
 tags: ["content"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-Splitting components allows you to maximize parallel downloads. Make sure you're using not more than 2-4 domains because of the DNS lookup penalty. For example, you can host your HTML and dynamic content on `www.example.org` and split static components between `static1.example.org` and `static2.example.org`
+Dividir los componentes le permite maximizar las descargas paralelas. Asegúrese de que no está usando más de 2-4 dominios porque las búsquedas DNS le penalizarán. Por ejemplo, usted puede alojar su HTML y el contenido dinámico en www.midominio.com y dividir los componentes estáticos entre `static1.example.org` y `static2.example.org`
 
 For more information check "[Maximizing Parallel Downloads in the Carpool Lane](http://yuiblog.com/blog/2007/04/11/performance-research-part-4/)" by Tenni Theurer and Patty Chi.

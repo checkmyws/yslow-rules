@@ -3,7 +3,7 @@ weight: 170
 id: "ypreload"
 title: "Precargar componentes"
 yahoo: "http://developer.yahoo.com/performance/rules.html#preload"
-tags: ["contenido"]
+tags: ["content"]
 locales: "es"
 notoc: "true"
 description: ""

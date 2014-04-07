@@ -3,7 +3,7 @@ weight: 160
 id: "ypostload"
 title: "Retrasar carga de componentes"
 yahoo: "http://developer.yahoo.com/performance/rules.html#postload"
-tags: ["contenido"]
+tags: ["content"]
 locales: "es"
 notoc: "true"
 description: ""

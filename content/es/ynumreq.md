@@ -4,7 +4,7 @@ id: "ynumreq"
 title: "Reducir llamadas HTTP"
 yahoo: "http://developer.yahoo.com/performance/rules.html#num_http"
 discuss: "http://developer.yahoo.net/blog/archives/2007/04/rule_1_make_few.html"
-tags: ["contenido"]
+tags: ["content"]
 locales: "es"
 notoc: "true"
 description: ""
