@@ -9,14 +9,6 @@ notoc: "true"
 description: ""
 ---
 
-Redirects are accomplished using the 301 and 302 status codes. Here's an example of the HTTP headers in a 301 response:
-
-~~~
-HTTP/1.1 301 Moved Permanently
-Location: http://example.com/newuri
-Content-Type: text/html
-~~~
-
 You can take a closer look at your page and ask yourself: "What's absolutely required in order to render the page initially?". The rest of the content and components can wait.
 
 JavaScript is an ideal candidate for splitting before and after the onload event. For example if you have JavaScript code and libraries that do drag and drop and animations, those can wait, because dragging elements on the page comes after the initial rendering. Other places to look for candidates for post-loading include hidden content (content that appears after a user action) and images below the fold.

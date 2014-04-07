@@ -1,13 +1,6 @@
 ypostload
 Post-charger les composants
 content 
-<p>Les redirections sont effectuées en utilisant les codes d&rsquo;état 301 et 302. Voici un exemple des en-têtes HTTP dans une réponse 301 :</p>
-
-<pre><code>HTTP/1.1 301 Moved Permanently
-Location: http://example.com/newuri
-Content-Type: text/html
-</code></pre>
-
 <p>Vous pouvez jeter un oeil de plus près à votre page et vous vous demandez : «Qu&rsquo;est-ce qui est absolument nécessaire afin d&rsquo;initier le rendu de la page?». Le reste du contenu et des composants peut attendre.</p>
 
 <p>JavaScript est un candidat idéal pour la séparation avant et après l&rsquo;événement onload. Par exemple, si vous avez du code JavaScript et des bibliothèques qui font du glisser-déposer et autres animations, celles-ci peuvent attendre. Glisser des éléments sur la page vient après le rendu initial. Autres endroits pour chercher des candidats pour le post chargement : le contenu caché (il apparaît après une action de l&rsquo;utilisateur) et les images en-dessous de la ligne de flottaison.</p>

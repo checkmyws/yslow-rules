@@ -13,10 +13,10 @@
     <meta name="description" content="YSlow rules">
     <meta name="google-site-verification" content="_kDN7uZlq3Uv5yjsjP5vA1I-u5_Vifz2XkAOla4l0hY">
 
-    <link rel="shortcut icon" type="image/png" href="http://checkmyws.github.io/yslow-rules//img/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="http://localhost:1313/img/favicon.png" />
  
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://checkmyws.github.io/yslow-rules//css/main.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/main.css">
   </head>
 
   <body>
@@ -52,10 +52,10 @@
         <span class="pull-right links">
           <ul>
             <li>
-              <a href="http://yslow.org/"><img height=24 src="http://checkmyws.github.io/yslow-rules//img/yslow.png">YSlow.org</a>
+              <a href="http://yslow.org/"><img height=24 src="http://localhost:1313/img/yslow.png">YSlow.org</a>
             </li>
             <li>
-              <a href="http://www.checkmy.ws/"><img width=24 src="http://checkmyws.github.io/yslow-rules//img/checkmyws.png">Check my Website</a>
+              <a href="http://www.checkmy.ws/"><img width=24 src="http://localhost:1313/img/checkmyws.png">Check my Website</a>
             </li>
           </ul>
         </span>
@@ -69,6 +69,10 @@
     <ul class="nav navbar-nav">
       <li>
         <a onclick="clickTag('all');">All</a>
+      </li>
+      
+      <li>
+        <a onclick="clickTag('contenido');">Contenido</a>
       </li>
       
       <li>
@@ -103,13 +107,18 @@
 
     <ul class="nav navbar-nav navbar-right">
       <li>
-        <a href="http://checkmyws.github.io/yslow-rules//en">
-          <img src="http://checkmyws.github.io/yslow-rules//css/blank.gif" class="flag flag-us" alt="English" />
+        <a href="http://localhost:1313/en">
+          <img src="http://localhost:1313/css/blank.gif" class="flag flag-us" alt="English" />
         </a>
       </li>
       <li>
-        <a href="http://checkmyws.github.io/yslow-rules//fr">
-          <img src="http://checkmyws.github.io/yslow-rules//css/blank.gif" class="flag flag-fr" alt="Français" />
+        <a href="http://localhost:1313/fr">
+          <img src="http://localhost:1313/css/blank.gif" class="flag flag-fr" alt="Français" />
+        </a>
+      </li>
+      <li>
+        <a href="http://localhost:1313/es">
+          <img src="http://localhost:1313/css/blank.gif" class="flag flag-it" alt="Espanõl" />
         </a>
       </li>
     </ul>
@@ -1128,14 +1137,7 @@ HTTP/1.1 304 Not Modified
         
 
         <div itemprop="description">
-            <p>Redirects are accomplished using the 301 and 302 status codes. Here&rsquo;s an example of the HTTP headers in a 301 response:</p>
-
-<pre><code>HTTP/1.1 301 Moved Permanently
-Location: http://example.com/newuri
-Content-Type: text/html
-</code></pre>
-
-<p>You can take a closer look at your page and ask yourself: &ldquo;What&rsquo;s absolutely required in order to render the page initially?&rdquo;. The rest of the content and components can wait.</p>
+            <p>You can take a closer look at your page and ask yourself: &ldquo;What&rsquo;s absolutely required in order to render the page initially?&rdquo;. The rest of the content and components can wait.</p>
 
 <p>JavaScript is an ideal candidate for splitting before and after the onload event. For example if you have JavaScript code and libraries that do drag and drop and animations, those can wait, because dragging elements on the page comes after the initial rendering. Other places to look for candidates for post-loading include hidden content (content that appears after a user action) and images below the fold.</p>
 
@@ -1836,6 +1838,6 @@ img.src = &quot;&quot;;
 </div>
     <noscript></noscript>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="http://checkmyws.github.io/yslow-rules//js/main.js"></script>
+    <script src="http://localhost:1313/js/main.js"></script>
   </body>
 </html>

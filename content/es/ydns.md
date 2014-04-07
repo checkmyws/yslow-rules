@@ -1,0 +1,21 @@
+---
+weight: 80
+id: "ydns"
+title: "Reducir búsquedas DNS"
+yahoo: "http://developer.yahoo.com/performance/rules.html#dns_lookups"
+discuss: "http://developer.yahoo.net/blog/archives/2007/07/high_performanc_7.html"
+tags: ["contenido"]
+locales: "es"
+notoc: "true"
+description: ""
+---
+
+Cuando usted escribe www.midominio.com en su navegador, una resolución de DNS en contacto con el navegador, devuelve la dirección IP del servidor. El DNS tiene un costo. Que generalmente es de 20-120 milisegundos por DNS para encontrar la dirección IP de un hostname dado. El navegador no puede descargar nada de este hostname hasta que la búsqueda DNS se haya completado.
+
+Las búsquedas DNS son cacheadas para mejor rendimiento. Este cacheo puede acontecer en un servidor especial de caché, mantenido por el usuario del ISP o red de área local, pero también está el cacheo que ocurre en la computadora individual de cada usuario. La información DNS queda en el caché de DNS del Sistema Operativo (el “DNS Client service” en Microsoft Windows). Muchos navegdores tienen sus propias caches, separadas de la caché del sistema operativo. En la medidad en que el navegador guarda un registro DNS en su propia caché, ello no infiere al sistema operativo con una petición de ese registro.
+
+Internet Explorer almacena en caché las búsquedas DNS por 30 minutes por defecto, especificado la entrada del registro `DnsCacheTimeout`. Firefox cachea las búsquedas DNS por 1 minuto, controlada por la opción `network.dnsCacheExpiration` en la configuración del navegador. (Fasterfox cambia esto a 1 hora.)
+
+Cuando la caché DNS del cliente está vacía (tanto en el navegador como en el sistema operativo), el número de búsquedas DNS es igual al número de hostname únicos en la página web. Esto incluye los hostnames usados en la página URL, imágenes, archivos de script, hojas de estilo, animaciones Flash, etc. Reduciendo el número hostnames únicos se reduce el número de búsquedas DNS.
+
+Reduciendo el número de hostname únicos tiene el potencial de reducir la cantidad de descargas parlelas que toman a lugar en la página. Evitando búsquedas DNS acorta los tiempos de respuesta, pero reduciendo las descargas paralelas puede aumentarlos. Mi preferencia es dividir estos componentes a través de al menos dos, pero no m´s de cuatro hostnames. Esto resulta en un buen compromiso entre reducir las búsquedas DNS y permitir un alto grado de descargas paralelas.
