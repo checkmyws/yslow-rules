@@ -1,30 +1,31 @@
 ---
 weight: 20
 id: "yexpires"
-title: "Add Expires or Cache-Control Header"
+title: "Agregar Expires o Cache-Control Header"
 yahoo: "http://developer.yahoo.com/performance/rules.html#expires"
 discuss: "http://developer.yahoo.net/blog/archives/2007/05/high_performanc_2.html"
 tags: ["server"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-There are two aspects to this rule:
+Esta norma tiene dos sencillos objetivos:
 
-- For static components: implement "Never expire" policy by setting far future `Expires` header 
-- For dynamic components: use an appropriate `Cache-Control` header to help the browser with conditional requests
+- Para los archivos estáticos: implementar “Never expire” como `Expires` Header para las próximas visitas.
+- Para los archivos dinámicos: usa el `Cache-Control` Header mas apropiado para ayudar al navegador en las llamadas HTTP.
 
- Web page designs are getting richer and richer, which means more scripts, stylesheets, images, and Flash in the page. A first-time visitor to your page may have to make several HTTP requests, but by using the Expires header you make those components cacheable. This avoids unnecessary HTTP requests on subsequent page views. Expires headers are most often used with images, but they should be used on *all* components including scripts, stylesheets, and Flash components.
+Los diseños de las páginas web se enriquecen cada vez más, lo cual representa más scripts, hojas de estilo, imágenes y animaciones Flash en el contenido. Una visita por primera vez a la página puede contener muchas llamadas HTTP, pero usando un Header Expires permitirá que esos componentes se guardan en la cache. Esto evita llamadas HTTP innecesarias en subsecuentes visitas. Los Expires Headers se usan muy a menudo con las imágenes, pero se debería usar con todos los componentes incluyendo scripts, hojas de estilo y animaciones Flash.
 
-Browsers (and proxies) use a cache to reduce the number and size of HTTP requests, making web pages load faster. A web server uses the Expires header in the HTTP response to tell the client how long a component can be cached. This is a far future Expires header, telling the browser that this response won't be stale until April 15, 2010.
+Los navegadores (y proxies) usan la caché para reducir el número y el tamaño de las peticiones HTTP, permitiendo que la página web cargue más rápido. Un servidor web utiliza las Expires Header en las respuestas HTTP para comunicarle al cliente cuánto tiempo puede estar un componente en la caché. Ésta es una Expires Header con mucha duración, diciéndole al navegador que esta respuesta no caducará hasta el 15 de Abril del 2010.
 
 	Expires: Thu, 15 Apr 2010 20:00:00 GMT
 
- If your server is Apache, use the ExpiresDefault directive to set an expiration date relative to the current date. This example of the ExpiresDefault directive sets the Expires date 10 years out from the time of the request.
+Si tu servidor es Apache, use la directiva ExpiresDefault para determinar una fecha de expiración relativa a la fecha actual. Este ejemplo de la directiva ExpiresDefault establece la fecha de expiración a 10 años a partir del momento de la petición.
 
 	ExpiresDefault "access plus 10 years"
 
- Keep in mind, if you use a far future Expires header you have to change the component's filename whenever the component changes. At Yahoo! we often make this step part of the build process: a version number is embedded in the component's filename, for example, yahoo\_2.0.6.js.
+Recuerda, si usas una Expires header con mucha duración, debes cambiar el nombre del archivo del componente cada vez que lo modifiques.
 
-Using a far future Expires header affects page views only after a user has already visited your site. It has no effect on the number of HTTP requests when a user visits your site for the first time and the browser's cache is empty. Therefore the impact of this performance improvement depends on how often users hit your pages with a primed cache. (A "primed cache" already contains all of the components in the page.) We [measured this at Yahoo!](http://yuiblog.com/blog/2007/01/04/performance-research-part-2/) and found the number of page views with a primed cache is 75-85%. By using a far future Expires header, you increase the number of components that are cached by the browser and re-used on subsequent page views without sending a single byte over the user's Internet connection.
+Usando una Expires header de larga duración, sólo afecta a las páginas vistas después de que un usuario ha visitado su sitio. No tiene ningún efecto en el número de peticiones HTTP cuando un usuario visita su sitio por primera vez y la caché del navegador está vacía. Por lo tanto, la mejora del rendimiento depende en medida de la frecuencia en que sus usuarios visitan sus páginas con una primed cache. (Una “primed cache” ya contiene la totalidad de los componentes en la página.) El usar una Expires header de larga duración, le incrementará el número de componentes que son cacheables por el navegador y reutilizarlos en posteriores visitas a la página, sin necesidad de enviar un solo byte al cliente.
+

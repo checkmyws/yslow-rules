@@ -17,7 +17,7 @@ HTTP/1.1 200 OK
 Last-Modified: Tue, 12 Dec 2006 03:03:59 GMT
 ETag: "10c24bc-4ab-457e1c1f"
 Content-Length: 12195
-~~
+~~~
 
 Later, if the browser has to validate a component, it uses the `If-None-Match` header to pass the ETag back to the origin server. If the ETags match, a 304 status code is returned reducing the response by 12195 bytes for this example.
 
@@ -27,7 +27,7 @@ Host: us.yimg.com
 If-Modified-Since: Tue, 12 Dec 2006 03:03:59 GMT
 If-None-Match: "10c24bc-4ab-457e1c1f"
 HTTP/1.1 304 Not Modified
-~~
+~~~
 
 The problem with ETags is that they typically are constructed using attributes that make them unique to a specific server hosting a site. ETags won't match when a browser gets the original component from one server and later tries to validate that component on a different server, a situation that is all too common on Web sites that use a cluster of servers to handle requests. By default, both Apache and IIS embed data in the ETag that dramatically reduces the odds of the validity test succeeding on web sites with multiple servers.
 

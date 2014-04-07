@@ -1,16 +1,16 @@
 ---
 weight: 230
 id: "ycookiefree"
-title: "Use Cookie-Free Domains for Components"
+title: "Componentes en dominio libre de cookies"
 yahoo: "http://developer.yahoo.com/performance/rules.html#cookie_free"
 tags: ["cookie"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-When the browser makes a request for a static image and sends cookies together with the request, the server doesn't have any use for those cookies. So they only create network traffic for no good reason. You should make sure static components are requested with cookie-free requests. Create a subdomain and host all your static components there.
+Cuando el navegador hace una petición de una imagen estática y envía cookies junto a la petición, el servidor no tiene ningún uso para esas cookies. Por lo que se crean sin obtener un beneficio. Usted debería asegurarse de que los componente estáticos son pedidos libres de cookies. Abra un subdominio y ahí aloje los componentes estáticos.
 
-If your domain is `www.example.org`, you can host your static components on `static.example.org`. However, if you've already set cookies on the top-level domain `example.org` as opposed to `www.example.org`, then all the requests to `static.example.org` will include those cookies. In this case, you can buy a whole new domain, host your static components there, and keep this domain cookie-free. Yahoo! uses `yimg.com`, YouTube uses `ytimg.com`, Amazon uses `images-amazon.com` and so on.
+Si su dominio es `www.midominio.com`, usted puede alojar los componentes estáticos en `static.midominio.com`. Sin embargo, si usted ya ha establecido las cookies en el dominio superior `midominio.com` frente a `www.midominio.com`, entonces todas las llamadas a `static.midominio.com` se incluirán en estas cookies. En este caso, usted puede comprar un nuevo dominio,para alojar sus componentes estáticos ahí, y mantener este dominio sin cookies.
 
-Another benefit of hosting static components on a cookie-free domain is that some proxies might refuse to cache the components that are requested with cookies. On a related note, if you wonder if you should use example.org or www.example.org for your home page, consider the cookie impact. Omitting www leaves you no choice but to write cookies to `*.example.org`, so for performance reasons it's best to use the www subdomain and write the cookies to that subdomain.
+Otros beneficios de alojar los componentes estáticos en un dominio libre de cookies es que algunos proxys pueden rechazar el cacheo de los componentes que son pedidos junto con las cookies. En una nota relacionada, si usted se pregunta si debería usar `midominio.com` o `www.midominio.com` para su página de inicio, considere el impacto de la cookie. El omitir las www no le deja otra opción que escribir las cookies para `*.midominio.com`, por lo que por razones de rendimiento es mejor utilizar las www. y escribir las cookies para ese subdominio.

@@ -1,31 +1,31 @@
 ---
 weight: 30
 id: "ycompress"
-title: "Gzip Components"
+title: "Compresión Gzip"
 yahoo: "http://developer.yahoo.com/performance/rules.html#gzip"
 discuss: "http://developer.yahoo.net/blog/archives/2007/07/high_performanc_3.html"
 tags: ["server"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-The time it takes to transfer an HTTP request and response across the network can be significantly reduced by decisions made by front-end engineers. It's true that the end-user's bandwidth speed, Internet service provider, proximity to peering exchange points, etc. are beyond the control of the development team. But there are other variables that affect response times. Compression reduces response times by reducing the size of the HTTP response.
+El tiempo que le toma transferir una petición HTTP y su respuesta a través de la red pueden ser reducirse significativamente por las decisiones tomadas por los ingenieros en el “front-end”. Es cierto que el ancho de banda, proveedor de Internet, proximidad a los puntos de intercambio, etc. del usuario, están fuera del control del equipo de desarrollo. Pero hay otras variables que afectan los tiempos de respuesta. La compresión reduce los tiempos de respuesta al reducir el tamaño de las peticiones HTTP.
 
-Starting with HTTP/1.1, web clients indicate support for compression with the Accept-Encoding header in the HTTP request.
+A partir de HTTP/1.1, los navegadores web permiten el soporte para compresión con la cabecera Accept-Encoding en la petición HTTP.
 
 	Accept-Encoding: gzip, deflate
 
-If the web server sees this header in the request, it may compress the response using one of the methods listed by the client. The web server notifies the web client of this via the Content-Encoding header in the response.
+Si el servidor web visualiza esta cabecera en la petición, puede comprimir la respuesta usando uno de los métodos listados por el client. El servidor web notifica al cliente a través de la cabecera Content-Encoding en la respuesta.
 
 	Content-Encoding: gzip
 
-Gzip is the most popular and effective compression method at this time. It was developed by the GNU project and standardized by [RFC 1952](http://www.ietf.org/rfc/rfc1952.txt). The only other compression format you're likely to see is deflate, but it's less effective and less popular.
+Gzip es el método más popular y efectivo de compresión en este momento. El mismo fue desarrollado por el proyecto GNU y estandarizado por [RFC 1952](http://www.ietf.org/rfc/rfc1952.txt). El otro formato de compresión que puede usar es Deflate, pero es menos efectivo y menos popular.
 
-Gzipping generally reduces the response size by about 70%. Approximately 90% of today's Internet traffic travels through browsers that claim to support gzip. If you use Apache, the module configuring gzip depends on your version: Apache 1.3 uses [mod\_gzip](http://sourceforge.net/projects/mod-gzip/) while Apache 2.x uses [mod\_deflate](http://httpd.apache.org/docs/2.0/mod/mod_deflate.html).
+Comprimiendo con Gzip generalmente reduce el tamaño de la respuesta hasta en un 70%. Aproximadamente el 90% del tráfico en Internet hoy en día viaja a través de los navegadores que especifican el soporte para Gzip. Si usas Apache, el módulo de configuración de Gzip depende de la versión: Apache 1.3 usa [mod\_gzip](http://sourceforge.net/projects/mod-gzip/) mientras que Apache 2.x usa [mod\_deflate](http://httpd.apache.org/docs/2.0/mod/mod_deflate.html).
 
-There are known issues with browsers and proxies that may cause a mismatch in what the browser expects and what it receives with regard to compressed content. Fortunately, these edge cases are dwindling as the use of older browsers drops off. The Apache modules help out by adding appropriate Vary response headers automatically.
+Existen problemas conocidos con navegadores y proxies que pueden causar un desequilibrio en lo que el navegador espera y lo que recibe en relación con el contenido comprimido. Afortunadamente, estos casos están disminuyendo dado que el uso de navegadores antiguos también disminuye Los módulos de Apache ayudan añadiendo las cabeceras apropiadas automáticamente.
 
-Servers choose what to gzip based on file type, but are typically too limited in what they decide to compress. Most web sites gzip their HTML documents. It's also worthwhile to gzip your scripts and stylesheets, but many web sites miss this opportunity. In fact, it's worthwhile to compress any text response including XML and JSON. Image and PDF files should not be gzipped because they are already compressed. Trying to gzip them not only wastes CPU but can potentially increase file sizes.
+Los servidores escogen qué comprimir, basado en el tipo de archivo, pero suelen ser muy limitados en lo que deciden comprimir. Muchos sitios web comprimen sus documentos HTML. También es recomendable comprimir sus scripts y hojas de estilo, pero muchos sitios web desaprovechan esta cualidad. De hecho, es útil comprimir cualquier texto incluyendo respuestas XML y JSON. Las imágenes y los documentos PDF no deben ser tratados con Gzip ya que estos ya están comprimidos. Intentar hacerlo no sólo desperdicia recursos del CPU, sino que incrementan el tamaño del archivo.
 
-Gzipping as many file types as possible is an easy way to reduce page weight and accelerate the user experience.
+Tratar con Gzip cuanto tipo archivo sea posible, es una excelente manera de reducir el peso de la página y acelerar la carga para el usuario.

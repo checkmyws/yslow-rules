@@ -1,21 +1,21 @@
 ---
 weight: 10
 id: "ycdn"
-title: "Use a Content Delivery Network (CDN)"
+title: "Usar Content Delivery Network"
 yahoo: "http://developer.yahoo.com/performance/rules.html#cdn"
 discuss: "http://developer.yahoo.net/blog/archives/2007/04/high_performanc_1.html"
 tags: ["server"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-The user's proximity to your web server has an impact on response times. Deploying your content across multiple, geographically dispersed servers will make your pages load faster from the user's perspective. But where should you start?
+La proximidad del usuario a su servidor web tiene un impacto sobre los tiempos de respuesta. El despliegue de su contenido a través de múltiples servidores dispersos geográficamente hará que sus páginas se carguen más rápido desde la perspectiva del usuario. Pero ¿por dónde debe empezar?
 
-As a first step to implementing geographically dispersed content, don't attempt to redesign your web application to work in a distributed architecture. Depending on the application, changing the architecture could include daunting tasks such as synchronizing session state and replicating database transactions across server locations. Attempts to reduce the distance between users and your content could be delayed by, or never pass, this application architecture step.
+Como primer paso para aplicar esta técnica, no intente rediseñar su aplicación web para trabajar en una arquitectura distribuida. Dependiendo de la aplicación, la modificación de la arquitectura podría incluir enormes tareas como la sincronización del estado de la sesión y replicar la base de datos del servidor a través de transacciones de lugares. Los intentos de reducir la distancia entre los usuarios y su contenido podría retrasarse, o no llegar nunca a los usuarios, esta aplicación es una etapa de la arquitectura.
 
-Remember that 80-90% of the end-user response time is spent downloading all the components in the page: images, stylesheets, scripts, Flash, etc. This is the *Performance Golden Rule*. Rather than starting with the difficult task of redesigning your application architecture, it's better to first disperse your static content. This not only achieves a bigger reduction in response times, but it's easier thanks to content delivery networks.
+Recuerde que el 80-90% de los visitantes pierden tiempo mientras se descargan todos los componentes en la página: imágenes, hojas de estilo, scripts, Flash, etc. Ésta es la la regla de oro del rendimiento. En lugar de comenzar con la tediosa prática de rediseñar la arquitectura de su aplicación, es mejor desplegar primero el contenido estático. Ésto, aparte de conllevar una fantástica reducción del tiempo de descarga, se facilita gracias a las Content Delivery Network.
 
-A content delivery network (CDN) is a collection of web servers distributed across multiple locations to deliver content more efficiently to users. The server selected for delivering content to a specific user is typically based on a measure of network proximity. For example, the server with the fewest network hops or the server with the quickest response time is chosen.
+Un Content Delivery Network (CDN) o Red de distribución de contenido, en español, es un grupo de servidores web distribuidos en varias ubicaciones para ofrecer contenidos de manera más eficiente a los usuarios. El servidor seleccionado para la entrega de contenido a un usuario concreto es típicamente basado en una medida de aproximación. Por ejemplo, el servidor con el menor número de saltos o el servidor con más rápida respuesta es el elegido.
 
-Some large Internet companies own their own CDN, but it's cost-effective to use a CDN service provider, such as [Akamai Technologies](http://www.akamai.com/), [EdgeCast](http://www.edgecast.com/), or [level3](http://www.level3.com/index.cfm?pageID=36). For start-up companies and private web sites, the cost of a CDN service can be prohibitive, but as your target audience grows larger and becomes more global, a CDN is necessary to achieve fast response times. At Yahoo!, properties that moved static content off their application web servers to a CDN (both 3rd party as mentioned above as well as Yahoo’s own [CDN](https://cwiki.apache.org/TS/traffic-server.html)) improved end-user response times by 20% or more. Switching to a CDN is a relatively easy code change that will dramatically improve the speed of your web site.
+Algunas empresas poseen sus propias CDN, dado que es menos costoso que usar un proveedor del servicio. Para los sitios web de pequeñas empresas públicas o privadas, el costo del servicio CDN puede ser prohibitivo, pero dado que su objetivo principal es crecer y abarcar cada vez más audiencia, una CDN es necesaria para lograr una rápida respuesta. El cambio a una CDN es relativamente fácil, lo que mejorará dramáticamente la velocidad de su sitio web.

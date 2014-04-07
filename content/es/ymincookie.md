@@ -1,19 +1,19 @@
 ---
 weight: 220
 id: "ymincookie"
-title: "Reduce Cookie Size"
+title: "Reducir tamaño de las cookies"
 yahoo: "http://developer.yahoo.com/performance/rules.html#cookie_size"
 tags: ["cookie"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-HTTP cookies are used for a variety of reasons such as authentication and personalization. Information about cookies is exchanged in the HTTP headers between web servers and browsers. It's important to keep the size of cookies as low as possible to minimize the impact on the user's response time.
+Las cookies son usadas por una variedad tales como la autenticación y personalización. La información de las cookies es intercambiadas en las cabeceras HTTP entre los servidores web y los navegadores. Es importante mantener el tamaño de las cookies lo más bajo posible para reducir al mínimo el impacto que pueda ocasionar en el tiempo de respuesta al usuario.
 
 For more information check ["When the Cookie Crumbles"](http://yuiblog.com/blog/2007/03/01/performance-research-part-3/) by Tenni Theurer and Patty Chi. The take-home of this research:
 
--   Eliminate unnecessary cookies
--   Keep cookie sizes as low as possible to minimize the impact on the user response time
--   Be mindful of setting cookies at the appropriate domain level so other sub-domains are not affected
--   Set an Expires date appropriately. An earlier Expires date or none removes the cookie sooner, improving the user response time
+- Eliminar las cookies innecesarias
+- Mantener el tamaño de las cookies lo más bajo posible para reducir el impacto en el tiempo de respuesta.
+- Ser conscientes de configurar la cookie al nivel apropiado del dominio, así otros subdominios no serán afectados.
+- Establecer una fecha de expiración apropiada. Una fecha de expiración pasada o ninguna eliminan rápido la cookie, mejorando el tiempo de respuesta al usuario.
