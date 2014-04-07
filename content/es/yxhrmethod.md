@@ -1,7 +1,7 @@
 ---
 weight: 150
 id: "yxhrmethod"
-title: "Usar GET para peticiones AJAX
+title: "Usar GET para peticiones AJAX"
 yahoo: "http://developer.yahoo.com/performance/rules.html#ajax_get"
 tags: ["server"]
 locales: "es"

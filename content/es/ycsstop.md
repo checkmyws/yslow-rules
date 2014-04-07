@@ -1,19 +1,19 @@
 ---
 weight: 40
 id: "ycsstop"
-title: "Put Stylesheets at Top"
+title: "Hojas de estilo en la cabecera"
 yahoo: "http://developer.yahoo.com/performance/rules.html#css_top"
 discuss: "http://developer.yahoo.net/blog/archives/2007/07/high_performanc_4.html"
 tags: ["css"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-While researching performance at Yahoo!, we discovered that moving stylesheets to the document HEAD makes pages *appear* to be loading faster. This is because putting stylesheets in the HEAD allows the page to render progressively.
+Tras bastidores, los ingenieros se preocupan por el rendimiento deseado en una página de carga progresiva; eso es, nosotros queremos desplegar en el navegador cualquier contenido lo más pronto *posible*. Ésto es especialmente importante en páginas con mucho contenido con usuarios con una conexión lenta.
 
-Front-end engineers that care about performance want a page to load progressively; that is, we want the browser to display whatever content it has as soon as possible. This is especially important for pages with a lot of content and for users on slower Internet connections. The importance of giving users visual feedback, such as progress indicators, has been well researched and [documented](http://www.useit.com/papers/responsetime.html). In our case the HTML page is the progress indicator! When the browser loads the page progressively the header, the navigation bar, the logo at the top, etc. all serve as visual feedback for the user who is waiting for the page. This improves the overall user experience.
+La importancia de proporcionar a los usuarios información visual, tales como indicadores de progreso, ha sido bien investigada y documentada. En nuestro caso la misma página HTML es el indicador de progreso! Cuando el navegador carga la página, aparece progresivamente la cabecera, la barra de navegación, el logotipo en la parte superior, etc. sirven como retroalimentación visual para el usuario que está a la espera. Esto mejora la experiencia del usuario.
 
-The problem with putting stylesheets near the bottom of the document is that it prohibits progressive rendering in many browsers, including Internet Explorer. These browsers block rendering to avoid having to redraw elements of the page if their styles change. The user is stuckviewing a blank white page.
+El problema de poner las hojas de estilo en la parte inferior del documento es que se anula la carga progresiva en muchos navegadores como Internet Explorer. Estos navegadores bloquean el renderizado para evitar tener que redefinir los elementos de la página si sus estilos cambian, el usuario estaría recibiendo una página en blanco.
 
-The [HTML specification](http://www.w3.org/TR/html4/struct/links.html#h-12.3) clearly states that stylesheets are to be included in the HEAD of thepage: "Unlike A, [LINK] may only appear in the HEAD section of adocument, although it may appear any number of times. " Neither of the alternatives, the blank white screen or flash of unstyled content, are worth the risk. The optimal solution is to follow the HTML specification and load your stylesheets in the document HEAD.
+La [Especificación HTML](http://www.w3.org/TR/html4/struct/links.html#h-12.3) establece claramente que las hojas de estilo se incluirán en la sección HEAD de la página: “A diferencia de A, [LINK] sólo pueden aparecer en la sección HEAD de un documento, aunque puede aparecer cualquier número de veces.” Ninguna de las alternativas, la pantalla en blanco o las animaciones flash sin estilos, valen la pena arriesgarse. La solución óptima es seguir la especificación HTML y cargar sus hojas de estilo en el HEAD.

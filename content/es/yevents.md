@@ -4,13 +4,13 @@ id: "yevents"
 title: "Develop Smart Event Handlers"
 yahoo: "http://developer.yahoo.com/performance/rules.html#events"
 tags: ["javascript"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-Sometimes pages feel less responsive because of too many event handlers  attached to different elements of the DOM tree which are then executed  too often. That's why using *event delegation* is a good approach. If  you have 10 buttons inside a `div`, attach only one event handler to the  div wrapper, instead of one handler for each button. Events bubble up so  you'll be able to catch the event and figure out which button it  originated from. 
+Algunas veces las páginas tienen menos respuesta a cada uno de los manejadores de *eventos adjuntados* a diferentes elementos del árbol DOM, los cuales son ejecutados con demasiada frecuencia. Esa es la razón por la que usar delegación de eventos es una buena práctica. Si tienes 10 botones dentro de un `div`, conecte un solo evento a la capa, en lugar de un manejador para cada botón. Englobe los eventos, de modo que usted pueda encontrar el evento y averiguar de qué botón se originó.
 
-You also don't need to wait for the onload event in order to start doing  something with the DOM tree. Often all you need is the element you want  to access to be available in the tree. You don't have to wait for all  images to be downloaded. `DOMContentLoaded` is the event you might  consider using instead of onload, but until it's available in all  browsers, you can use the [YUI  Event](http://developer.yahoo.com/yui/event/) utility, which has an  `onAvailable` method. 
+Además no es necesario esperar a la carga del evento para comenzar a hacer algo con el árbol DOM. A menudo todo lo que se necesita es que elemento al cual quiere acceder esté disponible en el árbol. Usted no necesita esperar a a que todas las imágenes se hayan descargado. El `DOMContentLoaded` es el evento que usted puede usar e lugar de onload.
 
 For more information check the YUI theatre's ["High Performance Ajax  Applications"](http://yuiblog.com/blog/2007/12/20/video-lecomte/) by  Julien Lecomte.

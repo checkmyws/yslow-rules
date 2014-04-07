@@ -1,14 +1,14 @@
 ---
 weight: 320
 id: "yunder25"
-title: "Keep Components Under 25 KB"
+title: "Archivos no superiores a 25K"
 yahoo: "http://developer.yahoo.com/performance/rules.html#under25"
 tags: ["mobile"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-This restriction is related to the fact that iPhone won't cache components bigger than 25K. Note that this is the *uncompressed* size. This is where minification is important because gzip alone may not be sufficient.
+Esta restricción está relacionada con el hecho de que el iPhone no cachea componentes mayores de 25K. Tenga en cuenta que este es el tamaño *descomprimido*. Es importante aclararlo porque la compresión de los archivos no puede solucionar esto.
 
 For more information check "[Performance Research, Part 5: iPhone Cacheability - Making it Stick](http://yuiblog.com/blog/2008/02/06/iphone-cacheability/)" by Wayne Shea and Tenni Theurer.

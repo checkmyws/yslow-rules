@@ -1,14 +1,14 @@
 ---
 weight: 260
 id: "ycsslink"
-title: "Choose <link> Over @import"
+title: "Link mejor que @import"
 yahoo: "http://developer.yahoo.com/performance/rules.html#csslink"
 tags: ["css"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-One of the previous best practices states that CSS should be at the top in order to allow for progressive rendering.
+Una de las mejores prácticas de la categoría CSS explica el porqué deben llamarse las hojas de estilo en el encabezado, con el fin de permitir la carga progresiva.
 
-In IE `@import` behaves the same as using `<link>` at the bottom of the page, so it's best not to use it.
+En Internet Explorer el código `@import` se comporta de la misma forma que el código `<link>` desde la parte inferior de la página, por lo que no se debe usar.

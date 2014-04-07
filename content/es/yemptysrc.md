@@ -4,10 +4,12 @@ id: "yemptysrc"
 title: "Avoid Empty Image src"
 yahoo: "http://developer.yahoo.com/performance/rules.html#emptysrc"
 tags: ["server"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
+
+**To be translate. You can help. Please fork and edit…**
 
 Image with empty string **src** attribute occurs more than one will expect. It appears in two form:
 

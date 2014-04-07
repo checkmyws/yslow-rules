@@ -1,14 +1,14 @@
 ---
 weight: 270
 id: "ynofilter"
-title: "Avoid Filters"
+title: "Evitar el uso de filtros"
 yahoo: "http://developer.yahoo.com/performance/rules.html#no_filters"
 tags: ["css"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-The IE-proprietary `AlphaImageLoader` filter aims to fix a problem with semi-transparent true color PNGs in IE versions \< 7. The problem with this filter is that it blocks rendering and freezes the browser while the image is being downloaded. It also increases memory consumption and is applied per element, not per image, so the problem is multiplied.
+El filtro propietario de IE `AlphaImageLoader` tiene por objeto solucionar un problema con PNGs semi transparentes true-color en las versiones de IE inferiores a la 7. El problema con este filtro es que bloquea el renderizado y congela el navegador mientras la imagen está siendo descargada. Esto además incrementa el consumo de memoria y es aplicado por elemento, no por imagen, de modo que el problema se multiplica.
 
-The best approach is to avoid `AlphaImageLoader` completely and use gracefully degrading PNG8 instead, which are fine in IE. If you absolutely need `AlphaImageLoader`, use the underscore hack `_filter` as to not penalize your IE7+ users.
+El mejor enfoque es evitar el uso de `AlphaImageLoader` completamente y usar en su reemplazo PNG8 con degradado, lo cual se ve bien en IE. Si usted necesita irremediablemente el uso de `AlphaImageLoader`, use el truco de relieve _filter que no afecta a los usuarios de ie7.

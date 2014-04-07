@@ -1,22 +1,23 @@
 ---
 weight: 70
 id: "yexternal"
-title: "Make JavaScript and CSS External"
+title: "JavaScript y CSS externo"
 yahoo: "http://developer.yahoo.com/performance/rules.html#external"
 discuss: "http://developer.yahoo.net/blog/archives/2007/07/rule_8_make_jav.html"
 tags: ["javascript","css"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-
-Many of these performance rules deal with how external components are managed. However, before these considerations arise you should ask a more basic question: Should JavaScript and CSS be contained in external files, or inlined in the page itself?
-
-Using external files in the real world generally produces faster pages because the JavaScript and CSS files are cached by the browser. JavaScript and CSS that are inlined in HTML documents get downloaded every time the HTML document is requested. This reduces the number of HTTP requests that are needed, but increases the size of the HTML document. On the other hand, if the JavaScript and CSS are in external files cached by the browser, the size of the HTML document is reduced without increasing the number of HTTP requests.
-
-The key factor, then, is the frequency with which external JavaScript and CSS components are cached relative to the number of HTML documents requested. This factor, although difficult to quantify, can be gauged using various metrics. If users on your site have multiple page views per session and many of your pages re-use the same scripts and stylesheets, there is a greater potential benefit from cached external files.
-
-Many web sites fall in the middle of these metrics. For these sites, the best solution generally is to deploy the JavaScript and CSS as external files. The only exception where inlining is preferable is with home pages, such as [Yahoo!'s front page](http://www.yahoo.com) and [My Yahoo!](http://my.yahoo.com). Home pages that have few (perhaps only one) page view per session may find that inlining JavaScript and CSS results in faster end-user response times.
-
 For front pages that are typically the first of many page views, there are techniques that leverage the reduction of HTTP requests that inlining provides, as well as the caching benefits achieved through using external files. One such technique is to inline JavaScript and CSS in the front page, but dynamically download the external files after the page has finished loading. Subsequent pages would reference the external files that should already be in the browser's cache.
+
+Muchas de estas reglas de rendimiento refieren sobre cómo son gestionados los componentes externos. Sin embargo, antes de estas consideraciones debería hacerse una pregunta básica: Deberían el código JavaScript y los estilos CSS estar contenidos en ficheros externos, o introducidos en la propia página?
+
+El usar ficheros externos generalmente produce una carga rápida del documento, ya que el código JavaScript y los archivos CSS son guardados en el caché del navegador. Los códigos JavaScript y CSS que están embebidos en el documento HTML son descargados cada vez que el documento HTML es llamado. Esto reduce el número de peticiones HTTP, pero incrementa el tamaño del documento HTML. Por otro lado, si el código JavaScript y CSS están en archivos externos cacheados por el navegador, el tamaño de el documento HTML es reducido sin incrementar el número de llamadas HTTP.
+
+El factor clave, entonces, es la frecuencia con la que el archivo externo JavaScript y CSS son cacheados en relación al numero de documentos HTML llamados. Este factor, aunque difícil de cuantificar, se puede medir utilizando diversos. Si los usuarios en su sitio tienen varias páginas vistas por sesión y muchas de sus páginas reutilizarán los scripts y hojas de estilo, hay un mayor beneficio de los archivos externos guardados en caché.
+
+Muchos sitios web se enredan en medio de estos parámetros. Para estos sitios, la mejor solución generalmente es desarrollar el código JavaScript y CSS en archivos externos. La única excepción en donde el código embebido es recomendable es en las páginas de inicio. Las páginas de inicio que tienen pocas (por no decir sólo una) visita por sesión pueden encontrar que embebiendo el código JavaScript y CSS resulta en una respuesta más rápida.
+
+Para las páginas de inicio que son comúnmente la primera página vista, hay que aprovechar el embebido como una técnica de reducción de peticiones HTTP, así como el beneficio obtenido mediante el almacenamiento en caché de los archivos externos. Una de estas técnicas es embeber javascript y CSS en la página de inicio, salvo descargar dinámicamente los archivos externos luego de que la página ha terminado de cargar. Las páginas de referencia a los archivos externos deberían estar ya en la caché del navegador.

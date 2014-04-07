@@ -1,19 +1,20 @@
 ---
 weight: 310
 id: "yfavicon"
-title: "Make favicon.ico Small and Cacheable"
+title: "Favicon.ico, ligero y cacheable"
 yahoo: "http://developer.yahoo.com/performance/rules.html#favicon"
 tags: ["images"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-The favicon.ico is an image that stays in the root of your server. It's a necessary evil because even if you don't care about it the browser will still request it, so it's better not to respond with a `404 Not Found`. Also since it's on the same server, cookies are sent every time it's requested. This image also interferes with the download sequence, for example in IE when you request extra components in the onload, the favicon will be downloaded before these extra components.
+La favicon.ico es una imagen que se almacena en la raíz de tu servidor. Ésta es un mal necesario, porque aunque usted no le tenga ciudado, el navegador siempre va a pedirla, por lo que es mejor no responder con un `404 Not Found`. Además desde el hecho de que está en el mismo servidor, las cookies son enviadas cada vez que es pedida. Esta imagen también interfiere con la secuencia de descargas , por ejemplo en IE cuando usted pide componentes extra en la carga, la favicon será descargada antes que esos componentes.
 
-So to mitigate the drawbacks of having a favicon.ico make sure:
+Por lo tanto para mitigar los inconvenientes de tener una favicon.ico primero asegúrese de que:
 
--   It's small, preferably under 1K.
--   Set Expires header with what you feel comfortable (since you cannot rename it if you decide to change it). You can probably safely set the Expires header a few months in the future. You can check the last modified date of your current favicon.ico to make an informed decision.
+- Es muy pequeña, preferiblemente menor a 1kb.
+- Establecer Expires header con las cuales se sienta cómodo (ya que no le puede cambiar el nombre aunque quiera hacerlo). Usted probablemente puede establecer con seguridad la Expires header unos pocos meses de duración. Usted puede revisar que la última fecha de modificación de su favicon.ico actual para tomar una decisión informada.
+
 
 [Imagemagick](http://www.imagemagick.org) can help you create small favicons

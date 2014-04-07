@@ -1,12 +1,12 @@
 ---
 weight: 300
 id: "yimgnoscale"
-title: "Do Not Scale Images in HTML"
+title: "No escalar imágenes en HTML"
 yahoo: "http://developer.yahoo.com/performance/rules.html#no_scale"
 tags: ["images"]
-locales: "en"
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-Don't use a bigger image than you need just because you can set the width and height in HTML. If you need `<img width="100" height="100" src="mycat.jpg" alt="My Cat" />` then your image (mycat.jpg) should be 100x100px rather than a scaled down 500x500px image.
+No use una imagen más grande de la que necesita, simplemente por que usted puede ajustar el ancho y el alto en HTML. Si usted necesita `<img width="100" height="100" src="mycat.jpg" alt="My Cat" />` entonces su imagen (mycat.jpg) debería ser una imagen mayor de 500 x 500 px reducida a 100 x 100 px.
