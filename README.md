@@ -6,6 +6,7 @@ This is a translation project of the Yahoo! YSlow Rules maintained with the help
 - [Steve Souders](http://stevesouders.com/), creator of YSlow
 - Yahoo! Inc.
 - Marcel Duran, maintainer of [YSlow.org](http://yslow.org/)
+- Marc Armengou, maintainer of [YSlow.es](http://yslow.es/)
 - [Check my Website](http://www.checkmy.ws/) for the french translation
 
 ## The tools
