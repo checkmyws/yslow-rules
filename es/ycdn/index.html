@@ -1,0 +1,12 @@
+ycdn
+Usar Content Delivery Network
+server 
+<p>La proximidad del usuario a su servidor web tiene un impacto sobre los tiempos de respuesta. El despliegue de su contenido a través de múltiples servidores dispersos geográficamente hará que sus páginas se carguen más rápido desde la perspectiva del usuario. Pero ¿por dónde debe empezar?</p>
+
+<p>Como primer paso para aplicar esta técnica, no intente rediseñar su aplicación web para trabajar en una arquitectura distribuida. Dependiendo de la aplicación, la modificación de la arquitectura podría incluir enormes tareas como la sincronización del estado de la sesión y replicar la base de datos del servidor a través de transacciones de lugares. Los intentos de reducir la distancia entre los usuarios y su contenido podría retrasarse, o no llegar nunca a los usuarios, esta aplicación es una etapa de la arquitectura.</p>
+
+<p>Recuerde que el 80-90% de los visitantes pierden tiempo mientras se descargan todos los componentes en la página: imágenes, hojas de estilo, scripts, Flash, etc. Ésta es la la regla de oro del rendimiento. En lugar de comenzar con la tediosa prática de rediseñar la arquitectura de su aplicación, es mejor desplegar primero el contenido estático. Ésto, aparte de conllevar una fantástica reducción del tiempo de descarga, se facilita gracias a las Content Delivery Network.</p>
+
+<p>Un Content Delivery Network (CDN) o Red de distribución de contenido, en español, es un grupo de servidores web distribuidos en varias ubicaciones para ofrecer contenidos de manera más eficiente a los usuarios. El servidor seleccionado para la entrega de contenido a un usuario concreto es típicamente basado en una medida de aproximación. Por ejemplo, el servidor con el menor número de saltos o el servidor con más rápida respuesta es el elegido.</p>
+
+<p>Algunas empresas poseen sus propias CDN, dado que es menos costoso que usar un proveedor del servicio. Para los sitios web de pequeñas empresas públicas o privadas, el costo del servicio CDN puede ser prohibitivo, pero dado que su objetivo principal es crecer y abarcar cada vez más audiencia, una CDN es necesaria para lograr una rápida respuesta. El cambio a una CDN es relativamente fácil, lo que mejorará dramáticamente la velocidad de su sitio web.</p>

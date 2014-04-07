@@ -1,0 +1,8 @@
+ycookiefree
+Componentes en dominio libre de cookies
+cookie 
+<p>Cuando el navegador hace una petición de una imagen estática y envía cookies junto a la petición, el servidor no tiene ningún uso para esas cookies. Por lo que se crean sin obtener un beneficio. Usted debería asegurarse de que los componente estáticos son pedidos libres de cookies. Abra un subdominio y ahí aloje los componentes estáticos.</p>
+
+<p>Si su dominio es <code>www.midominio.com</code>, usted puede alojar los componentes estáticos en <code>static.midominio.com</code>. Sin embargo, si usted ya ha establecido las cookies en el dominio superior <code>midominio.com</code> frente a <code>www.midominio.com</code>, entonces todas las llamadas a <code>static.midominio.com</code> se incluirán en estas cookies. En este caso, usted puede comprar un nuevo dominio,para alojar sus componentes estáticos ahí, y mantener este dominio sin cookies.</p>
+
+<p>Otros beneficios de alojar los componentes estáticos en un dominio libre de cookies es que algunos proxys pueden rechazar el cacheo de los componentes que son pedidos junto con las cookies. En una nota relacionada, si usted se pregunta si debería usar <code>midominio.com</code> o <code>www.midominio.com</code> para su página de inicio, considere el impacto de la cookie. El omitir las www no le deja otra opción que escribir las cookies para <code>*.midominio.com</code>, por lo que por razones de rendimiento es mejor utilizar las www. y escribir las cookies para ese subdominio.</p>

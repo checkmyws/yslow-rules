@@ -1,0 +1,14 @@
+yexternal
+JavaScript y CSS externo
+javascript css 
+<p>For front pages that are typically the first of many page views, there are techniques that leverage the reduction of HTTP requests that inlining provides, as well as the caching benefits achieved through using external files. One such technique is to inline JavaScript and CSS in the front page, but dynamically download the external files after the page has finished loading. Subsequent pages would reference the external files that should already be in the browser&rsquo;s cache.</p>
+
+<p>Muchas de estas reglas de rendimiento refieren sobre cómo son gestionados los componentes externos. Sin embargo, antes de estas consideraciones debería hacerse una pregunta básica: Deberían el código JavaScript y los estilos CSS estar contenidos en ficheros externos, o introducidos en la propia página?</p>
+
+<p>El usar ficheros externos generalmente produce una carga rápida del documento, ya que el código JavaScript y los archivos CSS son guardados en el caché del navegador. Los códigos JavaScript y CSS que están embebidos en el documento HTML son descargados cada vez que el documento HTML es llamado. Esto reduce el número de peticiones HTTP, pero incrementa el tamaño del documento HTML. Por otro lado, si el código JavaScript y CSS están en archivos externos cacheados por el navegador, el tamaño de el documento HTML es reducido sin incrementar el número de llamadas HTTP.</p>
+
+<p>El factor clave, entonces, es la frecuencia con la que el archivo externo JavaScript y CSS son cacheados en relación al numero de documentos HTML llamados. Este factor, aunque difícil de cuantificar, se puede medir utilizando diversos. Si los usuarios en su sitio tienen varias páginas vistas por sesión y muchas de sus páginas reutilizarán los scripts y hojas de estilo, hay un mayor beneficio de los archivos externos guardados en caché.</p>
+
+<p>Muchos sitios web se enredan en medio de estos parámetros. Para estos sitios, la mejor solución generalmente es desarrollar el código JavaScript y CSS en archivos externos. La única excepción en donde el código embebido es recomendable es en las páginas de inicio. Las páginas de inicio que tienen pocas (por no decir sólo una) visita por sesión pueden encontrar que embebiendo el código JavaScript y CSS resulta en una respuesta más rápida.</p>
+
+<p>Para las páginas de inicio que son comúnmente la primera página vista, hay que aprovechar el embebido como una técnica de reducción de peticiones HTTP, así como el beneficio obtenido mediante el almacenamiento en caché de los archivos externos. Una de estas técnicas es embeber javascript y CSS en la página de inicio, salvo descargar dinámicamente los archivos externos luego de que la página ha terminado de cargar. Las páginas de referencia a los archivos externos deberían estar ya en la caché del navegador.</p>
