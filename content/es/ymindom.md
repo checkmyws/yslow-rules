@@ -1,20 +1,21 @@
 ---
 weight: 180
 id: "ymindom"
-title: "Reduce the Number of DOM Elements"
+title: "Reducir número de elementos DOM"
 yahoo: "http://developer.yahoo.com/performance/rules.html#min_dom"
-tags: ["content"]
-locales: "en"
+tags: ["contenido"]
+locales: "es"
 notoc: "true"
 description: ""
 ---
 
-A complex page means more bytes to download and it also means slower DOM access in JavaScript. It makes a difference if you loop through 500 or 5000 DOM elements on the page when you want to add an event handler for example.
+Una página compleja quiere decir muchos bytes para descargar y además supone un lento acceso al DOM en Javascript. Ello denota la diferencia si usted repite a través de 500 o 5000 elementos DOM en la página cuando quiera añadir un manejador de eventos por ejemplo.
 
-A high number of DOM elements can be a symptom that there's something that should be improved with the markup of the page without necessarily removing content. Are you using nested tables for layout purposes? Are you throwing in more `<div>`s only to fix layout issues? Maybe there's a better and more semantically correct way to do your markup.
+Un alto número de elementos DOM puede ser un síntoma de que hay algo que debe ser mejorado con la marcación de la página sin la necesidad de afectar o remover el contenido. Está usted usando tablas anidadas con fines de diseño? Está usted creando `<div>` solo para fijar problemas de diseño? Tal vez hay una mejor forma de hacer sus marcados más semánticamente.
 
-A great help with layouts are the [YUI CSS utilities](http://developer.yahoo.com/yui/): grids.css can help you with the overall layout, fonts.css and reset.css can help you strip away the browser's defaults formatting. This is a chance to start fresh and think about your markup, for example use `<div>`s only when it makes sense semantically, and not because it renders a new line.
+Esta es una oportunidad para comenzar de nuevo y pensar sobre el marcado, Por ejemplo el uso de <div>solo tiene cuando sentido semántico, y no porque crea una nueva línea.
 
-The number of DOM elements is easy to test, just type in Firebug's console: `document.getElementsByTagName('*').length`
+Encontrar el número de elementos DOM es sencillo, solo escriba en la consola de Firebug:
+`document.getElementsByTagName('*').length`
 
-And how many DOM elements are too many? Check other similar pages that have good markup. For example the [Yahoo! Home Page](http://www.yahoo.com) is a pretty busy page and still under 700 elements (HTML tags).
+¿Y cuántos elementos DOM se consideran como demasiados? Compruebe otras páginas similares que tienen un buen marcado. For example the [Yahoo! Home Page](http://www.yahoo.com) is a pretty busy page and still under 700 elements (HTML tags).
