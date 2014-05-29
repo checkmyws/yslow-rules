@@ -10,7 +10,7 @@ notoc: "true"
 description: ""
 ---
 
-Il ya deux aspects à cette règle :
+Il y a deux aspects à cette règle :
 
 - Pour les composants statiques : mettre en œuvre une politique du «n'expire jamais» par l'utilisation d'en-têtes Expire fixés loin dans le futur.
 - Pour les composants dynamiques : utiliser un en-tête Cache-Control approprié pour aider le navigateur avec les requêtes conditionnelles.
