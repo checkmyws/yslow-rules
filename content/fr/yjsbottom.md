@@ -1,7 +1,7 @@
 ---
 weight: 50
 id: "yjsbottom"
-title: "Mettres les scripts en bas de page"
+title: "Mettre les scripts en bas de page"
 yahoo: "http://developer.yahoo.com/performance/rules.html#js_bottom"
 discuss: "http://developer.yahoo.net/blog/archives/2007/07/high_performanc_5.html"
 tags: ["javascript"]
